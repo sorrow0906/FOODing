@@ -23,7 +23,7 @@ public class MemberController {
     @PostMapping("/register")
     public String registerMember(Member member, Model model) {
         memberService.saveMember(member);
-        model.addAttribute("message", "Registration successful!");
+        model.addAttribute("message", "가입 성공! 환영합니다!");
         return "login"; // 회원가입 성공 후 이동할 페이지를 지정합니다.
     }
 }

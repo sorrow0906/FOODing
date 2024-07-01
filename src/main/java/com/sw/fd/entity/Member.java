@@ -2,7 +2,9 @@ package com.sw.fd.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "member_t") // 데이터베이스 테이블과 매핑
@@ -18,25 +20,13 @@ public class Member {
     private String mphone;
     private String memail;
     private String maddr;
-    private String mdate;
+    private LocalDate mdate;
 
     // 기본 생성자
     public Member() {}
 
     // 필요한 생성자들
-    public Member(String mid, String mname, String mpass, int mtype, String mnick, String mbirth, String mphone, String memail, String mdate) {
-        this.mid = mid;
-        this.mname = mname;
-        this.mpass = mpass;
-        this.mtype = mtype;
-        this.mnick = mnick;
-        this.mbirth = mbirth;
-        this.mphone = mphone;
-        this.memail = memail;
-        this.mdate = mdate;
-    }
-
-    public Member(String mid, String mname, String mpass, int mtype, String mnick, String mbirth, String mphone, String memail, String maddr, String mdate) {
+    public Member(String mid, String mname, String mpass, int mtype, String mnick, String mbirth, String mphone, String memail, String maddr, LocalDate mdate) {
         this.mid = mid;
         this.mname = mname;
         this.mpass = mpass;
@@ -122,11 +112,16 @@ public class Member {
         this.maddr = maddr;
     }
 
-    public String getMdate() {
+    public LocalDate getMdate() {
         return mdate;
     }
 
-    public void setMdate(String mdate) {
+    public void setMdate(LocalDate mdate) {
         this.mdate = mdate;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        mdate = LocalDate.now();
     }
 }
