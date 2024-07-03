@@ -32,16 +32,12 @@ public class StoreDataLoader {
     @PostConstruct
     public void init() throws Exception {
         List<JsonNode> dataList = fetchDataFromApi();
-        if (dataList != null) {
-            for (JsonNode node : dataList) {
-                Store store = new Store();
-                store.setSid(node.get("OPENDATA_ID").asText());
-                store.setSname(node.get("BZ_NM").asText());
-                store.setSaddr(node.get("GNG_CS").asText());
-                storeService.saveStore(store);
-            }
-        } else {
-            System.err.println("Failed to fetch data from API.");
+        for (JsonNode node : dataList) {
+            Store store = new Store();
+            store.setSno(node.get("cnt").asInt()); // OPENDATA_ID 대신 적절한 필드를 사용
+            store.setSname(node.get("BZ_NM").asText());
+            store.setSaddr(node.get("GNG_CS").asText());
+            storeService.saveStore(store);
         }
     }
 

@@ -16,7 +16,8 @@ import javax.persistence.Column;
 @NoArgsConstructor
 public class Store {
     @Id
-    private String sid;
+    @Column(name = "sno")
+    private int sno;
 
     private String sname;
     private String saddr;
