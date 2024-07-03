@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>어서오세용!!!</title>
+    <title>첫화면</title>
 </head>
 <body>
-<h2>~FOODing 회원관리~</h2>
-<a href="register">회원가입</a>
+<h1>FOODing 시작화면</h1>
+<button onclick="window.location.href='store.html'">가게 리스트 화면으로 가기</button>
 </body>
 </html>
