@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "store_t")
@@ -16,9 +14,11 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Store {
     @Id
-    @Column(name = "sno")
     private int sno;
 
     private String sname;
     private String saddr;
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Menu> menus;
 }

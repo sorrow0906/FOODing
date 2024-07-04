@@ -3,6 +3,7 @@ package com.sw.fd;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sw.fd.entity.Menu;
 import com.sw.fd.entity.Store;
 import com.sw.fd.service.StoreService;
 import org.apache.http.HttpEntity;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -33,9 +35,14 @@ public class StoreDataLoader {
             List<JsonNode> dataList = fetchDataFromApi();
             for (JsonNode node : dataList) {
                 Store store = new Store();
-                store.setSno(node.get("cnt").asInt()); // cnt 대신 적절한 필드를 사용
+                store.setSno(node.get("cnt").asInt());
                 store.setSname(node.get("BZ_NM").asText());
                 store.setSaddr(node.get("GNG_CS").asText());
+
+                // 메뉴 파싱 및 저장
+                List<Menu> menus = parseMenus(node.get("MNU").asText(), store);
+                store.setMenus(menus);
+
                 storeService.saveStore(store);
             }
         }
@@ -75,5 +82,24 @@ public class StoreDataLoader {
             }
         }
         return null;
+    }
+
+    private List<Menu> parseMenus(String menuString, Store store) {
+        List<Menu> menus = new ArrayList<>();
+        if (menuString != null && !menuString.isEmpty()) {
+            String[] menuItems = menuString.split("\\u003Cbr /\\u003E");
+            for (String item : menuItems) {
+                String[] parts = item.split(" ");
+                String menuName = parts[0];
+                String menuPrice = parts.length > 1 ? parts[1] : "";
+
+                Menu menu = new Menu();
+                menu.setMnname(menuName);
+                menu.setMnprice(menuPrice);
+                menu.setStore(store);
+                menus.add(menu);
+            }
+        }
+        return menus;
     }
 }

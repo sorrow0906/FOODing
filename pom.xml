@@ -73,7 +73,7 @@
     </dependency>
 
 
-    <!-- main 브런치 이후로 추가한 부분들-->
+    <!-- 다혜: main 브런치 이후로 추가한 부분들-->
     <!-- Jackson Databind -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
