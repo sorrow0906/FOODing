@@ -1,0 +1,5 @@
+.content {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 20px;
+}
