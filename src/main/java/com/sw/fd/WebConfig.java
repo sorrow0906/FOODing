@@ -18,41 +18,82 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
-        registry.addViewController("/store").setViewName("store");
+        registry.addViewController("/stores").setViewName("store");
     }
 
     @Override
-    public void configureViewResolvers(ViewResolverRegistry viewResolverRegistry) {
-
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp("/", ".jsp");
     }
 
     @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> list) {
-
-    }
-
-    @Override
-    public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> list) {
+    public void configurePathMatch(PathMatchConfigurer configurer) {
 
     }
 
     @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> list) {
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 
     }
 
     @Override
-    public void extendMessageConverters(List<HttpMessageConverter<?>> list) {
+    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
 
     }
 
     @Override
-    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> list) {
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 
     }
 
     @Override
-    public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> list) {
+    public void addFormatters(FormatterRegistry registry) {
+
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+
+    }
+
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+
+    }
+
+    @Override
+    public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
+
+    }
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+    }
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+    }
+
+    @Override
+    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
+
+    }
+
+    @Override
+    public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
 
     }
 
@@ -64,45 +105,5 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public MessageCodesResolver getMessageCodesResolver() {
         return null;
-    }
-
-    @Override
-    public void configurePathMatch(PathMatchConfigurer pathMatchConfigurer) {
-
-    }
-
-    @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer contentNegotiationConfigurer) {
-
-    }
-
-    @Override
-    public void configureAsyncSupport(AsyncSupportConfigurer asyncSupportConfigurer) {
-
-    }
-
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer defaultServletHandlerConfigurer) {
-
-    }
-
-    @Override
-    public void addFormatters(FormatterRegistry formatterRegistry) {
-
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry interceptorRegistry) {
-
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**").addResourceLocations("/"); // 정적 리소스 경로 설정
-    }
-
-    @Override
-    public void addCorsMappings(CorsRegistry corsRegistry) {
-
     }
 }

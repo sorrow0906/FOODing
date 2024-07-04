@@ -1,11 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>첫화면</title>
-</head>
-<body>
-<h1>FOODing 시작화면</h1>
-<button onclick="window.location.href='store.html'">가게 리스트 화면으로 가기</button>
-</body>
-</html>
+<%@ taglib uri = "http://java.sun.com/jstl/core_rt" prefix = "c"%>
+<c:import url = "index_top.jsp" />
+<section>
+    <div class = "section-div">
+        <table border = "0" align = "center">
+            <tr>
+                <td align = "center">
+                    <a class = "head" href = "main">시작하기</a>
+                </td>
+            </tr>
+            <tr>
+                <td align = "center">
+                    <span>
+                        <a class = "head" href = "#">로그인</a>
+                    </span>
+                    <span>/</span>
+                    <span>
+                        <a class = "head" href = "register">회원가입</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<c:import url = "index_bottom.jsp" />

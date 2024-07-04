@@ -15,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Component
@@ -31,13 +28,16 @@ public class StoreDataLoader {
 
     @PostConstruct
     public void init() throws Exception {
-        List<JsonNode> dataList = fetchDataFromApi();
-        for (JsonNode node : dataList) {
-            Store store = new Store();
-            store.setSno(node.get("cnt").asInt()); // OPENDATA_ID 대신 적절한 필드를 사용
-            store.setSname(node.get("BZ_NM").asText());
-            store.setSaddr(node.get("GNG_CS").asText());
-            storeService.saveStore(store);
+        // DB에 데이터가 있는지 확인
+        if (storeService.getAllStores().isEmpty()) {
+            List<JsonNode> dataList = fetchDataFromApi();
+            for (JsonNode node : dataList) {
+                Store store = new Store();
+                store.setSno(node.get("cnt").asInt()); // cnt 대신 적절한 필드를 사용
+                store.setSname(node.get("BZ_NM").asText());
+                store.setSaddr(node.get("GNG_CS").asText());
+                storeService.saveStore(store);
+            }
         }
     }
 
@@ -49,15 +49,7 @@ public class StoreDataLoader {
         request.setHeader("Content-Type", "application/json; charset=UTF-8");
         request.setHeader("Accept-Charset", "UTF-8");
 
-/*        // 요청 URI 확인
-        System.out.println("Request URI: " + request.getURI());*/
-
         try (CloseableHttpResponse response = httpClient.execute(request)) {
-/*            //응답 상태를 확인하기 위해서 코드 추가
-            int statusCode = response.getStatusLine().getStatusCode();
-            System.out.println("Response Status Code: " + statusCode);*/
-
-
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 // UTF-8 인코딩으로 응답을 변환
@@ -84,5 +76,4 @@ public class StoreDataLoader {
         }
         return null;
     }
-
 }
