@@ -19,6 +19,8 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Component
 public class StoreDataLoader {
@@ -35,7 +37,7 @@ public class StoreDataLoader {
             List<JsonNode> dataList = fetchDataFromApi();
             for (JsonNode node : dataList) {
                 Store store = new Store();
-                store.setSno(node.get("cnt").asInt()); // cnt 대신 적절한 필드를 사용
+                store.setSno(node.get("cnt").asInt());
                 store.setSname(node.get("BZ_NM").asText());
                 store.setSaddr(node.get("GNG_CS").asText());
 
@@ -87,11 +89,32 @@ public class StoreDataLoader {
     private List<Menu> parseMenus(String menuString, Store store) {
         List<Menu> menus = new ArrayList<>();
         if (menuString != null && !menuString.isEmpty()) {
+            // 메뉴 항목을 <br /> 태그 기준으로 분리
             String[] menuItems = menuString.split("\\u003Cbr /\\u003E");
             for (String item : menuItems) {
-                String[] parts = item.split(" ");
-                String menuName = parts[0];
-                String menuPrice = parts.length > 1 ? parts[1] : "";
+                // '[채식'으로 시작하는 항목 스킵
+                if (item.startsWith("[채식")) {
+                    continue;
+                }
+
+                // 가격 부분을 정규 표현식으로 추출 (수정된 정규 표현식)
+                String priceRegex = "(\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?원(?:\\s*~\\s*\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?원)?)";
+                Pattern pattern = Pattern.compile(priceRegex);
+                Matcher matcher = pattern.matcher(item);
+
+                String menuPrice = "";
+                String menuName = item;
+
+                // 가격을 먼저 추출하고, 메뉴 이름에서 제거
+                if (matcher.find()) {
+                    menuPrice = matcher.group(0);
+                    menuName = item.replace(menuPrice, "").trim();
+                }
+
+                // 메뉴 이름의 길이를 50자로 제한
+                if (menuName.length() > 50) {
+                    menuName = menuName.substring(0, 50);
+                }
 
                 Menu menu = new Menu();
                 menu.setMnname(menuName);
@@ -102,4 +125,7 @@ public class StoreDataLoader {
         }
         return menus;
     }
+
+
+
 }
