@@ -4,8 +4,8 @@ import com.sw.fd.entity.Store;
 import com.sw.fd.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -21,5 +21,9 @@ public class StoreService {
 
     public List<Store> getAllStores() {
         return storeRepository.findAll();
+    }
+
+    public Store getStoreWithMenus(int sno) {
+        return storeRepository.findBySno(sno).orElse(null);
     }
 }

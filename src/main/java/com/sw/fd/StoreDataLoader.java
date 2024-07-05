@@ -35,7 +35,7 @@ public class StoreDataLoader {
             List<JsonNode> dataList = fetchDataFromApi();
             for (JsonNode node : dataList) {
                 Store store = new Store();
-                store.setSno(node.get("cnt").asInt());
+                store.setSno(node.get("cnt").asInt()); // cnt 대신 적절한 필드를 사용
                 store.setSname(node.get("BZ_NM").asText());
                 store.setSaddr(node.get("GNG_CS").asText());
 
