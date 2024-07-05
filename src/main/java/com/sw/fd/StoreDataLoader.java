@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sw.fd.entity.Menu;
 import com.sw.fd.entity.Store;
+import com.sw.fd.service.MenuService;
 import com.sw.fd.service.StoreService;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -28,6 +29,9 @@ public class StoreDataLoader {
     @Autowired
     private StoreService storeService;
 
+    @Autowired
+    private MenuService menuService;
+
     private static final String URL = "https://www.daegufood.go.kr/kor/api/tasty.html?mode=json&addr=%EC%A4%91%EA%B5%AC";
 
     @PostConstruct
@@ -37,15 +41,36 @@ public class StoreDataLoader {
             List<JsonNode> dataList = fetchDataFromApi();
             for (JsonNode node : dataList) {
                 Store store = new Store();
-                store.setSno(node.get("cnt").asInt());
+                store.setSno(node.get("cnt").asInt()); // cnt 필드를 사용하여 sno 설정
                 store.setSname(node.get("BZ_NM").asText());
                 store.setSaddr(node.get("GNG_CS").asText());
+                store.setStel(node.get("TLNO").asText());
+                store.setSeg(node.get("SMPL_DESC").asText());
+                store.setScate(node.get("FD_CS").asText());
+                store.setStime(node.get("MBZ_HR").asText());
 
-                // 메뉴 파싱 및 저장
-                List<Menu> menus = parseMenus(node.get("MNU").asText(), store);
-                store.setMenus(menus);
+                // spark 필드의 길이 검사 및 잘라내기
+                String spark = node.get("PKPL").asText();
+                if (spark.length() > 20) {
+                    spark = spark.substring(0, 20);
+                }
+                store.setSpark(spark);
 
                 storeService.saveStore(store);
+
+                // 메뉴 저장
+                String menuString = node.get("MNU").asText();
+                if (menuString != null && !menuString.isEmpty()) {
+                    List<Menu> menus = parseMenuString(menuString, store);
+                    for (Menu menu : menus) {
+                        try {
+                            menuService.saveMenu(menu);
+                        } catch (Exception e) {
+                            System.err.println("Error saving menu: " + menu.getMnname() + " - " + menu.getMnprice());
+                            e.printStackTrace();
+                        }
+                    }
+                }
             }
         }
     }
@@ -67,7 +92,7 @@ public class StoreDataLoader {
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(result);
 
-                // API 응답을 디버그 출력
+                // API 응답을 디버깅 출력
                 System.out.println("API Response: " + result);
 
                 // jsonNode 구조 출력
@@ -86,7 +111,7 @@ public class StoreDataLoader {
         return null;
     }
 
-    private List<Menu> parseMenus(String menuString, Store store) {
+    private List<Menu> parseMenuString(String menuString, Store store) {
         List<Menu> menus = new ArrayList<>();
         if (menuString != null && !menuString.isEmpty()) {
             // 메뉴 항목을 <br /> 태그 기준으로 분리
@@ -125,7 +150,5 @@ public class StoreDataLoader {
         }
         return menus;
     }
-
-
 
 }
