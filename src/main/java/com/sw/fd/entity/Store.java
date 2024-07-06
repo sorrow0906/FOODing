@@ -36,4 +36,6 @@ public class Store {
 
     @Column(name = "spark")
     private String spark;
+    @Transient
+    private String photoUrl; // @Transient 어노테이션을 추가해서 DB에 저장되지 않음
 }

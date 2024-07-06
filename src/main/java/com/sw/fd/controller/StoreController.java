@@ -15,10 +15,10 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
 
-    @GetMapping("/store")
+    @GetMapping("/storeList")
     public String showStoreList(Model model) {
         List<Store> stores = storeService.getAllStores();
         model.addAttribute("stores", stores);
-        return "store";
+        return "storeList";
     }
 }

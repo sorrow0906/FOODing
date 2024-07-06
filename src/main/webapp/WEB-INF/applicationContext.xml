@@ -44,6 +44,8 @@
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+<!-- 다혜 추가한 부분 -->
+                <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
     </bean>
