@@ -123,7 +123,7 @@ public class StoreDataLoader {
                 }
 
                 // 가격 부분을 정규 표현식으로 추출 (수정된 정규 표현식)
-                String priceRegex = "(\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?원(?:\\s*~\\s*\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?원)?)";
+                String priceRegex = "(\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?(?:원)?(?:\\s*~\\s*|~)\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?(?:원)?|\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})?원)";
                 Pattern pattern = Pattern.compile(priceRegex);
                 Matcher matcher = pattern.matcher(item);
 
@@ -150,5 +150,4 @@ public class StoreDataLoader {
         }
         return menus;
     }
-
 }
