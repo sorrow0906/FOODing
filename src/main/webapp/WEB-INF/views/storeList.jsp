@@ -5,7 +5,6 @@
 <head>
  <meta charset = "UTF-8">
  <title>FOODing 가게리스트</title>
- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeList.css">
 </head>
 <body>

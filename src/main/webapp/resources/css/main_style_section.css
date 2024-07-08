@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body {
+    background : white;
+    margin : 0px;
+}
+
+section {
+    color : saddlebrown;
+    background : white;
+    text-align : center;
+    height : 600px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    flex : 1;
+}
+
+.section-div {
+    color : saddlebrown;
+    background : white;
+    text-align : center;
+    width : 95%;
+    height : 100%;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    font-size : 30px;
+    font-weight : bold;
+}
