@@ -1,9 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset = "UTF-8">
+ <title>FOODing 가게리스트</title>
+ <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
+ <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeList.css">
+</head>
+<body>
 <c:import url="/top.jsp" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeList.css">
 <section class = "content">
+
 <table class="store-table">
  <thead>
  <tr>
@@ -17,7 +25,7 @@
  <tbody>
  <c:forEach var="store" items="${stores}">
   <tr>
-   <td>${store.sname}</td>
+   <td><a href="${pageContext.request.contextPath}/storeDetail?sno=${store.sno}">${store.sname}</a></td>
    <td>${store.scate}</td>
    <td>${store.saddr}</td>
    <td>${store.stime}</td>

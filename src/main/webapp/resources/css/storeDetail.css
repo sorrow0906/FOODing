@@ -1,0 +1,44 @@
+.store_info_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.store_info3 {
+    margin-bottom: 20px;
+}
+
+.store_info3_title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.store_info .text {
+    font-size: 16px;
+}
+
+.store_info .info_text h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.store_info .info_map {
+    margin-top: 20px;
+}
+
+.store_info .map {
+    width: 100%;
+    height: 300px;
+    background-color: #ddd;
+}
+
+.store_info .btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
