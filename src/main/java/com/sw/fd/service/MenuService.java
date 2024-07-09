@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MenuService {
@@ -17,7 +18,7 @@ public class MenuService {
         menuRepository.save(menu);
     }
 
-    public List<Menu> getAllMenus() {
-        return menuRepository.findAll();
+    public List<Menu> getMenuBySno(int sno) {
+        return menuRepository.findByStoreSno(sno);
     }
 }

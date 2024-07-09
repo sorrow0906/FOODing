@@ -1,68 +1,97 @@
 section {
-    color : saddlebrown;
-    background : white;
-    text-align : center;
-    height : 600px;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    flex : 1;
+    color: saddlebrown;
+    background: white;
+    text-align: center;
+    min-height: 800px; /* 높이를 늘려줌 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0; /* 여유 공간을 주기 위해 패딩 추가 */
 }
 
-/*.content {*/
-/*    color : saddlebrown;*/
-/*    background : white;*/
-/*    text-align : center;*/
-/*    width : 95%;*/
-/*    height : 100%;*/
-/*    display : flex;*/
-/*    justify-content : center;*/
-/*    align-items : center;*/
-/*    font-size : 30px;*/
-/*    font-weight : bold;*/
-/*}*/
-
-.store-div{
-    text-align : center;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-}
-
-.store-div #map{
-    width:30%;
-    height:350px;
+.store-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; /* 필요에 따라 넓이 조정 */
+    margin: auto;
 }
 
 #store-img {
     object-fit: cover;
     width: 80%;
     height: 100px;
+    margin-bottom: 10px;
 }
 
-/*.store-head {*/
-/*    justify-content : center;*/
-/*    align-items : center;*/
-/*}*/
-
-#store-title{
-    font-size : 30px;
-    font-weight : bold;
+#store-title {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 10px;
 }
 
-#store-explain{
+.menu-table {
+    margin: 0 auto; /* 가운데 정렬을 위한 margin */
+    border-collapse: collapse;
+}
+
+.menu-table thead {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#store-explain {
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 10px 20px;
     box-sizing: border-box;
-    font-size : 18px;
-    color : #b17f5e;
+    font-size: 18px;
+    color: #b17f5e;
+    margin-bottom: 20px;
+    text-align: center; /* 가운데 정렬 */
 }
 
-/*.store-info table{*/
-/*    border: 1px solid #ddd;*/
-/*    border-radius: 10px;*/
-/*    padding: 10px 20px;*/
-/*    box-sizing: border-box;*/
-/*    min-height: 300px;*/
-/*}*/
+.store-info-map {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* flex-start로 정렬 */
+    width: 100%;
+    margin-top: 20px; /* 여유 공간을 위해 마진 추가 */
+}
+
+.store-info {
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: #b17f5e;
+    margin-right: 20px;
+    width: 50%; /* 필요에 따라 넓이 조정 */
+}
+
+.store-info h2 {
+    margin-top: 40px; /* 제목 위의 여백 추가 */
+}
+.store-info h2.menu-title {
+    margin-top: 0;
+}
+
+#map-container {
+    width: 50%;
+}
+
+#store-address {
+    margin-bottom: 10px; /* 지도 위에 주소를 표시하기 위해 여백 추가 */
+}
+
+#map {
+    width: 100%;
+    height:350px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #b17f5e;
+}

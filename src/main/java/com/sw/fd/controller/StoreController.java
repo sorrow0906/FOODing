@@ -1,6 +1,8 @@
 package com.sw.fd.controller;
 
+import com.sw.fd.entity.Menu;
 import com.sw.fd.entity.Store;
+import com.sw.fd.service.MenuService;
 import com.sw.fd.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ public class StoreController {
 
     @Autowired
     private StoreService storeService;
+    @Autowired
+    private MenuService menuService;
 
     @GetMapping("/storeList")
     public String showStoreList(Model model) {
@@ -26,7 +30,9 @@ public class StoreController {
     @GetMapping("/storeDetail")
     public String storeDetail(@RequestParam("sno") int sno, Model model) {
         Store store = storeService.getStoreById(sno);
+        List<Menu> menus = menuService.getMenuBySno(sno);
         model.addAttribute("store", store);
+        model.addAttribute("menus", menus);
         return "storeDetail";
     }
 

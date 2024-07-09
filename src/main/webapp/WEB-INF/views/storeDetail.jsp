@@ -12,15 +12,47 @@
 <c:import url="/top.jsp" />
 
 <section>
-    <img id="store-img" src="${pageContext.request.contextPath}/resources/images/korean_food.jpg">
     <div class="store-div">
+        <img id="store-img" src="${pageContext.request.contextPath}/resources/images/korean_food.jpg">
         <div class="store-head">
             <p id="store-title">${store.sname}</p>
+            <p>${store.scate}</p>
             <p id="store-explain">${store.seg}</p>
         </div>
-        <div id="map"></div>
+        <div class="store-info-map">
+            <div class="store-info">
+                <h2 class="menu-title">메뉴</h2>
+                <table class="menu-table">
+                    <thead>
+                    <tr>
+                        <td>메뉴이름</td>
+                        <td>가격</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="menu" items="${menus}">
+                        <tr>
+                            <td>${menu.mnname}</td>
+                            <td>${menu.mnprice}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <h2>영업시간</h2>
+                <p>${store.stime}</p>
+                <h2>주차</h2>
+                <p>${store.spark}</p>
+                <h2>전화번호</h2>
+                <p>${store.stel}</p>
+            </div>
+            <div id="map-container">
+                <p id="store-address">${store.saddr}</p>
+                <div id="map"></div>
+            </div>
+        </div>
     </div>
 </section>
+
 <!-- 하단 내비게이션 바 -->
 <c:import url="/bottom.jsp" />
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=573fb4487497eb28636a2f91b5ca8f70&libraries=services"></script>
