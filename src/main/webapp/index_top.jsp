@@ -5,7 +5,7 @@
     <head>
         <meta charset = "UTF-8">
         <title>FOODing 시작화면</title>
-        <link rel = "stylesheet" href = "${pageContext.request.contextPath}/resources/css/index_style.css" type = "text/css">
+        <link rel = "stylesheet" href = "./resources/css/index_style.css" type = "text/css">
     </head>
     <body>
         <header>

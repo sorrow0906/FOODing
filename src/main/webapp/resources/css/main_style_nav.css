@@ -47,29 +47,33 @@ nav {
 .nav:link { color : saddlebrown; text-decoration : none; }
 .nav:visited { color : saddlebrown; text-decoration : none; }
 .nav:active { color : orange; text-decoration : none; }
-.nav:hover { color : yellow; text-decoration : none; }
+.nav:hover { color : #ffea00; text-decoration : none; }
 
 ul li { list-style : none; }
 a { text-decoration : none; }
 
 .snb {
-    display : none;
+    display : flex;
     position : absolute;
     top : 100%;
+    left : 3%;
     background-color : white;
     border : 1px solid rgb(222, 201, 171);
-    width : 92%;
+    width : 76%;
     text-align : center;
     border-radius : 0 0 20px 20px;
     z-index : 1;
     margin-top : 0;
-    justify-content : center;
-    align-items : center;
+    justify-content : space-between;
+    align-items : flex-start;
+    padding : 0 5%;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .snb .submenu {
     text-align : center;
-    margin : 20px 7%;
+    margin : 20px;
     vertical-align : top;
     font-size : 20px;
     font-weight : normal;
@@ -81,11 +85,12 @@ a { text-decoration : none; }
 .snb li a:link { color : #b67a47; text-decoration : none; }
 .snb li a:visited { color : #b67a47; text-decoration : none; }
 .snb li a:active { color : orange; text-decoration : none; }
-.snb li a:hover { color : yellow; text-decoration : none; }
+.snb li a:hover { color : #ffea00; text-decoration : none; }
 
 .nav-div:hover .snb {
     display: flex;
-    justify-content : center;
+    justify-content : space-between;
+    opacity: 1;
 }
 
 .d-flex {

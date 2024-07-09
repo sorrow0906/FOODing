@@ -15,19 +15,19 @@
     <div class="store-div">
         <c:choose>
             <c:when test="${store.scate == '한식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/images/korean_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/korean_food.jpg">
             </c:when>
             <c:when test="${store.scate == '일식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/images/japanese_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/japanese_food.jpg">
             </c:when>
             <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/images/chinese_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
             </c:when>
             <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/images/chinese_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
             </c:when>
             <c:otherwise>
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/images/fastfood.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/fastfood.jpg">
             </c:otherwise>
         </c:choose>
         <div class="store-head">

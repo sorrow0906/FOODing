@@ -28,7 +28,7 @@ header {
     font-weight : bold;
 }
 
-.header1 { color : yellow; }
+.header1 { color : #ffea00; }
 .header2 { color : saddlebrown; }
 
 nav {
@@ -101,4 +101,4 @@ footer {
 .head:link { color : saddlebrown; text-decoration : none }
 .head:visited { color : saddlebrown; text-decoration : none }
 .head:active { color : orange; text-decoration : none }
-.head:hover { color : yellow; text-decoration : none }
+.head:hover { color : #ffea00; text-decoration : none }

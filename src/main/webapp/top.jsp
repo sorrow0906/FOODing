@@ -25,7 +25,9 @@
                 <tr>
                     <td align = "center">
                         <span>
-                            종
+                            <a class = "bell" href = "#">
+                                <img src = "${pageContext.request.contextPath}/resources/images/bell.png" width = "30px" height = "30px">
+                            </a>
                         </span>
                         <span>|</span>
                         <span>
@@ -58,8 +60,13 @@
         <ul class = "snb">
             <div class = "submenu">
                 <li><a href = "#">한식</a></li>
-                <li><a href = "#">중식</a></li>
                 <li><a href = "#">일식</a></li>
+                <li><a href = "#">중식</a></li>
+                <li><a href = "#">양식</a></li>
+                <li><a href = "#">세계요리</a></li>
+                <li><a href = "#">빵/디저트</a></li>
+                <li><a href = "#">차/커피</a></li>
+                <li><a href = "#">술집</a></li>
             </div>
             <div class="submenu">
                 <li><a href="#">위치별</a></li>
@@ -75,11 +82,6 @@
                 <li><a href = "#">찜 기능1</a></li>
                 <li><a href = "#">찜 기능2</a></li>
                 <li><a href = "#">찜 기능3</a></li>
-            </div>
-            <div class = "submenu">
-                <li><a href = "#">검색 기능1</a></li>
-                <li><a href = "#">검색 기능2</a></li>
-                <li><a href = "#">검색 기능3</a></li>
             </div>
         </ul>
     </div>

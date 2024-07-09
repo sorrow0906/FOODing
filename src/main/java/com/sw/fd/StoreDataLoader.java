@@ -46,7 +46,24 @@ public class StoreDataLoader {
                 store.setSaddr(node.get("GNG_CS").asText());
                 store.setStel(node.get("TLNO").asText());
                 store.setSeg(node.get("SMPL_DESC").asText());
-                store.setScate(node.get("FD_CS").asText());
+                // FD_CS 값을 변환하여 설정
+                String fdCs = node.get("FD_CS").asText();
+                switch (fdCs) {
+                    case "디저트/베이커리":
+                        fdCs = "빵/디저트";
+                        break;
+                    case "전통차/커피전문점":
+                        fdCs = "차/커피";
+                        break;
+                    case "특별한 술집":
+                        fdCs = "술집";
+                        break;
+                    default:
+                        // 변환이 필요 없는 경우 그대로 사용
+                        break;
+                }
+                store.setScate(fdCs);
+
                 store.setStime(node.get("MBZ_HR").asText());
 
                 // spark 필드의 길이 검사 및 잘라내기
