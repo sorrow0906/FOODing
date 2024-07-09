@@ -35,6 +35,10 @@ section {
     margin: 0 auto; /* 가운데 정렬을 위한 margin */
     border-collapse: collapse;
 }
+.menu-table td {
+    width: 200px;
+}
+
 
 .menu-table thead {
     background-color: #f2f2f2;

@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="after separate css and add kakao map api">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="add menu and map to storeDetail.jsp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MenuRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MenuService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
     </list>
@@ -211,7 +207,7 @@
       <workItem from="1720143975372" duration="17892000" />
       <workItem from="1720178275446" duration="13005000" />
       <workItem from="1720237103114" duration="10397000" />
-      <workItem from="1720484621224" duration="8874000" />
+      <workItem from="1720484621224" duration="10405000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -253,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720429979780</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add menu and map to storeDetail.jsp">
+      <option name="closed" value="true" />
+      <created>1720493727065</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720493727065</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +280,7 @@
     <MESSAGE value="Success modify DB entity" />
     <MESSAGE value="complete menu table pasing" />
     <MESSAGE value="after separate css and add kakao map api" />
-    <option name="LAST_COMMIT_MESSAGE" value="after separate css and add kakao map api" />
+    <MESSAGE value="add menu and map to storeDetail.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="add menu and map to storeDetail.jsp" />
   </component>
 </project>
