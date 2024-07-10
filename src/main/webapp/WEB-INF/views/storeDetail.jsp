@@ -150,6 +150,7 @@
                     console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
                 } else {
                     console.log('Content loaded successfully from:', url);
+                    console.log('Response:', response); // storeInfo 데이터 전달 확인용
                     if (callback) {
                         callback();
                     }

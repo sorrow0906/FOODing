@@ -38,7 +38,9 @@ public class StoreController {
     @GetMapping("/storeInfo")
     public String storeInfo(@RequestParam("sno") int sno, Model model) {
         Store store = storeService.getStoreById(sno);
+        List<Menu> menus = menuService.getMenuBySno(sno);
         model.addAttribute("store", store);
+        model.addAttribute("menus", menus);
         return "storeInfo"; // storeInfo.jsp로 포워드
     }
 
