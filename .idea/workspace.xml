@@ -9,43 +9,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="complete storeDetail.jsp">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/bell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/nextBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/preBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/chinese_food_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/coffee_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/dessert_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/global_food_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/japanese_food_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/korean_food_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/non_parking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/non_parking2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/parking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/pub_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/pub_icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/western_food_icon.png" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="complete storelist form.jsp">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/ReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dashboard.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/includes/cacheControl.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerOwner.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerSelect.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerUser.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewMember.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/registerSelect.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/viewMember.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/topNoneNav.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/StoreDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/StoreDataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index_top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index_top.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/index_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/index_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_section.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_section.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/chinese_food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/chinese_food.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dessert.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/dessert.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/fastfood.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/fastfood.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/japanese_food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/japanese_food.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/korean_food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/korean_food.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/western_food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/western_food.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/nav_hover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/nav_hover.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,12 +76,12 @@
     &quot;assignee&quot;: &quot;sorrow0906&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sorrow0906/FOODing.git",
-    "accountId": "0fab1ba6-a5c9-4107-a423-60ce2379c4ef"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sorrow0906/FOODing.git&quot;,
+    &quot;accountId&quot;: &quot;0fab1ba6-a5c9-4107-a423-60ce2379c4ef&quot;
   }
-}]]></component>
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -104,23 +106,27 @@
     "Tomcat Server.Tomcat 9.0.90.executor": "Run",
     "git-widget-placeholder": "test",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/spring_work/FOODing/src/main/webapp/resources/images",
+    "last_opened_file_path": "C:/Users/User/Desktop/spring_work/FOODing/src",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.10179153",
+    "project.structure.side.proportion": "0.32535365",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src" />
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\images" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\js" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\css" />
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\WEB-INF\views" />
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\store_images" />
@@ -242,7 +248,10 @@
       <workItem from="1720143975372" duration="17892000" />
       <workItem from="1720178275446" duration="13005000" />
       <workItem from="1720237103114" duration="10397000" />
-      <workItem from="1720484621224" duration="20257000" />
+      <workItem from="1720484621224" duration="24928000" />
+      <workItem from="1720516887803" duration="1167000" />
+      <workItem from="1720570910995" duration="3495000" />
+      <workItem from="1720592988426" duration="2112000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -300,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720495222251</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="complete storelist form.jsp">
+      <option name="closed" value="true" />
+      <created>1720507795994</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720507795995</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +342,7 @@
     <MESSAGE value="after separate css and add kakao map api" />
     <MESSAGE value="add menu and map to storeDetail.jsp" />
     <MESSAGE value="complete storeDetail.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete storeDetail.jsp" />
+    <MESSAGE value="complete storelist form.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete storelist form.jsp" />
   </component>
 </project>

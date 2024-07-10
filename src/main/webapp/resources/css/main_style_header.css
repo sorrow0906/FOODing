@@ -70,3 +70,8 @@ header {
     margin-right : 15%;
     margin-top : 7%;
 }
+
+.helloBox:link { color : saddlebrown; text-decoration : none; }
+.helloBox:visited { color : saddlebrown; text-decoration : none; }
+.helloBox:active { color : orange; text-decoration : none; }
+.helloBox:hover { color : #ffea00;; text-decoration : none; }

@@ -12,11 +12,16 @@
             <tr>
                 <td align = "center">
                     <span>
-                        <a class = "head" href = "#">로그인</a>
+                        <c:if test="${sessionScope.loggedInMember != null}">
+                            <a class="head" href="<%= request.getContextPath() %>/main">로그인</a>
+                        </c:if>
+                        <c:if test="${sessionScope.loggedInMember == null}">
+                            <a class="head" href="<%= request.getContextPath() %>/login">로그인</a>
+                        </c:if>
                     </span>
                     <span>/</span>
                     <span>
-                        <a class = "head" href = "register">회원가입</a>
+                        <a class = "head" href = "registerSelect">회원가입</a>
                     </span>
                 </td>
             </tr>

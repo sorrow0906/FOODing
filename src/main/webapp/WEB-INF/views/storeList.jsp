@@ -63,7 +63,7 @@
     <td>${store.stime}</td>
     <td>
       <c:choose>
-       <c:when test="${fn:contains(store.spark, '없음')}">
+       <c:when test="${fn:contains(store.spark, '없음') or fn:contains(store.spark, '불가')}">
         <img src="${pageContext.request.contextPath}/resources/store_images/non_parking2.png" alt="주차 불가">
        </c:when>
        <c:otherwise>

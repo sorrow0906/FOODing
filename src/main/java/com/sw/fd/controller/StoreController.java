@@ -35,6 +35,12 @@ public class StoreController {
         model.addAttribute("menus", menus);
         return "storeDetail";
     }
+    @GetMapping("/storeInfo")
+    public String storeInfo(@RequestParam("sno") int sno, Model model) {
+        Store store = storeService.getStoreById(sno);
+        model.addAttribute("store", store);
+        return "storeInfo"; // storeInfo.jsp로 포워드
+    }
 
 
 }

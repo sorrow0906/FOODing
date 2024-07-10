@@ -77,6 +77,8 @@ section {
 }
 
 .store-info h2 {
+    text-align: center;
+    color: #b17f5e;
     font-weight: bold;
     margin-top: 40px; /* 제목 위의 여백 추가 */
 }
@@ -100,4 +102,25 @@ section {
     border-radius: 10px;
     box-sizing: border-box;
     color: #b17f5e;
+}
+
+/* 리뷰 추가 이후 부분*/
+
+.tab-bar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: 2px solid #ff6347;
 }

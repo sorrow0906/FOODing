@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <title>FOODing 가게 디테일</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeDetail.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/review.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=573fb4487497eb28636a2f91b5ca8f70&libraries=services"></script>
 </head>
 <body>
 <!-- 상단 내비게이션 바 -->
@@ -13,15 +16,13 @@
 
 <section>
     <div class="store-div">
+        <!-- 가게 정보 섹션 -->
         <c:choose>
             <c:when test="${store.scate == '한식'}">
                 <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/korean_food.jpg">
             </c:when>
             <c:when test="${store.scate == '일식'}">
                 <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/japanese_food.jpg">
-            </c:when>
-            <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
             </c:when>
             <c:when test="${store.scate == '중식'}">
                 <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
@@ -35,47 +36,22 @@
             <p>${store.scate}</p>
             <p id="store-explain">${store.seg}</p>
         </div>
-        <div class="store-info-map">
-            <div class="store-info">
-                <h2 class="menu-title">메뉴</h2>
-                <table class="menu-table">
-                    <thead>
-                    <tr>
-                        <td>메뉴이름</td>
-                        <td>가격</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="menu" items="${menus}">
-                        <tr>
-                            <td>${menu.mnname}</td>
-                            <td>${menu.mnprice}</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-                <h2>영업시간</h2>
-                <p>${store.stime}</p>
-                <h2>주차</h2>
-                <p>${store.spark}</p>
-                <h2>전화번호</h2>
-                <p>${store.stel}</p>
-            </div>
-            <div id="map-container">
-                <p id="store-address">${store.saddr}</p>
-                <div id="map"></div>
-            </div>
+
+        <!-- 탭 바 -->
+        <div class="tab-bar">
+            <button id="store-info-tab" class="tab active">가게 정보</button>
+            <button id="reviews-tab" class="tab">리뷰</button>
+        </div>
+
+        <!-- 가게 정보 및 리뷰 섹션 -->
+        <div id="content-container" class="store-info-map">
+            <c:import url="/WEB-INF/views/storeInfo.jsp" />
         </div>
     </div>
 </section>
 
-<!-- 하단 내비게이션 바 -->
-<c:import url="/bottom.jsp" />
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=573fb4487497eb28636a2f91b5ca8f70&libraries=services"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=573fb4487497eb28636a2f91b5ca8f70&libraries=services"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 지도 생성 코드
+    function initializeMap(address) {
         var mapContainer = document.getElementById('map'),
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -85,7 +61,7 @@
         var map = new kakao.maps.Map(mapContainer, mapOption);
         var geocoder = new kakao.maps.services.Geocoder();
 
-        geocoder.addressSearch("${store.saddr}", function(result, status) {
+        geocoder.addressSearch(address, function(result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                 var marker = new kakao.maps.Marker({
@@ -94,14 +70,13 @@
                 });
 
                 var infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">${store.sname}</div>'
                 });
                 infowindow.open(map, marker);
                 map.setCenter(coords);
             }
         });
 
-        // store-info 높이에 맞춰 map-container 및 map 높이 조정
         function adjustMapHeight() {
             var storeInfo = document.querySelector('.store-info');
             var mapContainer = document.getElementById('map-container');
@@ -111,16 +86,80 @@
                 var storeInfoHeight = storeInfo.offsetHeight;
                 var storeAddressHeight = storeAddress.offsetHeight;
                 mapContainer.style.height = storeInfoHeight + 'px';
-                map.style.height = (storeInfoHeight - storeAddressHeight -10) + 'px';
+                map.style.height = (storeInfoHeight - storeAddressHeight - 10) + 'px';
             }
         }
 
-        // 처음 로드할 때 지도 높이 조정
         adjustMapHeight();
-
-        // 창 크기 변경 시 지도 높이 재조정
         window.addEventListener('resize', adjustMapHeight);
+    }
+
+    function initializeReviewScript() {
+        const stars = document.querySelectorAll('.rating > span');
+        const hiddenInput = document.getElementById('rstar');
+        let isRatingFixed = false;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                if (!isRatingFixed) {
+                    const value = parseInt(star.getAttribute('data-value'));
+                    hiddenInput.value = value;
+                    console.log("value 값 = ${hiddenInput.value}");
+                    stars.forEach((s, i) => {
+                        if (i+2 <= value) {
+                            s.textContent = '☆';
+                        } else {
+                            s.textContent = '★';
+                        }
+                    });
+                    isRatingFixed = true;
+                    stars.forEach(s => {
+                        s.style.pointerEvents = 'none'; // 별의 클릭 이벤트 비활성화
+                    });
+                }
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeMap('${store.saddr}');
+        initializeReviewScript();
+
+        $('#store-info-tab').click(function() {
+            console.log('가게 정보 탭 클릭');
+            loadContent('${pageContext.request.contextPath}/storeInfo?sno=${store.sno}', function() {
+                initializeMap('${store.saddr}');
+            });
+            $('.tab').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        $('#reviews-tab').click(function() {
+            console.log('리뷰 탭 클릭');
+            loadContent('${pageContext.request.contextPath}/review?sno=${store.sno}', function() {
+                initializeReviewScript();
+            });
+            $('.tab').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        function loadContent(url, callback) {
+            console.log('Loading content from:', url);
+            $('#content-container').load(url, function(response, status, xhr) {
+                if (status === 'error') {
+                    console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+                } else {
+                    console.log('Content loaded successfully from:', url);
+                    if (callback) {
+                        callback();
+                    }
+                }
+            });
+        }
     });
 </script>
+<!-- 하단 내비게이션 바 -->
+<c:import url="/bottom.jsp" />
+
 </body>
 </html>
