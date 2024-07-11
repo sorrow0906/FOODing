@@ -74,17 +74,17 @@
         </form>
         <ul class = "snb">
             <div class = "submenu">
-                <li><a href = "#">한식</a></li>
-                <li><a href = "#">일식</a></li>
-                <li><a href = "#">중식</a></li>
-                <li><a href = "#">양식</a></li>
-                <li><a href = "#">세계요리</a></li>
-                <li><a href = "#">빵/디저트</a></li>
-                <li><a href = "#">차/커피</a></li>
-                <li><a href = "#">술집</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=한식">한식</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=일식">일식</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=중식">중식</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=양식">양식</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=세계요리">세계요리</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=빵/디저트">빵/디저트</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=차/커피">차/커피</a></li>
+                <li><a href = "${pageContext.request.contextPath}/storeList?scate=술집">술집</a></li>
             </div>
             <div class="submenu">
-                <li><a href="#">위치별</a></li>
+                <li><a href="${pageContext.request.contextPath}/storeListByLocation">위치별</a></li>
                 <li><a href="#">순위별</a></li>
                 <li><a href="#">태그별</a></li>
             </div>
