@@ -104,5 +104,4 @@
     </table>
 </section>
 <c:import url="/bottom.jsp" />
-</body>
-</html>
+

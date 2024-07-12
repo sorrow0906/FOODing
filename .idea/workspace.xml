@@ -9,14 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="menu table error clear">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/LocationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="add Store List by Location">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.10179153",
     "project.structure.side.proportion": "0.32535365",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "sshConsole",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -222,7 +222,8 @@
       <workItem from="1720592988426" duration="2241000" />
       <workItem from="1720596714099" duration="1208000" />
       <workItem from="1720656753023" duration="1703000" />
-      <workItem from="1720658703152" duration="14301000" />
+      <workItem from="1720658703152" duration="17358000" />
+      <workItem from="1720749989808" duration="12884000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -304,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720597915711</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add Store List by Location">
+      <option name="closed" value="true" />
+      <created>1720678703736</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720678703736</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +341,7 @@
     <MESSAGE value="complete storelist form.jsp" />
     <MESSAGE value="combine team file" />
     <MESSAGE value="menu table error clear" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu table error clear" />
+    <MESSAGE value="add Store List by Location" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Store List by Location" />
   </component>
 </project>

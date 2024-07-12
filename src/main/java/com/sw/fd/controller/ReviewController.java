@@ -65,6 +65,6 @@ public class ReviewController {
         reviewService.saveReview(review);
 
         // 리뷰 저장 후 해당 가게의 리뷰 페이지로 리다이렉션
-        return "redirect:/review?sno=" + sno;
+        return "redirect:/storeDetail?sno=" + sno; // 여기가 storeDetail로 가야함
     }
 }

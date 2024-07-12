@@ -33,27 +33,43 @@ h2 {
         font-size: 16px;
 }
 
-.rating {
-        unicode-bidi: bidi-override;
+.star-rating {
+        display: flex;
         direction: rtl;
-        text-align: left;
-}
-.rating > span {
-        display: inline-block;
-        position: relative;
-        width: 1em;
-        font-size: 2em;
-        cursor: pointer;
+        justify-content: left;
 }
 
-.rating > span:hover:before,
-.rating > span.selected:before,
-.rating > span:hover ~ span:before,
-.rating > span.selected ~ span:before {
-        content: "\2605";
-        position: absolute;
+.star {
+        display: none; /* radio 버튼 숨기기 */
+}
+
+.star + label {
+        font-size: 2em;
+        cursor: pointer;
         color: gold;
 }
+
+.star + label::before {
+        content: '☆'; /* 기본 상태에서는 빈 별 표시 */
+}
+
+/* 선택한 별 위치 */
+.star:checked + label::before {
+        content: "★";
+}
+/* 커서가 올라가 있는 별 */
+.star:hover + label::before {
+        content: "★";
+}
+/* 커서가 올라간 곳 이후 (왼쪽) 별 */
+.star:hover ~ .star + label::before {
+        content: "★";
+}
+
+.star:checked ~ .star + label::before {
+        content: "★";
+}
+
 
 .review-container {
         border: 1px solid #ccc;
@@ -82,7 +98,7 @@ h2 {
 
 .review-item .review-content {
         border: 1px solid #ddd;
-        padding: 10px;
+        padding: 30px;
         border-radius: 5px;
         background-color: #f9f9f9;
 }
@@ -90,17 +106,16 @@ h2 {
 .review-item-left {
         position: absolute;
         top: 10px;
-        left: 10px;
+        left: 30px;
 }
 
 .review-item-right {
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 30px;
 }
 
 .review-item-content {
-        border: 1px solid #ccc;
         padding: 10px;
         margin: 10px;
         max-width: 680px;
