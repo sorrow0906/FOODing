@@ -22,21 +22,7 @@ function validateForm() {
     return true;
 }
 
-/* login.jsp 폼 나누어 구현*/
-function saveIdAndShowSecondForm() {
-    var id = document.getElementById('mid').value;
 
-    document.getElementById('mid').setCustomValidity("");
-    document.getElementById('idHidden').value = id;
-    document.getElementById('first-form').style.display = 'none';
-    document.getElementById('second-form').style.display = 'block';
-    return false;
-
-}
-
-function submitSecondForm() {
-    document.getElementById('second-form').submit(); // 두 번째 폼 제출
-}
 
 /* 회원가입 시 값을 아무것도 입력하지 않으면 뜨는 경고창 */
 function validateForm() {
