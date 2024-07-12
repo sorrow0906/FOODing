@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "member_t") // 데이터베이스 테이블과 매핑
@@ -16,6 +17,9 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mno;
+
+    @OneToMany(mappedBy = "member") // 수정사항
+    private List<MemberGroup> memberGroupList; // 수정사항
 
     private String mid;
     private String mname;

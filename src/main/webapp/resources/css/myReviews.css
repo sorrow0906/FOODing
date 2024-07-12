@@ -1,5 +1,5 @@
 .section-reviews {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -19,9 +19,9 @@
     margin-bottom: 5px;
 }
 
-.review-item-left {
-    float: left;
-}
+/*.review-item-left {*/
+/*    float: left;*/
+/*}*/
 
 .review-item-right {
     float: right;
