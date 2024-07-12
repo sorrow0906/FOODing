@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -143,5 +144,16 @@ public class MemberController {
             model.addAttribute("message", "회원 정보가 성공적으로 수정되었습니다.");
             return "redirect:/member/view?mid=" + updatedMember.getMid();
         }
+    }
+
+    @GetMapping("/myPage")
+    public String showMyPage(HttpSession session, Model model) {
+        Member loggedInMember = (Member) session.getAttribute("loggedInMember");
+        if (loggedInMember == null) {
+            // 로그인되지 않은 상태에서 접근 시 예외 처리 또는 로그인 페이지로 리다이렉트
+            return "redirect:/login"; // 예시로 로그인 페이지로 리다이렉트 설정
+        }
+        model.addAttribute("loggedInMember", loggedInMember);
+        return "myPage"; // 마이페이지 JSP 파일명
     }
 }

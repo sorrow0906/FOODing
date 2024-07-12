@@ -9,14 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="add Store List by Location">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="add new review(add star)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Pick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/myPage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/myReviews.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/starE.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/ReviewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +83,7 @@
     "Tomcat Server.Tomcat 9.0.90.executor": "Run",
     "git-widget-placeholder": "test",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/spring_work/FOODing/src",
+    "last_opened_file_path": "C:/Users/User/Desktop/spring_work/FOODing/src/main/webapp/resources/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -90,15 +99,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\images" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing" />
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\images" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\js" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\store_images" />
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\images" />
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\WEB-INF\views" />
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\service" />
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\repository" />
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\entity" />
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -223,7 +235,7 @@
       <workItem from="1720596714099" duration="1208000" />
       <workItem from="1720656753023" duration="1703000" />
       <workItem from="1720658703152" duration="17358000" />
-      <workItem from="1720749989808" duration="12884000" />
+      <workItem from="1720749989808" duration="14337000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -313,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720678703736</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add new review(add star)">
+      <option name="closed" value="true" />
+      <created>1720768274253</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720768274253</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +362,7 @@
     <MESSAGE value="combine team file" />
     <MESSAGE value="menu table error clear" />
     <MESSAGE value="add Store List by Location" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Store List by Location" />
+    <MESSAGE value="add new review(add star)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new review(add star)" />
   </component>
 </project>

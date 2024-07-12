@@ -33,6 +33,7 @@
         </c:choose>
         <div class="store-head">
             <p id="store-title">${store.sname}</p>
+            <a id="star-area" class="star-area"><img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/></a>
             <p>${store.scate}</p>
             <p id="store-explain">${store.seg}</p>
         </div>
@@ -172,6 +173,35 @@
                 }
             });
         }
+
+        const starArea = document.getElementById("star-area");
+        const sno = "${store.sno}"; // 가게 sno 값 할당
+
+        // 초기 상태 확인
+        $.post("${pageContext.request.contextPath}/checkPick", { sno: sno }, function(response) {
+            if (response === "picked") {
+                // star.classList.add("picked");
+                starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/star.png" alt="Star"/>'; // 꽉 찬 별 모양
+            } else {
+                // star.classList.remove("picked");
+                starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/>'; // 빈 별 모양
+            }
+        });
+
+        starArea.addEventListener("click", function() {
+            // AJAX 요청으로 서버에 찜 상태 저장 요청
+            $.post("${pageContext.request.contextPath}/pick", { sno: sno }, function(response) {
+                if (response === "picked") {
+                    // starArea.classList.add("picked");
+                    starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/star.png" alt="Star"/>'; // 꽉 찬 별 모양
+                } else if (response === "unpicked") {
+                    // star.classList.remove("picked");
+                    starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/>'; // 빈 별 모양
+                } else {
+                    alert("찜 기능을 사용하려면 로그인이 필요합니다.");
+                }
+            });
+        });
     });
 </script>
 <!-- 하단 내비게이션 바 -->

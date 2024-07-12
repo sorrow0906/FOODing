@@ -5,6 +5,7 @@ import com.sw.fd.repository.ReviewRepository;
 import com.sw.fd.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -33,5 +34,10 @@ public class ReviewService {
 
     public List<Review> getReviewsBySno(int sno) {
         return reviewRepository.findByStore_Sno(sno);
+    }
+
+    @Transactional
+    public List<Review> getReviewsByMno(int mno) {
+        return reviewRepository.findByMember_Mno(mno);
     }
 }

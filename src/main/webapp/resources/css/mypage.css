@@ -1,0 +1,37 @@
+.section-mypage {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.section-mypage h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.myreviews-list a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
