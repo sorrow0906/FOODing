@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
         <footer>
             <div class = "footer-div">
-                팀 FOODing - 팀원1 팀원2 팀원3 팀원4
+                팀 FOODing - 이다혜 김정희 성다현 김희진
             </div>
         </footer>
     </body>

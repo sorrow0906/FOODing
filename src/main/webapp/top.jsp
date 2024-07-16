@@ -89,14 +89,14 @@
                 <li><a href="#">태그별</a></li>
             </div>
             <div class = "submenu">
-                <li><a href = "#">모임 기능1</a></li>
-                <li><a href = "#">모임 기능2</a></li>
-                <li><a href = "#">모임 기능3</a></li>
+                <li><a href = "#">모임 기능</a></li>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
             </div>
             <div class = "submenu">
-                <li><a href = "#">찜 기능1</a></li>
-                <li><a href = "#">찜 기능2</a></li>
-                <li><a href = "#">찜 기능3</a></li>
+                <li><a href = "#">찜 기능</a></li>
+                <li><a href = "#"></a></li>
+                <li><a href = "#"></a></li>
             </div>
         </ul>
     </div>

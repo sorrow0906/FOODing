@@ -9,19 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="add pick function and my review">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/MemberGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/GroupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/GroupService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/groupList.css" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="First implementation complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/myReviews.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/myReviews.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/StoreDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/StoreDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index_bottom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index_bottom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/mypage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +87,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.10179153",
     "project.structure.side.proportion": "0.32535365",
-    "settings.editor.selected.configurable": "sshConsole",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -232,7 +229,8 @@
       <workItem from="1720596714099" duration="1208000" />
       <workItem from="1720656753023" duration="1703000" />
       <workItem from="1720658703152" duration="17358000" />
-      <workItem from="1720749989808" duration="18335000" />
+      <workItem from="1720749989808" duration="18443000" />
+      <workItem from="1721002071726" duration="11584000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -346,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720769999539</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="First implementation complete">
+      <option name="closed" value="true" />
+      <created>1720775648787</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1720775648787</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +383,7 @@
     <MESSAGE value="add Store List by Location" />
     <MESSAGE value="add new review(add star)" />
     <MESSAGE value="add pick function and my review" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pick function and my review" />
+    <MESSAGE value="First implementation complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="First implementation complete" />
   </component>
 </project>

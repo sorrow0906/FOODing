@@ -109,12 +109,7 @@ public class StoreDataLoader {
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(result);
 
-                // API 응답을 디버깅 출력
-                System.out.println("API Response: " + result);
-
-                // jsonNode 구조 출력
                 String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
-                System.out.println("JsonNode Structure: " + prettyJson);
 
                 // "data" 노드가 존재하는지 확인하고 리스트로 변환
                 JsonNode dataNode = jsonNode.get("data");

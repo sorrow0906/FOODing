@@ -38,6 +38,7 @@ public class ReviewController {
         model.addAttribute("review", new Review()); // 모델에 빈 Review 객체 추가
         model.addAttribute("sno", sno); // sno도 모델에 추가
         model.addAttribute("store", store); // 가게 정보도 모델에 추가
+        model.addAttribute("isEmpty", reviews.isEmpty());
         return "review";
     }
 
@@ -74,10 +75,10 @@ public class ReviewController {
 
         if (loggedInMember == null) {
             // 로그인되지 않은 상태에서 접근 시 예외 처리 또는 로그인 페이지로 리다이렉트
-            return "redirect:/login"; // 예시로 로그인 페이지로 리다이렉트 설정
+            return "redirect:/login";
         }
 
-        // 로그인한 회원의 mno를 가져와서 해당 회원이 작성한 리뷰들을 가져옵니다.
+        // 로그인한 회원의 mno를 가져와서 해당 회원이 작성한 리뷰들을 가져옴
         int mno = loggedInMember.getMno();
         List<Review> reviews = reviewService.getReviewsByMno(mno);
         model.addAttribute("reviews", reviews);

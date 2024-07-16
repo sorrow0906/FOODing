@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td><form:label path="mpass">비밀번호</form:label></td>
-            <td><form:input path="mpass" type="password" /></td>
+            <td><form:input path="mpass" type="password" value=""/></td>
         </tr>
         <tr>
             <td><form:label path="mpassConfirm">비밀번호 확인</form:label></td>

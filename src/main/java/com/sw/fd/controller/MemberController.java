@@ -113,6 +113,7 @@ public class MemberController {
             return "redirect:/member/view";
 
         } else {
+            member.setMpass("");
             model.addAttribute("member", member);
             return "editMember"; // 수정 폼으로 이동
         }

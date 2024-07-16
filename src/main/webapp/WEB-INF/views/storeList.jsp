@@ -11,7 +11,7 @@
 <body>
 <c:import url="/top.jsp" />
 <section class="content">
- <h1>음식점 랭킹</h1>
+ <h1>가게 리스트</h1>
  <table class="store-table">
   <thead>
   <tr>

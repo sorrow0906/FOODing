@@ -25,24 +25,29 @@
 
     <h2>리뷰 목록</h2>
 
-
-    <c:forEach var="review" items="${reviews}">
-        <div class="review-container">
-            <div class="review-item review-item-left"><strong>${review.member.mnick}</strong></div>
-            <div class="review-item review-item-right">${review.rdate}</div>
-            <div class="review-item review-item-left" style="top: 30px;">
-            <span class="star-rating">
-                <c:forEach begin="${review.rstar + 1}" end="5" var="i">☆</c:forEach>
-                <c:forEach begin="1" end="${review.rstar}" var="i">★</c:forEach>
-
-            </span>
-            </div>
-            <div class="review-item-content">
-                <div class="review-item"><strong>리뷰 내용 : </strong></div>
-                <div class="review-item review-content">${review.rcomm}</div>
-            </div>
-        </div>
-    </c:forEach>
+    <c:choose>
+        <c:when test="${not empty reviews}">
+            <c:forEach var="review" items="${reviews}">
+                <div class="review-container">
+                    <div class="review-item review-item-left"><strong>${review.member.mnick}</strong></div>
+                    <div class="review-item review-item-right">${review.rdate}</div>
+                    <div class="review-item review-item-left" style="top: 30px;">
+                        <span class="star-rating">
+                            <c:forEach begin="${review.rstar + 1}" end="5" var="i">☆</c:forEach>
+                            <c:forEach begin="1" end="${review.rstar}" var="i">★</c:forEach>
+                        </span>
+                    </div>
+                    <div class="review-item-content">
+                        <div class="review-item"><strong>리뷰 내용 : </strong></div>
+                        <div class="review-item review-content">${review.rcomm}</div>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <p class="no-reviews-message">작성된 리뷰가 없습니다.</p>
+        </c:otherwise>
+    </c:choose>
 </div>
 
 
