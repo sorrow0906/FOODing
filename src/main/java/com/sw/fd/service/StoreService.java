@@ -1,6 +1,7 @@
 package com.sw.fd.service;
 
 import com.sw.fd.entity.Store;
+import com.sw.fd.repository.PickRepository;
 import com.sw.fd.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,9 @@ public class StoreService {
 
     @Autowired
     private StoreRepository storeRepository;
+
+    @Autowired
+    private PickRepository pickRepository;
 
     @Transactional
     public void saveStore(Store store) {
@@ -58,11 +62,15 @@ public class StoreService {
                 nearbyStores.add(store);
             }
         }
-        return getSortedStoresByDistance(nearbyStores);
+        return nearbyStores;
     }
 
-    private List<Store> getSortedStoresByDistance(List<Store> stores) {
-        stores.sort(Comparator.comparingDouble(Store::getDistance));
+    public List<Store> getStoresWithPick() {
+        List<Store> stores = storeRepository.findAll();
+        for (Store store : stores) {
+            int pickNum = pickRepository.countBySno(store.getSno());
+            store.setPickNum(pickNum);
+        }
         return stores;
     }
 

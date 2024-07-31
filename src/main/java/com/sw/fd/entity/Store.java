@@ -42,4 +42,7 @@ public class Store {
 
     @Transient
     private double distance;
+
+    @Transient
+    private int pickNum;
 }

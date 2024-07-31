@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -65,6 +66,7 @@ public class StoreController {
         }
 
         List<Store> stores = storeService.getNearbyStores(userLat, userLon);
+        stores.sort(Comparator.comparingDouble(Store::getDistance));
         for (Store store : stores) {
             System.out.println(store.getSname() + "의 거리는 " + store.getDistance());
         }
@@ -75,5 +77,13 @@ public class StoreController {
         return "storeListByLocation";
     }
 
+    @GetMapping("/storeListByPick")
+    public String showStoreListByPick(Model model) {
+        List<Store> stores;
+        stores = storeService.getStoresWithPick();
+        stores.sort(Comparator.comparingInt(Store::getPickNum).reversed());
+        model.addAttribute("stores", stores);
+        return "storeListByPick";
+    }
 
 }
