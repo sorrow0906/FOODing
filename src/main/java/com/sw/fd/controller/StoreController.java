@@ -65,6 +65,10 @@ public class StoreController {
         }
 
         List<Store> stores = storeService.getNearbyStores(userLat, userLon);
+        for (Store store : stores) {
+            System.out.println(store.getSname() + "의 거리는 " + store.getDistance());
+        }
+
         model.addAttribute("stores", stores);
         model.addAttribute("defaultLat", DEFAULT_LAT);
         model.addAttribute("defaultLon", DEFAULT_LON);

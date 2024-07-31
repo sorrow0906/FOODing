@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -53,11 +54,16 @@ public class StoreService {
             double[] coordinates = locationService.getCoordinates(store.getSaddr());
             double distance = calculateDistance(userLat, userLon, coordinates[0], coordinates[1]);
             if (distance <= 2) {
+                store.setDistance(distance); //거리 저장하는 부분
                 nearbyStores.add(store);
             }
         }
+        return getSortedStoresByDistance(nearbyStores);
+    }
 
-        return nearbyStores;
+    private List<Store> getSortedStoresByDistance(List<Store> stores) {
+        stores.sort(Comparator.comparingDouble(Store::getDistance));
+        return stores;
     }
 
 

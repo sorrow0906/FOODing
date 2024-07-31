@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri = "http://java.sun.com/jstl/core_rt" prefix = "c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +49,7 @@
             <th>주소</th>
             <th>영업시간</th>
             <th>주차장</th>
+            <th>거리</th>
         </tr>
         </thead>
         <tbody>
@@ -98,6 +100,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+                <td><fmt:formatNumber value="${store.distance}" pattern="0.00"/>km</td>
             </tr>
         </c:forEach>
         </tbody>
