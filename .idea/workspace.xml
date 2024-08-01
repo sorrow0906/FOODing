@@ -9,14 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="sort by Pick complete">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="complete store score avg">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/bookmark_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/bookmark_icon_full.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/score_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
     </list>
@@ -76,7 +73,7 @@
     "Tomcat Server.Tomcat 9.0.90.executor": "Run",
     "git-widget-placeholder": "test",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/spring_work/FOODing/src/main/webapp/resources/css",
+    "last_opened_file_path": "C:/Users/User/Desktop/spring_work/FOODing/src/main/webapp/resources/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -92,18 +89,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\images" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\css" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\entity" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\service" />
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\repository" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\images" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\resources\css" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\service" />
       <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\repository" />
-      <recent name="C:\Users\User\Desktop\spring_work\FOODing\src\main\java\com\sw\fd\entity" />
     </key>
   </component>
   <component name="RunManager">
@@ -241,7 +238,7 @@
       <workItem from="1722243929361" duration="232000" />
       <workItem from="1722315707382" duration="11445000" />
       <workItem from="1722384248350" duration="25074000" />
-      <workItem from="1722471207668" duration="20937000" />
+      <workItem from="1722471207668" duration="25206000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -395,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722418003050</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="complete store score avg">
+      <option name="closed" value="true" />
+      <created>1722501442388</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1722501442388</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +439,8 @@
     <MESSAGE value="start secend" />
     <MESSAGE value="sort by location complete" />
     <MESSAGE value="sort by Pick complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="sort by Pick complete" />
+    <MESSAGE value="complete store score avg" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete store score avg" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

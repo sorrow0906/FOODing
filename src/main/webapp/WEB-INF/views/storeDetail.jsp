@@ -33,17 +33,16 @@
             </c:otherwise>
         </c:choose>
         <div class="store-head">
+            <div class="head-elements">
+            <a id="star-area" class="star-area"><img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon.png" alt="StarE"/></a>
             <p id="store-title">${store.sname}</p>
-            <div class="store-assess">
-                <img src="${pageContext.request.contextPath}/resources/images/star.png" width="20"/>
+                <img id="score-img" src="${pageContext.request.contextPath}/resources/images/score_icon.png" width="30" height="30"/>
                 <c:choose>
                     <c:when test="${store.scoreArg != 0}">
                         <p id="store-score"><fmt:formatNumber value="${store.scoreArg}" pattern="0.0"/>점</p>
                     </c:when>
                 </c:choose>
             </div>
-            <a id="star-area" class="star-area"><img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/></a>
-            <p>${store.scate}</p>
             <p id="store-explain">${store.seg}</p>
         </div>
 
@@ -190,10 +189,10 @@
         $.post("${pageContext.request.contextPath}/checkPick", { sno: sno }, function(response) {
             if (response === "picked") {
                 // star.classList.add("picked");
-                starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/star.png" alt="Star"/>'; // 꽉 찬 별 모양
+                starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon_full.png" alt="Star"/>'; // 꽉 찬 별 모양
             } else {
                 // star.classList.remove("picked");
-                starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/>'; // 빈 별 모양
+                starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon.png" alt="StarE"/>'; // 빈 별 모양
             }
         });
 
@@ -202,10 +201,10 @@
             $.post("${pageContext.request.contextPath}/pick", { sno: sno }, function(response) {
                 if (response === "picked") {
                     // starArea.classList.add("picked");
-                    starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/star.png" alt="Star"/>'; // 꽉 찬 별 모양
+                    starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon_full.png" alt="Star"/>'; // 꽉 찬 별 모양
                 } else if (response === "unpicked") {
                     // star.classList.remove("picked");
-                    starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/>'; // 빈 별 모양
+                    starArea.innerHTML = '<img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon.png" alt="StarE"/>'; // 빈 별 모양
                 } else {
                     alert("찜 기능을 사용하려면 로그인이 필요합니다.");
                 }

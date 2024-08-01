@@ -18,10 +18,19 @@ section {
     margin: auto;
 }
 
+.store-head {
+    width: 80%;
+}
+.head-elements {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}
+
 #store-img {
     object-fit: cover;
     width: 80%;
-    height: 100px;
+    height: 140px;
     margin-bottom: 10px;
 }
 
@@ -31,15 +40,11 @@ section {
     margin-bottom: 10px;
 }
 #store-score {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bolder;
-    color: tomato;
+    color: #e35a56;
 }
 
-.store-assess div{
-    display: flex;
-    flex-direction: column;
-}
 
 
 .menu-table {
@@ -55,6 +60,7 @@ section {
     background-color: #f2f2f2;
     font-weight: bold;
     font-size: 20px;
+
 }
 
 #store-explain {
