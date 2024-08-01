@@ -38,6 +38,7 @@ public class GroupController {
         List<Group> groups = groupService.getGroupsByMember(member);
         model.addAttribute("groups", groups);
         model.addAttribute("group", new Group());
+
         return "groupList";
     }
 

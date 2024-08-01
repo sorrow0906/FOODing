@@ -45,4 +45,7 @@ public class Store {
 
     @Transient
     private int pickNum;
+
+    @Transient
+    private double scoreArg;
 }

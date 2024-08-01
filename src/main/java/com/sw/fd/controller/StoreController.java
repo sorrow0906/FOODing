@@ -39,7 +39,7 @@ public class StoreController {
 
     @GetMapping("/storeDetail")
     public String storeDetail(@RequestParam("sno") int sno, Model model) {
-        Store store = storeService.getStoreById(sno);
+        Store store = storeService.getStoreAllInfo(sno);
         List<Menu> menus = menuService.getMenuBySno(sno);
         model.addAttribute("store", store);
         model.addAttribute("menus", menus);

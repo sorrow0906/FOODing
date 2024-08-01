@@ -30,6 +30,17 @@ section {
     font-weight: bolder;
     margin-bottom: 10px;
 }
+#store-score {
+    font-size: 30px;
+    font-weight: bolder;
+    color: tomato;
+}
+
+.store-assess div{
+    display: flex;
+    flex-direction: column;
+}
+
 
 .menu-table {
     margin: 0 auto; /* 가운데 정렬을 위한 margin */

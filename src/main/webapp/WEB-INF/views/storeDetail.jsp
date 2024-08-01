@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +34,14 @@
         </c:choose>
         <div class="store-head">
             <p id="store-title">${store.sname}</p>
+            <div class="store-assess">
+                <img src="${pageContext.request.contextPath}/resources/images/star.png" width="20"/>
+                <c:choose>
+                    <c:when test="${store.scoreArg != 0}">
+                        <p id="store-score"><fmt:formatNumber value="${store.scoreArg}" pattern="0.0"/>점</p>
+                    </c:when>
+                </c:choose>
+            </div>
             <a id="star-area" class="star-area"><img class="pickStar" src="${pageContext.request.contextPath}/resources/images/starE.png" alt="StarE"/></a>
             <p>${store.scate}</p>
             <p id="store-explain">${store.seg}</p>

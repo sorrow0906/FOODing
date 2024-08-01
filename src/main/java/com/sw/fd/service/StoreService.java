@@ -2,6 +2,7 @@ package com.sw.fd.service;
 
 import com.sw.fd.entity.Store;
 import com.sw.fd.repository.PickRepository;
+import com.sw.fd.repository.ReviewRepository;
 import com.sw.fd.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class StoreService {
     private StoreRepository storeRepository;
 
     @Autowired
+    private ReviewRepository reviewRepository;
+
+    @Autowired
     private PickRepository pickRepository;
 
     @Transactional
@@ -29,6 +33,20 @@ public class StoreService {
 
     public List<Store> getAllStores() {
         return storeRepository.findAll();
+    }
+
+    public Store getStoreAllInfo(int sno) {
+        Store store = storeRepository.findBySno(sno).orElse(null);
+
+        // 별점 평균 계산
+        Double averageScore = reviewRepository.findAverageScoreBySno(sno);
+        store.setScoreArg(averageScore != null ? averageScore : 0);
+
+        // Pick 수 계산
+        int pickCount = pickRepository.countBySno(sno);
+        store.setPickNum(pickCount);
+
+        return store;
     }
 
     public Store getStoreById(int sno) {
@@ -73,6 +91,7 @@ public class StoreService {
         }
         return stores;
     }
+
 
 
 }
