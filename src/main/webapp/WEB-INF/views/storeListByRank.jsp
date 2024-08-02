@@ -7,15 +7,16 @@
     <meta charset="UTF-8">
     <title>FOODing 가게리스트 - 찜별</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeList.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <c:import url="/top.jsp" />
 <section class="content">
     <h1>가게 리스트</h1>
     <div class="sort-area">
-        <a class="sort-element" id="sort_by_pick">찜 많은순</a>
+        <a class="sort-element" id="sort_by_pick" href="#">찜 많은순</a>
         <p class="sort-element">|</p>
-        <a class="sort-element" id="sort_by_score">별점 높은순</a>
+        <a class="sort-element" id="sort_by_score" href="#">별점 높은순</a>
     </div>
     <table class="store-table">
         <thead>
@@ -26,10 +27,10 @@
             <th>주소</th>
             <th>영업시간</th>
             <th>주차장</th>
-            <th>찜</th>
+            <th id="sort-header">찜</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="store-list">
         <c:forEach var="store" items="${storesByPick}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
@@ -77,12 +78,58 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>${store.pickNum}</td>
+                <td class="sort-value">${store.pickNum}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-
 </section>
 <c:import url="/bottom.jsp" />
 
+<script>
+    $(document).ready(function() {
+        function loadStoreList(sortBy) {
+            $.ajax({
+                url: '${pageContext.request.contextPath}/storeListByRank',
+                type: 'GET',
+                data: { sortBy: sortBy },
+                success: function(response) {
+                    var stores = $(response).find('#store-list').html();
+                    $('#store-list').html(stores);
+                    updateSortHeader(sortBy);
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error loading stores:', status, error);
+                }
+            });
+        }
+
+        function updateSortHeader(sortBy) {
+            if (sortBy === 'score') {
+                $('#sort-header').text('별점');
+                $('.sort-value').each(function() {
+                    var score = $(this).data('score');
+                    $(this).text(score);
+                });
+            } else {
+                $('#sort-header').text('찜');
+                $('.sort-value').each(function() {
+                    var pickNum = $(this).data('picknum');
+                    $(this).text(pickNum);
+                });
+            }
+        }
+
+        $('#sort_by_pick').click(function(event) {
+            event.preventDefault();
+            loadStoreList('pick');
+        });
+
+        $('#sort_by_score').click(function(event) {
+            event.preventDefault();
+            loadStoreList('score');
+        });
+    });
+</script>
+</body>
+</html>

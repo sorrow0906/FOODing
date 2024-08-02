@@ -79,19 +79,31 @@ public class StoreController {
     }
 
     @GetMapping("/storeListByRank")
-    public String showStoreListByPick(Model model) {
+    public String showStoreListByPick(@RequestParam(value = "sortBy", required = false) String sortBy, Model model) {
         List<Store> stores = storeService.getAllStores();
 
-        List<Store> storesByPick = new ArrayList<>(stores);
+/*        List<Store> storesByPick = new ArrayList<>(stores);
         storesByPick.sort(Comparator.comparingInt(Store::getPickNum).reversed());
 
         List<Store> storesByScore = new ArrayList<>(stores);
         storesByScore.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
 
-        model.addAttribute("storesByPick", storesByPick);
-        model.addAttribute("storesByScore", storesByScore);
+        if ("score".equals(sortBy)) {
+            model.addAttribute("storesByPick", storesByScore);
+        } else {
+            model.addAttribute("storesByPick", storesByPick);
+        }*/
+
+        if ("score".equals(sortBy)) {
+            stores.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
+            model.addAttribute("sortStandard", "score");
+        } else {
+            stores.sort(Comparator.comparingInt(Store::getPickNum).reversed());
+            model.addAttribute("sortStandard", "pick");
+        }
+
+        model.addAttribute("stores", stores);
 
         return "storeListByRank";
     }
-
 }

@@ -39,7 +39,7 @@
                         <span>|</span>
                         <span>
                              <c:if test="${sessionScope.loggedInMember != null}">
-                                 <a class="helloBox" href="<%= request.getContextPath() %>/member/view?mid=${sessionScope.loggedInMember.mid}">개인정보</a>
+                                 <a class="helloBox" href="<%= request.getContextPath() %>/myPage">마이페이지</a>
                              </c:if>
                             <c:if test="${sessionScope.loggedInMember == null}">
                                 <a class="helloBox" href = "<%= request.getContextPath() %>/registerSelect">회원가입</a>

@@ -9,19 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="storeDetail.css editing (not complete)">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="add getAllStores() with pickNum and scoreAvg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByPick.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByRank.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/bookmark_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/bookmark_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/bookmark_icon_full.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/bookmark_icon_full.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByRank.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByRank.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/topNoneNav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/topNoneNav.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -246,7 +238,7 @@
       <workItem from="1722315707382" duration="11445000" />
       <workItem from="1722384248350" duration="25074000" />
       <workItem from="1722471207668" duration="25254000" />
-      <workItem from="1722557890723" duration="23095000" />
+      <workItem from="1722557890723" duration="28327000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -416,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722505540277</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add getAllStores() with pickNum and scoreAvg">
+      <option name="closed" value="true" />
+      <created>1722584368654</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722584368654</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +457,8 @@
     <MESSAGE value="sort by Pick complete" />
     <MESSAGE value="complete store score avg" />
     <MESSAGE value="storeDetail.css editing (not complete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="storeDetail.css editing (not complete)" />
+    <MESSAGE value="add getAllStores() with pickNum and scoreAvg" />
+    <option name="LAST_COMMIT_MESSAGE" value="add getAllStores() with pickNum and scoreAvg" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
