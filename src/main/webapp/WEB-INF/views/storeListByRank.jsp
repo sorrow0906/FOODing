@@ -12,6 +12,11 @@
 <c:import url="/top.jsp" />
 <section class="content">
     <h1>가게 리스트</h1>
+    <div class="sort-area">
+        <a class="sort-element" id="sort_by_pick">찜 많은순</a>
+        <p class="sort-element">|</p>
+        <a class="sort-element" id="sort_by_score">별점 높은순</a>
+    </div>
     <table class="store-table">
         <thead>
         <tr>
@@ -25,7 +30,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="store" items="${stores}" varStatus="status">
+        <c:forEach var="store" items="${storesByPick}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
                 <td><a href="${pageContext.request.contextPath}/storeDetail?sno=${store.sno}">${store.sname}</a></td>
@@ -77,6 +82,7 @@
         </c:forEach>
         </tbody>
     </table>
+
 </section>
 <c:import url="/bottom.jsp" />
 

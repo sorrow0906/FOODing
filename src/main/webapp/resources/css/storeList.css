@@ -21,7 +21,7 @@ h1 {
 .store-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .store-table th, .store-table td {
@@ -73,4 +73,14 @@ h1 {
 .store-table td:first-child {
     font-weight: bold;
     color: saddlebrown;
+}
+
+.sort-area {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sort-element {
+    margin-left: 5px;
+    margin-bottom: 0;
 }

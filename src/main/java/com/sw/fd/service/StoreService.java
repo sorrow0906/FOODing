@@ -32,7 +32,13 @@ public class StoreService {
     }
 
     public List<Store> getAllStores() {
-        return storeRepository.findAll();
+        List<Store> stores = storeRepository.findAll();
+        List<Store> newStores = new ArrayList<>();
+        for(Store store : stores) {
+            newStores.add(getStoreAllInfo(store.getSno()));
+        }
+
+        return newStores;
     }
 
     public Store getStoreAllInfo(int sno) {

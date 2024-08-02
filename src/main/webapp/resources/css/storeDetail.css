@@ -31,13 +31,13 @@ section {
     object-fit: cover;
     width: 80%;
     height: 140px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 #store-title {
     font-size: 30px;
     font-weight: bolder;
-    margin-bottom: 10px;
+    margin-right: 6px;
 }
 #store-score {
     font-size: 20px;
@@ -45,7 +45,18 @@ section {
     color: #e35a56;
 }
 
+#score-img {
+    width: 18px;
+    margin-right: 2px;
+}
 
+.title-area {
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    align-items: baseline;
+    margin-top: 10px;
+}
 
 .menu-table {
     margin: 0 auto; /* 가운데 정렬을 위한 margin */
@@ -143,6 +154,6 @@ section {
 }
 
 .pickStar {
-    width: 50px;
-    height: 50px;
+    height: 58px;
+    margin-right: 9px;
 }

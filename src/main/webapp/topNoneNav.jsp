@@ -12,9 +12,9 @@
 <header>
     <div class = "header-div">
         <div class = "hello1"></div>
-        <a class = "header1" href = "main">FOOD</a>
-        <a class = "header2" href = "main">ing</a>
-        <a class = "header2" href = "main">
+        <a class = "header1" href = "${pageContext.request.contextPath}/main">FOOD</a>
+        <a class = "header2" href = "${pageContext.request.contextPath}/main">ing</a>
+        <a class = "header2" href = "${pageContext.request.contextPath}/main">
             <img src = "${pageContext.request.contextPath}/resources/images/chefudding.png" width = "100px" height = "100px">
         </a>
         <div class = "hello2">

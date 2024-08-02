@@ -35,13 +35,16 @@
         <div class="store-head">
             <div class="head-elements">
             <a id="star-area" class="star-area"><img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon.png" alt="StarE"/></a>
-            <p id="store-title">${store.sname}</p>
-                <img id="score-img" src="${pageContext.request.contextPath}/resources/images/score_icon.png" width="30" height="30"/>
+            <div class ="title-area">
+                <p id="store-title">${store.sname}</p>
+                <img id="score-img" src="${pageContext.request.contextPath}/resources/images/score_icon.png"/>
                 <c:choose>
                     <c:when test="${store.scoreArg != 0}">
                         <p id="store-score"><fmt:formatNumber value="${store.scoreArg}" pattern="0.0"/>점</p>
                     </c:when>
                 </c:choose>
+                <p>${store.pickNum}</p>
+            </div>
             </div>
             <p id="store-explain">${store.seg}</p>
         </div>

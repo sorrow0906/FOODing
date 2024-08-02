@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -77,13 +78,20 @@ public class StoreController {
         return "storeListByLocation";
     }
 
-    @GetMapping("/storeListByPick")
+    @GetMapping("/storeListByRank")
     public String showStoreListByPick(Model model) {
-        List<Store> stores;
-        stores = storeService.getStoresWithPick();
-        stores.sort(Comparator.comparingInt(Store::getPickNum).reversed());
-        model.addAttribute("stores", stores);
-        return "storeListByPick";
+        List<Store> stores = storeService.getAllStores();
+
+        List<Store> storesByPick = new ArrayList<>(stores);
+        storesByPick.sort(Comparator.comparingInt(Store::getPickNum).reversed());
+
+        List<Store> storesByScore = new ArrayList<>(stores);
+        storesByScore.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
+
+        model.addAttribute("storesByPick", storesByPick);
+        model.addAttribute("storesByScore", storesByScore);
+
+        return "storeListByRank";
     }
 
 }
