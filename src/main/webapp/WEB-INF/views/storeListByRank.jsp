@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +28,16 @@
             <th>주소</th>
             <th>영업시간</th>
             <th>주차장</th>
-            <th id="sort-header">찜</th>
+            <th id="sort-header">
+                <c:choose>
+                    <c:when test="${sortStandard == 'score'}">별점</c:when>
+                    <c:otherwise>찜</c:otherwise>
+                </c:choose>
+            </th>
         </tr>
         </thead>
         <tbody id="store-list">
-        <c:forEach var="store" items="${storesByPick}" varStatus="status">
+        <c:forEach var="store" items="${stores}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
                 <td><a href="${pageContext.request.contextPath}/storeDetail?sno=${store.sno}">${store.sname}</a></td>
@@ -78,7 +84,12 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td class="sort-value">${store.pickNum}</td>
+                <td class="sort-value">
+                    <c:choose>
+                        <c:when test="${sortStandard == 'score'}"><fmt:formatNumber value="${store.scoreArg}" pattern="0.0"/>점</c:when>
+                        <c:otherwise>${store.pickNum}</c:otherwise>
+                    </c:choose>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -94,30 +105,13 @@
                 type: 'GET',
                 data: { sortBy: sortBy },
                 success: function(response) {
-                    var stores = $(response).find('#store-list').html();
-                    $('#store-list').html(stores);
-                    updateSortHeader(sortBy);
+                    $('#store-list').html($(response).find('#store-list').html());
+                    $('#sort-header').html($(response).find('#sort-header').html());
                 },
                 error: function(xhr, status, error) {
                     console.log('Error loading stores:', status, error);
                 }
             });
-        }
-
-        function updateSortHeader(sortBy) {
-            if (sortBy === 'score') {
-                $('#sort-header').text('별점');
-                $('.sort-value').each(function() {
-                    var score = $(this).data('score');
-                    $(this).text(score);
-                });
-            } else {
-                $('#sort-header').text('찜');
-                $('.sort-value').each(function() {
-                    var pickNum = $(this).data('picknum');
-                    $(this).text(pickNum);
-                });
-            }
         }
 
         $('#sort_by_pick').click(function(event) {
