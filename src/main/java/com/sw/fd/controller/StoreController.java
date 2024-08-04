@@ -2,6 +2,7 @@ package com.sw.fd.controller;
 
 import com.sw.fd.entity.Menu;
 import com.sw.fd.entity.Store;
+import com.sw.fd.service.LocationService;
 import com.sw.fd.service.MenuService;
 import com.sw.fd.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class StoreController {
     private StoreService storeService;
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private LocationService locationService;
 
     private static final double DEFAULT_LAT = 35.8799906; // 대구광역시 동구 동부로 121의 위도
     private static final double DEFAULT_LON = 128.6286206; // 대구광역시 동구 동부로 121의 경도
@@ -78,21 +81,10 @@ public class StoreController {
         return "storeListByLocation";
     }
 
+
     @GetMapping("/storeListByRank")
     public String showStoreListByPick(@RequestParam(value = "sortBy", required = false) String sortBy, Model model) {
         List<Store> stores = storeService.getAllStores();
-
-/*        List<Store> storesByPick = new ArrayList<>(stores);
-        storesByPick.sort(Comparator.comparingInt(Store::getPickNum).reversed());
-
-        List<Store> storesByScore = new ArrayList<>(stores);
-        storesByScore.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
-
-        if ("score".equals(sortBy)) {
-            model.addAttribute("storesByPick", storesByScore);
-        } else {
-            model.addAttribute("storesByPick", storesByPick);
-        }*/
 
         if ("score".equals(sortBy)) {
             stores.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
