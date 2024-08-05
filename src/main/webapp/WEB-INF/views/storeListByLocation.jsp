@@ -16,6 +16,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/nav_hover.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc442228556bbf4d02c4a71483482345"></script>
     <script>
+
         function getLocationAndSubmit() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -35,6 +36,7 @@
 <c:import url="/top.jsp" />
 <section class="content">
     <h1>위치별 가게 리스트</h1>
+    <p>현재 위치: ${nowAddr}</p>
     <form id="storeListByLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
         <input type="hidden" id="userLat" name="userLat" value="${defaultLat}" />
         <input type="hidden" id="userLon" name="userLon" value="${defaultLon}" />

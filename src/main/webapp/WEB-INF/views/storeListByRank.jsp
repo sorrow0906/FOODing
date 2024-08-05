@@ -13,7 +13,7 @@
 <body>
 <c:import url="/top.jsp" />
 <section class="content">
-    <h1>가게 리스트</h1>
+    <h1>순위별 가게 리스트</h1>
     <div class="sort-area">
         <a class="sort-element" id="sort_by_pick" href="#">찜 많은순</a>
         <p class="sort-element">|</p>

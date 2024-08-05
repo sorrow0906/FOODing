@@ -26,6 +26,7 @@ public class StoreController {
     @Autowired
     private LocationService locationService;
 
+    private static final String DEFAULT_ARRD = "대구광역시 동구 동부로 121";
     private static final double DEFAULT_LAT = 35.8799906; // 대구광역시 동구 동부로 121의 위도
     private static final double DEFAULT_LON = 128.6286206; // 대구광역시 동구 동부로 121의 경도
 
@@ -62,12 +63,13 @@ public class StoreController {
     public String showStoreListByLocation(
             @RequestParam(value = "userLat", required = false) Double userLat,
             @RequestParam(value = "userLon", required = false) Double userLon,
-            Model model) {
+            Model model) throws Exception {
 
         if (userLat == null || userLon == null) {
             userLat = DEFAULT_LAT;
             userLon = DEFAULT_LON;
         }
+        String userAddr = LocationService.getAddr(userLat, userLon);
 
         List<Store> stores = storeService.getNearbyStores(userLat, userLon);
         stores.sort(Comparator.comparingDouble(Store::getDistance));
@@ -75,7 +77,9 @@ public class StoreController {
             System.out.println(store.getSname() + "의 거리는 " + store.getDistance());
         }
 
+
         model.addAttribute("stores", stores);
+        model.addAttribute("nowAddr", userAddr);
         model.addAttribute("defaultLat", DEFAULT_LAT);
         model.addAttribute("defaultLon", DEFAULT_LON);
         return "storeListByLocation";
