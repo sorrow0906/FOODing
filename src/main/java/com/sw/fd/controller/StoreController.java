@@ -75,7 +75,6 @@ public class StoreController {
             double[] coordinates = locationService.getCoordinates(inputAddr);
             userLat = coordinates[0];
             userLon = coordinates[1];
-            System.out.println("else if (userLat == null || userLon == null || inputAddr != null) 로 들어옴!!");
         }
 
         if(inputAddr == null)
@@ -83,9 +82,10 @@ public class StoreController {
 
         List<Store> stores = storeService.getNearbyStores(userLat, userLon);
         stores.sort(Comparator.comparingDouble(Store::getDistance));
-        for (Store store : stores) {
+
+/*        for (Store store : stores) {
             System.out.println(store.getSname() + "의 거리는 " + store.getDistance());
-        }
+        }*/
 
 
         model.addAttribute("stores", stores);
