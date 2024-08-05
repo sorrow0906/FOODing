@@ -35,6 +35,7 @@ public class Member {
     private String memail;
     private String maddr;
     private LocalDate mdate;
+/*    private int mwarning;*/
 
     @PrePersist
     protected void onCreate() {

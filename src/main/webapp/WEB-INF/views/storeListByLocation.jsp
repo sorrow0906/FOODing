@@ -14,8 +14,29 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeList.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/nav_hover.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc442228556bbf4d02c4a71483482345"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bc442228556bbf4d02c4a71483482345&libraries=services"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
+        function sample5_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    var addr = data.address; // 최종 주소 변수
+
+                    // 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById("inputAddr").value = addr;
+                }
+            }).open();
+        }
+
+        function validateAndSubmitForm() {
+            var addr = document.getElementById("inputAddr").value;
+            if (addr.trim() === "") {
+                alert("주소를 입력하세요.");
+            } else {
+                document.getElementById("inputLocationForm").submit();
+            }
+        }
+
 
         function getLocationAndSubmit() {
             if (navigator.geolocation) {
@@ -24,7 +45,7 @@
                     var lon = position.coords.longitude;
                     document.getElementById('userLat').value = lat;
                     document.getElementById('userLon').value = lon;
-                    document.getElementById('storeListByLocationForm').submit();
+                    document.getElementById('userLocationForm').submit();
                 });
             } else {
                 alert("Geolocation is not supported by this browser.");
@@ -37,10 +58,15 @@
 <section class="content">
     <h1>위치별 가게 리스트</h1>
     <p>현재 위치: ${nowAddr}</p>
-    <form id="storeListByLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
+    <form id="inputLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
+        <input type="text" id="inputAddr" name="inputAddr" placeholder="주소"/>
+        <button type="button" onclick="sample5_execDaumPostcode()">주소 검색</button>
+        <button type="button" onclick="validateAndSubmitForm()">입력 위치로 찾기</button>
+    </form>
+    <form id="userLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
         <input type="hidden" id="userLat" name="userLat" value="${defaultLat}" />
         <input type="hidden" id="userLon" name="userLon" value="${defaultLon}" />
-        <button type="button" onclick="getLocationAndSubmit()">현재 위치로 검색</button>
+        <button type="button" onclick="getLocationAndSubmit()">현재 위치로 찾기</button>
     </form>
     <table class="store-table">
         <thead>

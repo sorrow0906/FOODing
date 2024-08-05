@@ -63,13 +63,23 @@ public class StoreController {
     public String showStoreListByLocation(
             @RequestParam(value = "userLat", required = false) Double userLat,
             @RequestParam(value = "userLon", required = false) Double userLon,
+            @RequestParam(value = "inputAddr", required = false) String inputAddr,
             Model model) throws Exception {
 
+        System.out.println("inputAddr = "+ inputAddr);
         if (userLat == null || userLon == null) {
             userLat = DEFAULT_LAT;
             userLon = DEFAULT_LON;
         }
-        String userAddr = LocationService.getAddr(userLat, userLon);
+        if (inputAddr != null) {
+            double[] coordinates = locationService.getCoordinates(inputAddr);
+            userLat = coordinates[0];
+            userLon = coordinates[1];
+            System.out.println("else if (userLat == null || userLon == null || inputAddr != null) 로 들어옴!!");
+        }
+
+        if(inputAddr == null)
+            inputAddr = LocationService.getAddr(userLat, userLon);
 
         List<Store> stores = storeService.getNearbyStores(userLat, userLon);
         stores.sort(Comparator.comparingDouble(Store::getDistance));
@@ -79,7 +89,7 @@ public class StoreController {
 
 
         model.addAttribute("stores", stores);
-        model.addAttribute("nowAddr", userAddr);
+        model.addAttribute("nowAddr", inputAddr);
         model.addAttribute("defaultLat", DEFAULT_LAT);
         model.addAttribute("defaultLon", DEFAULT_LON);
         return "storeListByLocation";
