@@ -6,36 +6,33 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "join_t")
+@Table(name = "report_t")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberGroup {
+public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "jno")
-    private int jno;
+    private int rpno;
 
     @ManyToOne
-    @JoinColumn(name = "gno", nullable = false)
-    private Group group;
+    @JoinColumn(name = "rno", nullable = false)
+    private Review review;
 
     @ManyToOne
     @JoinColumn(name = "mno", nullable = false)
     private Member member;
 
-    @Column(name = "jauth")
-    private int jauth;
+    @Column(name = "rptype", nullable = false)
+    private int rptype;
 
-    // 새로 추가된 부분
-    @Column(name = "jdate", nullable = false)
-    private LocalDateTime jdate;
+    @Column(name = "rpdate", nullable = false)
+    private LocalDate rpdate;
 
     @PrePersist
     protected void onCreate() {
-        jdate = LocalDateTime.now();
+        rpdate = LocalDate.now();
     }
 }

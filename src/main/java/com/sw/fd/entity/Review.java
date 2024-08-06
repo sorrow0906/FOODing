@@ -6,9 +6,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "review_t") // 데이터베이스 테이블과 매핑
+@Table(name = "review_t")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,19 +20,28 @@ public class Review {
     private int rno;
 
     @ManyToOne
-    @JoinColumn(name = "mno")
+    @JoinColumn(name = "mno", nullable = false)
     private Member member;
 
-
     @ManyToOne
-    @JoinColumn(name = "sno")
+    @JoinColumn(name = "sno", nullable = false)
     private Store store;
 
     private int rstar;
     private String rcomm;
-    private LocalDate rdate;
+    private LocalDateTime rdate;
+
+    @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
+    private List<ReviewTag> reviewTags;
+
+    @Transient
+    private List<Tag> tags;
+
+    @Transient
+    private String dateToString;
 
     @PrePersist
-    protected void onCreate() { rdate = LocalDate.now(); }
-
+    protected void onCreate() {
+        rdate = LocalDateTime.now();
+    }
 }

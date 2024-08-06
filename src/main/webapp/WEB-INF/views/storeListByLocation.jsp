@@ -64,12 +64,10 @@
         <button class="location-btn" type="button" onclick="sample5_execDaumPostcode()">주소 찾기</button>
         <button class="location-btn" type="button" onclick="validateAndSubmitForm()">해당 주소로 검색</button>
     </form>
-    </div>
-    <div class="location-set">
     <form id="userLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
         <input type="hidden" id="userLat" name="userLat" value="${defaultLat}" />
         <input type="hidden" id="userLon" name="userLon" value="${defaultLon}" />
-        <button class="location-btn" type="button" onclick="getLocationAndSubmit()">내 위치로 검색</button>
+        <button id="now-location-btn" class="location-btn" type="button" onclick="getLocationAndSubmit()">내 위치로 검색</button>
     </form>
     </div>
     <table class="store-table">

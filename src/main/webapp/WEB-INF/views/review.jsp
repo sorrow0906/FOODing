@@ -30,7 +30,7 @@
             <c:forEach var="review" items="${reviews}">
                 <div class="review-container">
                     <div class="review-item review-item-left"><strong>${review.member.mnick}</strong></div>
-                    <div class="review-item review-item-right">${review.rdate}</div>
+                    <div class="review-item review-item-right">${review.dateToString}</div>
                     <div class="review-item review-item-left" style="top: 30px;">
                         <span class="star-rating">
                             <c:forEach begin="${review.rstar + 1}" end="5" var="i">☆</c:forEach>

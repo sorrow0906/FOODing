@@ -1,21 +1,21 @@
 package com.sw.fd.controller;
 
-import com.sw.fd.entity.Member;
-import com.sw.fd.entity.Review;
-import com.sw.fd.entity.Store;
+import com.sw.fd.entity.*;
 import com.sw.fd.service.MemberService;
 import com.sw.fd.service.ReviewService;
 import com.sw.fd.service.StoreService;
+import com.sw.fd.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.zip.CheckedOutputStream;
 
 @Controller
 public class ReviewController {
@@ -27,23 +27,38 @@ public class ReviewController {
     private StoreService storeService;
 
     @Autowired
+    private TagService tagService;
+
+    @Autowired
     private MemberService memberService;
 
     @GetMapping("/review")
     public String review(@RequestParam("sno") int sno, Model model) {
-
         List<Review> reviews = reviewService.getReviewsBySno(sno);
         Store store = storeService.getStoreById(sno);
+        List<Tag> allTags = tagService.getAllTags();
+
+        for (Review review : reviews){
+            review.setDateToString(review.getRdate().format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일")));
+            /*System.out.println("dateToString = " + review.getDateToString());*/
+        }
+        // 작성된 리뷰에 태그를 띄워줌
+        for (Review review : reviews) {
+            List<Tag> tags = tagService.getTagsByRno(review.getRno());
+            review.setTags(tags);
+        }
+
         model.addAttribute("reviews", reviews);
         model.addAttribute("review", new Review()); // 모델에 빈 Review 객체 추가
-        model.addAttribute("sno", sno); // sno도 모델에 추가
-        model.addAttribute("store", store); // 가게 정보도 모델에 추가
-        model.addAttribute("isEmpty", reviews.isEmpty());
+        model.addAttribute("sno", sno);
+        model.addAttribute("store", store);
+        model.addAttribute("isEmpty", reviews.isEmpty()); // 작성된 리뷰가 존재하는지 확인
+        model.addAttribute("tags", allTags);
         return "review";
     }
 
     @PostMapping("/review")
-    public String addReview(@ModelAttribute Review review, @RequestParam("sno") int sno, HttpSession session) {
+    public String addReview(@ModelAttribute Review review, @RequestParam("sno") int sno, @RequestParam("tnos") List<Integer> tnos, HttpSession session) {
         Member member = (Member) session.getAttribute("loggedInMember");
 
         if (member == null) {
@@ -63,7 +78,16 @@ public class ReviewController {
         review.setStore(store); // Store 객체 설정
 
         // 리뷰를 DB에 저장
-        reviewService.saveReview(review);
+        Review savedReview = reviewService.saveReview(review);
+
+        // 선택된 태그를 ReviewTag로 변환하여 저장
+        for (Integer tno : tnos) {
+            Tag tag = tagService.getTagByTno(tno);
+            ReviewTag reviewTag = new ReviewTag();
+            reviewTag.setReview(savedReview);
+            reviewTag.setTag(tag);
+            tagService.saveReviewTag(reviewTag); // 각 태그를 저장
+        }
 
         // 리뷰 저장 후 해당 가게의 리뷰 페이지로 리다이렉션
         return "redirect:/storeDetail?sno=" + sno; // 여기가 storeDetail로 가야함
@@ -85,4 +109,86 @@ public class ReviewController {
 
         return "myReviews"; // 내가 쓴 리뷰 목록을 보여주는 JSP 파일명
     }
+
+    @PostMapping("/review/delete")
+    public String deleteReview(@RequestParam("rno") int rno, HttpSession session) {
+        Member loggedInMember = (Member) session.getAttribute("loggedInMember");
+
+        Review review = reviewService.getReviewByRno(rno);
+
+        // 리뷰 삭제
+        reviewService.deleteReviewByRno(rno);
+
+        // 리뷰 삭제 후 해당 가게의 리뷰 페이지로 리다이렉션
+        return "redirect:/storeDetail?sno=" + review.getStore().getSno();
+    }
+
+    // 수정 폼을 표시하는 GET 요청
+    @GetMapping("/review/edit")
+    public String editReviewForm(@RequestParam("rno") int rno, Model model, HttpSession session) {
+        Member loggedInMember = (Member) session.getAttribute("loggedInMember");
+
+        if (loggedInMember == null) {
+            System.out.println("로그인된 회원 정보가 없습니다.");
+            return "error";
+        }
+
+        Review review = reviewService.getReviewByRno(rno);
+        if (review == null || review.getMember().getMno() != loggedInMember.getMno()) {
+            System.out.println("리뷰가 없거나 작성자가 아닙니다. 리뷰 번호: " + rno);
+            return "error";
+        }
+
+        List<Tag> tags = tagService.getAllTags(); // 태그 리스트를 가져옴
+        model.addAttribute("tags", tags);
+        model.addAttribute("review", review);
+        return "editReview"; // editReview.jsp 파일로 반환
+    }
+
+    @PostMapping("/review/update")
+    @ResponseBody
+    public Map<String, String> updateReview(@ModelAttribute Review review, @RequestParam("tnos") List<Integer> tnos, HttpSession session) {
+        Map<String, String> response = new HashMap<>();
+        Member loggedInMember = (Member) session.getAttribute("loggedInMember");
+
+        if (loggedInMember == null) {
+            response.put("status", "error");
+            response.put("message", "로그인된 회원 정보가 없습니다.");
+            return response;
+        }
+
+        Review existingReview = reviewService.getReviewByRno(review.getRno());
+        if (existingReview == null || existingReview.getMember().getMno() != loggedInMember.getMno()) {
+            response.put("status", "error");
+            response.put("message", "리뷰가 없거나 작성자가 아닙니다.");
+            return response;
+        }
+
+        try {
+            existingReview.setRstar(review.getRstar());
+            existingReview.setRcomm(review.getRcomm());
+
+            reviewService.deleteReviewTags(existingReview);
+
+            for (Integer tno : tnos) {
+                Tag tag = tagService.getTagByTno(tno);
+                ReviewTag reviewTag = new ReviewTag();
+                reviewTag.setReview(existingReview);
+                reviewTag.setTag(tag);
+                tagService.saveReviewTag(reviewTag);
+            }
+
+            reviewService.saveReview(existingReview);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.put("status", "error");
+            response.put("message", "리뷰 업데이트 중 오류 발생: " + e.getMessage());
+            return response;
+        }
+
+        response.put("status", "success");
+        response.put("message", "리뷰가 성공적으로 업데이트되었습니다.");
+        return response;
+    }
+
 }
