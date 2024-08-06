@@ -56,7 +56,7 @@ public class StoreController {
         List<Menu> menus = menuService.getMenuBySno(sno);
         model.addAttribute("store", store);
         model.addAttribute("menus", menus);
-        return "storeInfo"; // storeInfo.jsp로 포워드
+        return "storeInfo";
     }
 
     @GetMapping("/storeListByLocation")
