@@ -17,4 +17,7 @@ public interface ReviewTagRepository extends JpaRepository<ReviewTag, Integer> {
     @Transactional
     @Query("DELETE FROM ReviewTag rt WHERE rt.review = :review")
     void deleteTags(@Param("review") Review review);
+
+    //store 대표태그 기능을 위해 추가한 부분
+    List<ReviewTag> findByReview_Store_Sno(int sno);
 }
