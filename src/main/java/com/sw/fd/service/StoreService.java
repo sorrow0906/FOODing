@@ -35,14 +35,13 @@ public class StoreService {
     @Transactional
     public void saveStore(Store store) {
         storeRepository.save(store);
-        updateStoreTags(store);
+/*        updateStoreTags(store);*/
     }
 
-    @Transactional
-    public void updateStoreTags(Store store) {
+   /* public void updateStoreTags(Store store) {
         List<ReviewTag> reviewTags = reviewTagRepository.findByReview_Store_Sno(store.getSno());
 
-        /*for (ReviewTag reviewTag : reviewTags) {
+        for (ReviewTag reviewTag : reviewTags) {
             System.out.println(reviewTag.getReview().getStore().getSno() + "에 대한 리뷰 태그: " + reviewTag.getTag());
         }
 
@@ -65,10 +64,9 @@ public class StoreService {
             storeTag.setTag(tag);
             storeTag.setTCount(entry.getValue().intValue());
             storeTagRepository.save(storeTag);
-        }*/
+        }
     }
-
-
+*/
 
     public List<Store> getAllStores() {
         List<Store> stores = storeRepository.findAll();
@@ -83,7 +81,7 @@ public class StoreService {
     public Store getStoreAllInfo(int sno) {
         Store store = storeRepository.findBySno(sno).orElse(null);
         if (store != null) {
-            updateStoreTags(store);
+/*            updateStoreTags(store);*/
 
             // 별점 평균 계산
             Double averageScore = reviewRepository.findAverageScoreBySno(sno);
@@ -139,7 +137,5 @@ public class StoreService {
         }
         return stores;
     }
-
-
 
 }
