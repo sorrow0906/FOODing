@@ -43,8 +43,7 @@ public class StoreService {
     public void updateStoreTags(Store store) {
         List<ReviewTag> reviewTags = reviewTagRepository.findByReview_Store_Sno(store.getSno());
 
-        if (!reviewTags.isEmpty()) {
-            System.out.println("sno =" + store.getSno()+ "의 리뷰태그가 존재합니다 ");
+        if (reviewTags.isEmpty()) {
             return;
         }
 
@@ -78,6 +77,7 @@ public class StoreService {
             }
             storeTagRepository.save(storeTag);
         }
+        System.out.println("updateStoreTags 동작 완료");
     }
 
     public List<Store> getAllStores() {
