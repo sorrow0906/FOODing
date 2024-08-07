@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface StoreTagRepository extends JpaRepository<StoreTag, Integer> {
     List<StoreTag> findByStore_SnoAndTag_Tno(int sno, int tno);
+
+    List<StoreTag> findByStore_Sno(int sno);
 }

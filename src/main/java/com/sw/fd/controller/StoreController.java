@@ -2,6 +2,7 @@ package com.sw.fd.controller;
 
 import com.sw.fd.entity.Menu;
 import com.sw.fd.entity.Store;
+import com.sw.fd.entity.StoreTag;
 import com.sw.fd.service.LocationService;
 import com.sw.fd.service.MenuService;
 import com.sw.fd.service.StoreService;
@@ -47,6 +48,11 @@ public class StoreController {
     public String storeDetail(@RequestParam("sno") int sno, Model model) {
         Store store = storeService.getStoreAllInfo(sno);
         List<Menu> menus = menuService.getMenuBySno(sno);
+        List<StoreTag> storeTags = storeService.getStoreTagsByStoreSno(sno);
+        System.out.println("<s" + sno + "가게의 태그수>");
+        for(StoreTag storeTag : storeTags) {
+            System.out.println(storeTag.getTag().getTtag() +"의 수: " + storeTag.getTCount());
+        }
         model.addAttribute("store", store);
         model.addAttribute("menus", menus);
         return "storeDetail";

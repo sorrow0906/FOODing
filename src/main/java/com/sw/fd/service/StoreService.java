@@ -40,6 +40,11 @@ public class StoreService {
         updateStoreTags(store);
     }
 
+    public List<StoreTag> getStoreTagsByStoreSno(int sno) {
+        return storeTagRepository.findByStore_Sno(sno);
+    }
+
+    @Transactional
     public void updateStoreTags(Store store) {
         List<ReviewTag> reviewTags = reviewTagRepository.findByReview_Store_Sno(store.getSno());
 
