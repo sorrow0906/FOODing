@@ -34,6 +34,9 @@ public class StoreService {
     @Autowired
     private LocationService locationService;
 
+    @Autowired
+    private TagRepository tagRepository;
+
     public void saveStore(Store store) {
         System.out.println("saveStore에 진입");
         storeRepository.save(store);
@@ -54,31 +57,25 @@ public class StoreService {
 
         Map<Integer, Long> tagCountMap = new HashMap<>();
         for (ReviewTag reviewTag : reviewTags) {
-            reviewTag.getReview().getStore().getSno();
-            reviewTag.getTag().getTno();
-
             int tno = reviewTag.getTag().getTno();
-            Long count = tagCountMap.get(tno);
-            if (count == null) {
-                tagCountMap.put(tno, 1L);
-            } else {
-                tagCountMap.put(tno, count + 1);
-            }
+            tagCountMap.put(tno, tagCountMap.getOrDefault(tno, 0L) + 1);
         }
 
         for (Map.Entry<Integer, Long> entry : tagCountMap.entrySet()) {
-            List<StoreTag> storeTags = storeTagRepository.findByStore_SnoAndTag_Tno(store.getSno(), entry.getKey());
+            int tno = entry.getKey();
+            Long count = entry.getValue();
+
+            List<StoreTag> storeTags = storeTagRepository.findByStore_SnoAndTag_Tno(store.getSno(), tno);
             StoreTag storeTag;
             if (storeTags.isEmpty()) {
                 storeTag = new StoreTag();
                 storeTag.setStore(store);
-                Tag tag = new Tag();
-                tag.setTno(entry.getKey());
+                Tag tag = tagRepository.findByTno(tno);
                 storeTag.setTag(tag);
-                storeTag.setTCount(entry.getValue().intValue());
+                storeTag.setTCount(count.intValue());
             } else {
                 storeTag = storeTags.get(0);
-                storeTag.setTCount(entry.getValue().intValue());
+                storeTag.setTCount(storeTag.getTCount() + count.intValue());
             }
             storeTagRepository.save(storeTag);
         }

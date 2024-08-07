@@ -55,6 +55,7 @@ public class StoreController {
         }
         model.addAttribute("store", store);
         model.addAttribute("menus", menus);
+        model.addAttribute("storeTags", storeTags);
         return "storeDetail";
     }
 
