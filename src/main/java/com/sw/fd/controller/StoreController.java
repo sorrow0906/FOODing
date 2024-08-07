@@ -7,17 +7,17 @@ import com.sw.fd.service.MenuService;
 import com.sw.fd.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-@RestController
+@Controller
 public class StoreController {
 
     @Autowired
@@ -32,6 +32,7 @@ public class StoreController {
     private static final double DEFAULT_LON = 128.6286206; // 대구광역시 동구 동부로 121의 경도
 
     @GetMapping("/storeList")
+    @Transactional
     public String showStoreList(@RequestParam(value = "scate", required = false) String scate, Model model) {
         List<Store> stores;
         if (scate != null && !scate.isEmpty()) {
@@ -44,6 +45,7 @@ public class StoreController {
     }
 
     @GetMapping("/storeDetail")
+    @Transactional
     public String storeDetail(@RequestParam("sno") int sno, Model model) {
         Store store = storeService.getStoreAllInfo(sno);
         List<Menu> menus = menuService.getMenuBySno(sno);
@@ -51,7 +53,9 @@ public class StoreController {
         model.addAttribute("menus", menus);
         return "storeDetail";
     }
+
     @GetMapping("/storeInfo")
+    @Transactional
     public String storeInfo(@RequestParam("sno") int sno, Model model) {
         Store store = storeService.getStoreById(sno);
         List<Menu> menus = menuService.getMenuBySno(sno);
@@ -61,6 +65,7 @@ public class StoreController {
     }
 
     @GetMapping("/storeListByLocation")
+    @Transactional
     public String showStoreListByLocation(
             @RequestParam(value = "userLat", required = false) Double userLat,
             @RequestParam(value = "userLon", required = false) Double userLon,
@@ -98,6 +103,7 @@ public class StoreController {
 
 
     @GetMapping("/storeListByRank")
+    @Transactional
     public String showStoreListByPick(@RequestParam(value = "sortBy", required = false) String sortBy, Model model) {
         List<Store> stores = storeService.getAllStores();
 

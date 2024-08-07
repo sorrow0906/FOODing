@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="storeTag 관련 클래스 추가 StoreService 수정중">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="롤백용으로 파일 수정(updateStoreTags 부분을 모두 주석처리)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewTagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/ReviewTagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreTagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreTagRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +245,7 @@
       <workItem from="1722471207668" duration="25254000" />
       <workItem from="1722557890723" duration="28327000" />
       <workItem from="1722903510540" duration="31141000" />
-      <workItem from="1722993217939" duration="3859000" />
+      <workItem from="1722993217939" duration="7522000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -469,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722937522479</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="롤백용으로 파일 수정(updateStoreTags 부분을 모두 주석처리)">
+      <option name="closed" value="true" />
+      <created>1722997161991</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1722997161991</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +500,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Success modify DB entity" />
     <MESSAGE value="complete menu table pasing" />
     <MESSAGE value="after separate css and add kakao map api" />
     <MESSAGE value="add menu and map to storeDetail.jsp" />
@@ -515,7 +524,8 @@
     <MESSAGE value="DB 테이블 새로 갱신하기 전" />
     <MESSAGE value="DB 수정 및 갱신된 review 파트 추가 그리고 위치별 정렬 완료" />
     <MESSAGE value="storeTag 관련 클래스 추가 StoreService 수정중" />
-    <option name="LAST_COMMIT_MESSAGE" value="storeTag 관련 클래스 추가 StoreService 수정중" />
+    <MESSAGE value="롤백용으로 파일 수정(updateStoreTags 부분을 모두 주석처리)" />
+    <option name="LAST_COMMIT_MESSAGE" value="롤백용으로 파일 수정(updateStoreTags 부분을 모두 주석처리)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -9,15 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class StoreService {
     @Autowired
-    private LocationService locationService;
+    private StoreRepository storeRepository;
 
     @Autowired
-    private StoreRepository storeRepository;
+    private ReviewTagRepository reviewTagRepository;
+
+    @Autowired
+    private StoreTagRepository storeTagRepository;
 
     @Autowired
     private ReviewRepository reviewRepository;
@@ -26,27 +32,27 @@ public class StoreService {
     private PickRepository pickRepository;
 
     @Autowired
-    private ReviewTagRepository reviewTagRepository;
+    private LocationService locationService;
 
-    @Autowired
-    private StoreTagRepository storeTagRepository;
-
-
-    @Transactional
     public void saveStore(Store store) {
+        System.out.println("saveStore에 진입");
         storeRepository.save(store);
-/*        updateStoreTags(store);*/
+        updateStoreTags(store);
     }
 
-   /* public void updateStoreTags(Store store) {
+    public void updateStoreTags(Store store) {
         List<ReviewTag> reviewTags = reviewTagRepository.findByReview_Store_Sno(store.getSno());
 
-        for (ReviewTag reviewTag : reviewTags) {
-            System.out.println(reviewTag.getReview().getStore().getSno() + "에 대한 리뷰 태그: " + reviewTag.getTag());
+        if (!reviewTags.isEmpty()) {
+            System.out.println("sno =" + store.getSno()+ "의 리뷰태그가 존재합니다 ");
+            return;
         }
 
         Map<Integer, Long> tagCountMap = new HashMap<>();
         for (ReviewTag reviewTag : reviewTags) {
+            reviewTag.getReview().getStore().getSno();
+            reviewTag.getTag().getTno();
+
             int tno = reviewTag.getTag().getTno();
             Long count = tagCountMap.get(tno);
             if (count == null) {
@@ -57,31 +63,37 @@ public class StoreService {
         }
 
         for (Map.Entry<Integer, Long> entry : tagCountMap.entrySet()) {
-            StoreTag storeTag = new StoreTag();
-            storeTag.setStore(store);
-            Tag tag = new Tag();
-            tag.setTno(entry.getKey());
-            storeTag.setTag(tag);
-            storeTag.setTCount(entry.getValue().intValue());
+            List<StoreTag> storeTags = storeTagRepository.findByStore_SnoAndTag_Tno(store.getSno(), entry.getKey());
+            StoreTag storeTag;
+            if (storeTags.isEmpty()) {
+                storeTag = new StoreTag();
+                storeTag.setStore(store);
+                Tag tag = new Tag();
+                tag.setTno(entry.getKey());
+                storeTag.setTag(tag);
+                storeTag.setTCount(entry.getValue().intValue());
+            } else {
+                storeTag = storeTags.get(0);
+                storeTag.setTCount(entry.getValue().intValue());
+            }
             storeTagRepository.save(storeTag);
         }
     }
-*/
 
     public List<Store> getAllStores() {
+        System.out.println("getAllStores에 진입");
         List<Store> stores = storeRepository.findAll();
-        List<Store> newStores = new ArrayList<>();
-        for(Store store : stores) {
-            newStores.add(getStoreAllInfo(store.getSno()));
+        for (Store store : stores) {
+            updateStoreTags(store);
         }
-
-        return newStores;
+        return stores;
     }
 
     public Store getStoreAllInfo(int sno) {
+        System.out.println("getStoreAllInfo에 진입");
         Store store = storeRepository.findBySno(sno).orElse(null);
         if (store != null) {
-/*            updateStoreTags(store);*/
+            updateStoreTags(store);
 
             // 별점 평균 계산
             Double averageScore = reviewRepository.findAverageScoreBySno(sno);
@@ -96,11 +108,21 @@ public class StoreService {
     }
 
     public Store getStoreById(int sno) {
-        return storeRepository.findBySno(sno).orElse(null);
+        System.out.println("getStoreById에 진입");
+        Store store = storeRepository.findBySno(sno).orElse(null);
+        if (store != null) {
+            updateStoreTags(store);
+        }
+        return store;
     }
 
     public List<Store> getStoresByCategory(String scate) {
-        return storeRepository.findByScate(scate);
+        System.out.println("getStoresByCategory에 진입");
+        List<Store> stores = storeRepository.findByScate(scate);
+        for (Store store : stores) {
+            updateStoreTags(store);
+        }
+        return stores;
     }
 
     public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
@@ -122,20 +144,11 @@ public class StoreService {
             double[] coordinates = locationService.getCoordinates(store.getSaddr());
             double distance = calculateDistance(userLat, userLon, coordinates[0], coordinates[1]);
             if (distance <= 2) {
-                store.setDistance(distance); //거리 저장하는 부분
+                store.setDistance(distance); // 거리 저장하는 부분
                 nearbyStores.add(store);
             }
         }
         return nearbyStores;
-    }
-
-    public List<Store> getStoresWithPick() {
-        List<Store> stores = storeRepository.findAll();
-        for (Store store : stores) {
-            int pickNum = pickRepository.countBySno(store.getSno());
-            store.setPickNum(pickNum);
-        }
-        return stores;
     }
 
 }
