@@ -63,23 +63,28 @@ public class StoreService {
 
         for (Map.Entry<Integer, Long> entry : tagCountMap.entrySet()) {
             int tno = entry.getKey();
-            Long count = entry.getValue();
+            long count = entry.getValue();
 
             List<StoreTag> storeTags = storeTagRepository.findByStore_SnoAndTag_Tno(store.getSno(), tno);
             StoreTag storeTag;
+
             if (storeTags.isEmpty()) {
                 storeTag = new StoreTag();
                 storeTag.setStore(store);
                 Tag tag = tagRepository.findByTno(tno);
                 storeTag.setTag(tag);
-                storeTag.setTCount(count.intValue());
+                storeTag.setTCount((int) count);
             } else {
                 storeTag = storeTags.get(0);
-                storeTag.setTCount(storeTag.getTCount() + count.intValue());
+                /*System.out.println("값 갱신전: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTCount());*/
+                storeTag.setTCount((int) count);
+                /*System.out.println("값 갱신후: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTCount());*/
             }
+
             storeTagRepository.save(storeTag);
         }
-        System.out.println("updateStoreTags 동작 완료");
+
+        /*System.out.println("updateStoreTags 동작 완료");*/
     }
 
     public List<Store> getAllStores() {
