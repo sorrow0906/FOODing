@@ -34,9 +34,9 @@
                     <input class="button" type="submit" value="로그인">
                 </div>
                 <div class="find-links">
-                    <a href="${pageContext.request.contextPath}/find-id">회원ID 찾기</a>
+                    <a href="${pageContext.request.contextPath}/findID">회원ID 찾기</a>
                     <span>|</span>
-                    <a href="${pageContext.request.contextPath}/find-pass">비밀번호 찾기</a>
+                    <a href="${pageContext.request.contextPath}/findPass_IdAuth">비밀번호 찾기</a>
                 </div>
             </form>
         </div>

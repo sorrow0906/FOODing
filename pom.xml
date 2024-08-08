@@ -118,6 +118,18 @@
       <artifactId>json</artifactId>
       <version>20220320</version>
     </dependency>
+
+    <!-- 이메일(정희씨) -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>4.3.29.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.6.2</version>
+    </dependency>
   </dependencies>
 
   <build>
