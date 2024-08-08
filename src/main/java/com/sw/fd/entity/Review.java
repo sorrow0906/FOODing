@@ -7,10 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "review_t")
+@Table(name = "review_t") // 데이터베이스 테이블과 매핑
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,11 +23,12 @@ public class Review {
     private int rno;
 
     @ManyToOne
-    @JoinColumn(name = "mno", nullable = false)
+    @JoinColumn(name = "mno")
     private Member member;
 
+
     @ManyToOne
-    @JoinColumn(name = "sno", nullable = false)
+    @JoinColumn(name = "sno")
     private Store store;
 
     private int rstar;
@@ -43,5 +47,11 @@ public class Review {
     @PrePersist
     protected void onCreate() {
         rdate = LocalDateTime.now();
+        /*rsdate = rdate.toString();
+        String[] parts = rsdate.split("T");
+        rsdate = parts[0];
+        rstime = parts[1].substring(0, parts[1].indexOf('.'));*/
     }
+
+
 }

@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,17 +36,28 @@ public class ReviewController {
     private MemberService memberService;
 
     @GetMapping("/review")
-    public String review(@RequestParam("sno") int sno, Model model) {
+    public String review(@RequestParam("sno") int sno, @RequestParam(value = "sortBy", required = false) String sortBy, Model model, HttpServletRequest request) {
+
+
         List<Review> reviews = reviewService.getReviewsBySno(sno);
+
+        if ("latest".equals(sortBy)) {
+            reviews.sort(Comparator.comparing(Review::getRdate).reversed());
+        } else if ("oldest".equals(sortBy)) {
+            reviews.sort(Comparator.comparing(Review::getRdate));
+        } else if ("highest".equals(sortBy)) {
+            reviews.sort(Comparator.comparing(Review::getRstar).reversed());
+        } else if ("lowest".equals(sortBy)) {
+            reviews.sort(Comparator.comparing(Review::getRstar));
+        } else {
+            reviews.sort(Comparator.comparing(Review::getRdate).reversed());
+        }
+
         Store store = storeService.getStoreById(sno);
         List<Tag> allTags = tagService.getAllTags();
 
         for (Review review : reviews){
-            review.setDateToString(review.getRdate().format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일")));
-            /*System.out.println("dateToString = " + review.getDateToString());*/
-        }
-        // 작성된 리뷰에 태그를 띄워줌
-        for (Review review : reviews) {
+            review.setDateToString(review.getRdate().format(DateTimeFormatter.ofPattern("yy-MM-dd")));
             List<Tag> tags = tagService.getTagsByRno(review.getRno());
             review.setTags(tags);
         }
@@ -54,8 +68,12 @@ public class ReviewController {
         model.addAttribute("store", store);
         model.addAttribute("isEmpty", reviews.isEmpty()); // 작성된 리뷰가 존재하는지 확인
         model.addAttribute("tags", allTags);
+        model.addAttribute("sortBy", sortBy);
+
         return "review";
     }
+
+
 
     @PostMapping("/review")
     public String addReview(@ModelAttribute Review review, @RequestParam("sno") int sno, @RequestParam("tnos") List<Integer> tnos, HttpSession session) {
@@ -63,7 +81,7 @@ public class ReviewController {
 
         if (member == null) {
             // 회원 정보가 없으면 에러 처리
-            return "error"; // 적절한 에러 페이지로 리다이렉션
+            return "redirect:/login?message=login_required"; // 적절한 에러 페이지로 리다이렉션
         }
 
         // sno를 이용하여 Store 객체를 가져오기
@@ -72,6 +90,10 @@ public class ReviewController {
             // Store 객체가 없으면 에러 처리
             return "error"; // 적절한 에러 페이지로 리다이렉션
         }
+
+        /*if (rstar == 0) {
+            return "&message=rstar_required";
+        }*/
 
         // 설정자 사용하여 필요한 필드 설정
         review.setMember(member);
@@ -111,7 +133,7 @@ public class ReviewController {
     }
 
     @PostMapping("/review/delete")
-    public String deleteReview(@RequestParam("rno") int rno, HttpSession session) {
+    public String deleteReview(@RequestParam("rno") int rno, HttpSession session, RedirectAttributes redirectAttributes) {
         Member loggedInMember = (Member) session.getAttribute("loggedInMember");
 
         Review review = reviewService.getReviewByRno(rno);
@@ -119,8 +141,10 @@ public class ReviewController {
         // 리뷰 삭제
         reviewService.deleteReviewByRno(rno);
 
+        /*redirectAttributes.addFlashAttribute("message", "삭제가 완료되었습니다.");*/
+
         // 리뷰 삭제 후 해당 가게의 리뷰 페이지로 리다이렉션
-        return "redirect:/storeDetail?sno=" + review.getStore().getSno();
+        return "redirect:/storeDetail?sno=" + review.getStore().getSno()+ "&message=deleted";
     }
 
     // 수정 폼을 표시하는 GET 요청
@@ -189,6 +213,11 @@ public class ReviewController {
         response.put("status", "success");
         response.put("message", "리뷰가 성공적으로 업데이트되었습니다.");
         return response;
+    }
+
+    @PostMapping("/review/report")
+    public String reportReview(@ModelAttribute Review review, @RequestParam("sno") int sno, HttpSession session) {
+        return "redirect:/review?sno=" + sno + "&message=report_completed"; // 수정해야 함
     }
 
 }

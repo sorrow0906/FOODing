@@ -42,4 +42,14 @@
         </div>
     </div>
 </section>
+<script>
+    /*다현씨 추가파트*/
+    document.addEventListener('DOMContentLoaded', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var message = urlParams.get('message');
+        if (message === 'login_required') {
+            alert('로그인 후 이용 가능합니다.');
+        }
+    });
+</script>
 <c:import url = "/bottom.jsp" />
