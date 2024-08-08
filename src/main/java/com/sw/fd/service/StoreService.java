@@ -47,6 +47,20 @@ public class StoreService {
         return storeTagRepository.findByStore_Sno(sno);
     }
 
+    public List<StoreTag> getStoreTagsByTno(int tno) {
+        List<StoreTag> storeTags = storeTagRepository.findByTag_Tno(tno);
+        for (StoreTag storeTag : storeTags) {
+            Double averageScore = reviewRepository.findAverageScoreBySno(storeTag.getStore().getSno());
+            System.out.println("averageScore = "+averageScore);
+            storeTag.getStore().setScoreArg(averageScore);
+
+            int pickCount = pickRepository.countBySno(storeTag.getStore().getSno());
+            System.out.println("pickCount = "+pickCount);
+            storeTag.getStore().setPickNum(pickCount);
+        }
+        return storeTags;
+    }
+
     @Transactional
     public void updateStoreTags(Store store) {
         List<ReviewTag> reviewTags = reviewTagRepository.findByReview_Store_Sno(store.getSno());

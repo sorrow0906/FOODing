@@ -128,4 +128,33 @@ public class StoreController {
 
         return "storeListByRank";
     }
+
+    @GetMapping("/storeListByTag")
+    public String showStoreListByTag(@RequestParam(value = "sortBy", required = false) String sortBy, Model model/*, Integer tno*/) {
+/*        if(tno == 0)
+            tno = 1;
+        System.out.println("tno = " + tno);*/
+        /*if(tno == 0)
+        int tnoDafault = 1;*/
+
+
+        int tno = 1;
+        List<StoreTag> storeTags = storeService.getStoreTagsByTno(tno);
+        for(StoreTag storeTag : storeTags) {
+            System.out.println("storeTag.getStore().getScoreArg() = "+ storeTag.getStore().getScoreArg());
+            System.out.println("storeTag.getStore().getPickNum() = "+ storeTag.getStore().getPickNum());
+        }
+
+        if ("score".equals(sortBy)) {
+            /*storeTags.sort(Comparator.comparingDouble(storeTag-> storeTag.getStore().getScoreArg()).reversed());*/
+            model.addAttribute("sortStandard", "score");
+        } else {
+            /*storeTags.sort(Comparator.comparingDouble(storeTag-> storeTag.getStore().getPickNum()).reversed());*/
+            model.addAttribute("sortStandard", "pick");
+        }
+
+        model.addAttribute("stores", storeTags);
+
+        return "storeListByTag";
+    }
 }
