@@ -1,5 +1,6 @@
 package com.sw.fd.service;
 
+import com.sw.fd.dto.GroupDTO;
 import com.sw.fd.entity.Group;
 import com.sw.fd.entity.Member;
 import com.sw.fd.repository.GroupRepository;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,18 +18,50 @@ public class GroupService {
     private GroupRepository groupRepository;
 
     @Transactional
-    public void save(Group group) { groupRepository.save(group); }
-
-    public List<Group> getAllGroups() { return groupRepository.findAll(); }
-
-    public Group getGroupById(int gno) { return groupRepository.findByGno(gno).orElse(null); }
-
-    public List<Group> getGroupsByMember(Member member) {
-        // 특정 멤버가 속한 그룹을 가져오는 로직 추가
-        return groupRepository.findGroupsByMember(member.getMno());
+    public void save(Group group) {
+        groupRepository.save(group);
     }
 
-    public void createGroup(Group group) {
-        groupRepository.save(group);
+    public List<GroupDTO> getAllGroups() {
+        List<Group> groups = groupRepository.findAll();
+        List<GroupDTO> groupDTOs = new ArrayList<>();
+
+        for (Group group : groups) {
+            groupDTOs.add(new GroupDTO(group.getGno(), group.getGname(), group.getGdate()));
+        }
+
+        return groupDTOs;
+    }
+
+    public GroupDTO getGroupById(int gno) {
+        Group group = groupRepository.findByGno(gno).orElse(null);
+        if (group != null) {
+            return new GroupDTO(group.getGno(), group.getGname(), group.getGdate());
+        } else {
+            return null;
+        }
+    }
+
+    public List<GroupDTO> getGroupsByMember(Member member) {
+        List<Group> groups = groupRepository.findGroupsByMember(member.getMno());
+        List<GroupDTO> groupDTOs = new ArrayList<>();
+
+        for (Group group : groups) {
+            groupDTOs.add(new GroupDTO(group.getGno(), group.getGname(), group.getGdate()));
+        }
+
+        return groupDTOs;
+    }
+
+    @Transactional
+    public void createGroup(GroupDTO groupDTO) {
+        Group group = new Group();
+        group.setGname(groupDTO.getGname());
+
+        // 그룹을 저장하고 자동 생성된 gno 값을 설정
+        Group savedGroup = groupRepository.save(group);
+
+        // 저장된 그룹의 gno 값을 groupDTO에 설정
+        groupDTO.setGno(savedGroup.getGno());
     }
 }

@@ -9,30 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="다현씨 파트 통합완료">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Business.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/ApiService.java" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="정희씨 파트 통합완료">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/MemberGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/MemberGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/GroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/GroupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/myPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/myPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/myReviews.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/myReviews.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerSelect.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registerSelect.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewMember.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/myReviews.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/myReviews.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/mypage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/registerSelect.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/registerSelect.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/viewMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/viewMember.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/groupList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/groupList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +255,8 @@
       <workItem from="1722993217939" duration="7522000" />
       <workItem from="1723019597815" duration="3706000" />
       <workItem from="1723075987425" duration="2005000" />
-      <workItem from="1723078010589" duration="8753000" />
+      <workItem from="1723078010589" duration="9296000" />
+      <workItem from="1723087349990" duration="344000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -548,7 +538,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723084350791</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="정희씨 파트 통합완료">
+      <option name="closed" value="true" />
+      <created>1723086812325</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1723086812325</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +567,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="menu table error clear" />
     <MESSAGE value="add Store List by Location" />
     <MESSAGE value="add new review(add star)" />
     <MESSAGE value="add pick function and my review" />
@@ -594,7 +591,8 @@
     <MESSAGE value="storeTag DB에 중복없이 저장완료!" />
     <MESSAGE value="storeDetail에 대표태그 자동추가 완료" />
     <MESSAGE value="다현씨 파트 통합완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="다현씨 파트 통합완료" />
+    <MESSAGE value="정희씨 파트 통합완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="정희씨 파트 통합완료" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

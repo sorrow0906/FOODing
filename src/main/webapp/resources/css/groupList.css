@@ -17,7 +17,15 @@ body {
     padding : 0 20px;
 }
 
-.group-create-area { min-height : 600px; }
+.group-create-area {
+    min-height : 600px;
+    padding : 0 20px;
+}
+
+.groupMember-add-area {
+    min-height : 600px;
+    padding : 0 20px;
+}
 
 h1 {
     text-align : center;
@@ -62,6 +70,11 @@ h1 {
     font-weight : bold;
 }
 
+.group-table td {
+    color : saddlebrown;
+    font-weight : bold;
+}
+
 .group-table td a:hover {
     color : #ffea00;
     text-decoration : none;
@@ -84,6 +97,11 @@ h1 {
     margin: 0 auto;
 }
 
+.groupMember-add-area input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
 input[type="submit"] {
     padding: 10px 20px;
     background-color: saddlebrown;
@@ -92,14 +110,23 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-
 }
 
 input[type="submit"]:hover {
     background-color: rgb(222, 201, 171);
 }
 
-.group-form td {
+.group-create-table td {
     color : saddlebrown;
     font-weight : bold;
+}
+
+.groupMember-table td {
+    color : saddlebrown;
+    font-weight : bold;
+}
+
+.error-message {
+    text-align: center;
+    color:red;
 }

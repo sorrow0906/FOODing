@@ -1,12 +1,15 @@
 package com.sw.fd.service;
 
 import com.sw.fd.entity.Member;
+import com.sw.fd.entity.MemberGroup;
+import com.sw.fd.repository.MemberGroupRepository;
 import com.sw.fd.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +18,9 @@ public class MemberService {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private MemberGroupRepository memberGroupRepository;
 
     public Member saveMember(Member member) {
         member.setMdate(LocalDate.now()); // 가입 날짜를 현재 날짜로 설정
@@ -85,5 +91,15 @@ public class MemberService {
 
     public Optional<Member> findByMember(String mid, String mname, String memail) {
         return memberRepository.findByMidAndMnameAndMemail(mid, mname, memail);
+    }
+
+    // 모임방 기능을 위한 추가 (수정자 : 희진)
+    public List<MemberGroup> getMemberGroupsByGnos(List<Integer> gnos) {
+        return memberGroupRepository.findByGroupGnoIn(gnos);
+    }
+
+    // 모임방 기능을 위한 추가 (수정자 : 희진)
+    public Member getMemberById(String mid) {
+        return  memberRepository.findByMid(mid).orElse(null);
     }
 }
