@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,15 @@
                     </c:when>
                 </c:choose>
             </div>
+            </div>
+            <div class="tag-area">
+                <div class="tag-area">
+                    <c:forEach var="stag" items="${storeTags}">
+                        <c:if test="${stag.tagCount > (rCount*0.3)}">
+                            <button type="button" class="main-tag-button">${stag.tag.ttag}</button>
+                        </c:if>
+                    </c:forEach>
+                </div>
             </div>
             <p id="store-explain">${store.seg}</p>
         </div>

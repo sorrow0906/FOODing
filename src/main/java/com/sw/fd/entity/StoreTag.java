@@ -25,6 +25,8 @@ public class StoreTag {
     @JoinColumn(name = "tno")
     private Tag tag; // 태그와의 다대일 관계
 
-    private int tCount;
+    @Column(name = "tCount")
+    private int tagCount;
+
 }
 

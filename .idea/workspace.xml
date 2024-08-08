@@ -9,8 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="storeTag DB에 저장되는 부분 완료. 그러나 tcount에 문제있음">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="storeTag DB에 중복없이 저장완료!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/StoreTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/StoreTag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +247,9 @@
       <workItem from="1722557890723" duration="28327000" />
       <workItem from="1722903510540" duration="31141000" />
       <workItem from="1722993217939" duration="7522000" />
-      <workItem from="1723019597815" duration="3565000" />
+      <workItem from="1723019597815" duration="3706000" />
+      <workItem from="1723075987425" duration="2005000" />
+      <workItem from="1723078010589" duration="4165000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -500,7 +507,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723023317423</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="storeTag DB에 중복없이 저장완료!">
+      <option name="closed" value="true" />
+      <created>1723023622381</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1723023622381</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +536,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="complete storeDetail.jsp" />
     <MESSAGE value="complete storelist form.jsp" />
     <MESSAGE value="combine team file" />
     <MESSAGE value="menu table error clear" />
@@ -546,7 +560,8 @@
     <MESSAGE value="storeTag 집에가서 할 부분" />
     <MESSAGE value="storeTag 로그 확인할 수 있는 롤백용 코드" />
     <MESSAGE value="storeTag DB에 저장되는 부분 완료. 그러나 tcount에 문제있음" />
-    <option name="LAST_COMMIT_MESSAGE" value="storeTag DB에 저장되는 부분 완료. 그러나 tcount에 문제있음" />
+    <MESSAGE value="storeTag DB에 중복없이 저장완료!" />
+    <option name="LAST_COMMIT_MESSAGE" value="storeTag DB에 중복없이 저장완료!" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

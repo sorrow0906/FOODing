@@ -1,10 +1,12 @@
 package com.sw.fd.controller;
 
 import com.sw.fd.entity.Menu;
+import com.sw.fd.entity.Review;
 import com.sw.fd.entity.Store;
 import com.sw.fd.entity.StoreTag;
 import com.sw.fd.service.LocationService;
 import com.sw.fd.service.MenuService;
+import com.sw.fd.service.ReviewService;
 import com.sw.fd.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ public class StoreController {
     private StoreService storeService;
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private ReviewService reviewService;
     @Autowired
     private LocationService locationService;
 
@@ -49,10 +53,13 @@ public class StoreController {
         Store store = storeService.getStoreAllInfo(sno);
         List<Menu> menus = menuService.getMenuBySno(sno);
         List<StoreTag> storeTags = storeService.getStoreTagsByStoreSno(sno);
+        int rCount = reviewService.getReviewsBySno(sno).size();
+        System.out.println("rCount = " + rCount);
         System.out.println("<s" + sno + "가게의 태그수>");
         for(StoreTag storeTag : storeTags) {
-            System.out.println(storeTag.getTag().getTtag() +"의 수: " + storeTag.getTCount());
+            System.out.println(storeTag.getTag().getTtag() +"의 수: " + storeTag.getTagCount());
         }
+        model.addAttribute("rCount", rCount);
         model.addAttribute("store", store);
         model.addAttribute("menus", menus);
         model.addAttribute("storeTags", storeTags);

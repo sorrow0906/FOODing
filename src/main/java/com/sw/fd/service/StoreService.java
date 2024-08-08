@@ -73,12 +73,12 @@ public class StoreService {
                 storeTag.setStore(store);
                 Tag tag = tagRepository.findByTno(tno);
                 storeTag.setTag(tag);
-                storeTag.setTCount((int) count);
+                storeTag.setTagCount((int) count);
             } else {
                 storeTag = storeTags.get(0);
-                /*System.out.println("값 갱신전: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTCount());*/
-                storeTag.setTCount((int) count);
-                /*System.out.println("값 갱신후: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTCount());*/
+                /*System.out.println("값 갱신전: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTagCount());*/
+                storeTag.setTagCount((int) count);
+                /*System.out.println("값 갱신후: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTagCount());*/
             }
 
             storeTagRepository.save(storeTag);
