@@ -157,7 +157,6 @@
                 alert("별점을 선택하세요.");
                 event.preventDefault(); // 폼 제출을 막음
             }
-
             // 선택된 태그 값을 히든 필드에 설정 (이미 toggleTag 함수에서 설정하고 있지만 추가로 확인)
             var selectedTags = [];
             document.querySelectorAll('.tag-button.selected').forEach(function(button) {

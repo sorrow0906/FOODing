@@ -13,4 +13,5 @@ public interface StoreTagRepository extends JpaRepository<StoreTag, Integer> {
 
     List<StoreTag> findByStore_Sno(int sno);
     List<StoreTag> findByTag_Tno(int tno);
+    List<StoreTag> findByTag_tno(List<Integer> tnos);
 }

@@ -13,11 +13,16 @@
 <body>
 <c:import url="/top.jsp" />
 <section class="content">
-    <h1>순위별 가게 리스트</h1>
+    <h1>태그별 가게 리스트</h1>
+    <div class="stag-area">
+        <c:forEach var="stag" items="${allTags}">
+                <button type="button" class="main-tag-button" data-tno="${stag.tno}">${stag.ttag}</button>
+        </c:forEach>
+    </div>
     <div class="sort-area">
-        <a class="sort-element" id="sort_by_pick" href="#">찜 많은순</a>
+        <a class="sort-element ${sortStandard == 'pick' ? 'active' : ''}" id="sort_by_pick" href="#">찜 많은순</a>
         <p class="sort-element">|</p>
-        <a class="sort-element" id="sort_by_score" href="#">별점 높은순</a>
+        <a class="sort-element ${sortStandard == 'score' ? 'active' : ''}" id="sort_by_score" href="#">별점 높은순</a>
     </div>
     <table class="store-table">
         <thead>
@@ -99,14 +104,44 @@
 
 <script>
     $(document).ready(function() {
+        var selectedTags = [];
+
+        $('.main-tag-button').click(function() {
+            var tno = $(this).attr('data-tno');
+
+            // 태그가 이미 선택된 경우 배열에서 제거
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+                selectedTags = selectedTags.filter(function(item) {
+                    return item !== tno;
+                });
+            } else {
+                // 선택되지 않은 태그의 경우 배열에 추가
+                $(this).addClass('selected');
+                selectedTags.push(tno);
+            }
+        });
+
         function loadStoreList(sortBy) {
             $.ajax({
                 url: '${pageContext.request.contextPath}/storeListByTag',
                 type: 'GET',
-                data: { sortBy: sortBy },
+                data: {
+                    sortBy: sortBy,
+                    tnos: selectedTags.join(',')
+                },
                 success: function(response) {
                     $('#store-list').html($(response).find('#store-list').html());
                     $('#sort-header').html($(response).find('#sort-header').html());
+
+                    // 정렬 기준에 따라 활성화된 버튼 상태 유지
+                    if (sortBy === 'score') {
+                        $('#sort_by_score').addClass('active');
+                        $('#sort_by_pick').removeClass('active');
+                    } else {
+                        $('#sort_by_pick').addClass('active');
+                        $('#sort_by_score').removeClass('active');
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.log('Error loading stores:', status, error);

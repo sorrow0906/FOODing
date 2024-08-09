@@ -128,6 +128,10 @@ public class StoreService {
         return store;
     }
 
+    public List<StoreTag> getStoreTagsByTnos(List<Integer> tnos){
+        return storeTagRepository.findByTag_tno(tnos);
+    }
+
     public Store getStoreById(int sno) {
         System.out.println("getStoreById에 진입");
         Store store = storeRepository.findBySno(sno).orElse(null);
