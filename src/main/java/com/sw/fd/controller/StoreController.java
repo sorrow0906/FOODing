@@ -126,23 +126,26 @@ public class StoreController {
     }
 
     @GetMapping("/storeListByTag")
-    public String showStoreListByTag(@RequestParam(value = "sortBy", required = false) String sortBy, /*@RequestParam(value = "tnos", required = false) String tnos,*/ Model model/*, Integer tno*/) {
+    public String showStoreListByTag(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "tnos", required = false) String tnos, Model model/*, Integer tno*/) {
 
         List<Tag> allTags = tagService.getAllTags();
         model.addAttribute("allTags", allTags);
 
         List<StoreTag> storeTags;
-        /*if (tnos != null && !tnos.isEmpty()) {
+        if (tnos != null && !tnos.isEmpty()) {
             String[] stringTnos = tnos.split(",");
+            for (String tno : stringTnos) {
+                System.out.println(tno);
+            }
             List<Integer> numTnos = new ArrayList<>();
             for (String tno : stringTnos) {
                 numTnos.add(Integer.parseInt(tno));
             }
             storeTags = storeService.getStoreTagsByTnos(numTnos);
-        } else {*/
+        } else {
             // 기본적으로 첫 번째 태그를 사용하거나 다른 기본 값을 사용
             storeTags = storeService.getStoreTagsByTno(1);
-/*        }*/
+        }
 
         for(StoreTag storeTag : storeTags) {
             System.out.println("storeTag.getStore().getScoreArg() = "+ storeTag.getStore().getScoreArg());

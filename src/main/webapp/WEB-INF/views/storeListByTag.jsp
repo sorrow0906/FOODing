@@ -103,24 +103,25 @@
 <c:import url="/bottom.jsp" />
 
 <script>
-    $(document).ready(function() {
-        var selectedTags = [];
+    var sortStandard = '${sortStandard}';
+    var selectedTags = [];
 
-        $('.main-tag-button').click(function() {
-            var tno = $(this).attr('data-tno');
+    $('.main-tag-button').click(function() {
+        var tno = $(this).attr('data-tno');
 
-            // 태그가 이미 선택된 경우 배열에서 제거
-            if ($(this).hasClass('selected')) {
-                $(this).removeClass('selected');
-                selectedTags = selectedTags.filter(function(item) {
-                    return item !== tno;
-                });
-            } else {
-                // 선택되지 않은 태그의 경우 배열에 추가
-                $(this).addClass('selected');
-                selectedTags.push(tno);
-            }
-        });
+        // 태그가 이미 선택된 경우 배열에서 제거
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+            selectedTags = selectedTags.filter(function(item) {
+                return item !== tno;
+            });
+        } else {
+            // 선택되지 않은 태그의 경우 배열에 추가
+            $(this).addClass('selected');
+            selectedTags.push(tno);
+        }
+        loadStoreList(sortStandard);
+    });
 
         function loadStoreList(sortBy) {
             $.ajax({
@@ -158,7 +159,6 @@
             event.preventDefault();
             loadStoreList('score');
         });
-    });
 </script>
 </body>
 </html>

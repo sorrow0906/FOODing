@@ -114,6 +114,10 @@ h1 {
     border-radius: 30px;
     border: 2px solid transparent;
 }
+.main-tag-button.selected{
+    background-color: #f5ba00;
+    border: 2px solid darkgray;
+}
 
 .sort-element.active {
     color: #894f1a; /* 활성화된 상태일 때 버튼 색상 */
