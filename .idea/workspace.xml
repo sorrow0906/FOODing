@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="태그 포함되지 않고 순위정렬(태그 생성만 완료)">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="tnos로 선택된 태그번호 여러개 보내기 완료(storeListByTag)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByTag.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByTag.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +251,7 @@
       <workItem from="1723087349990" duration="3987000" />
       <workItem from="1723095829915" duration="860000" />
       <workItem from="1723096854449" duration="7906000" />
-      <workItem from="1723162731917" duration="20553000" />
+      <workItem from="1723162731917" duration="24695000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -583,7 +581,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723181701944</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="tnos로 선택된 태그번호 여러개 보내기 완료(storeListByTag)">
+      <option name="closed" value="true" />
+      <created>1723185886216</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1723185886216</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +610,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="start secend" />
     <MESSAGE value="sort by location complete" />
     <MESSAGE value="sort by Pick complete" />
     <MESSAGE value="complete store score avg" />
@@ -629,7 +634,8 @@
     <MESSAGE value="빠진부분 다시 push" />
     <MESSAGE value="모임방 openEditWindow 문제 해결" />
     <MESSAGE value="태그 포함되지 않고 순위정렬(태그 생성만 완료)" />
-    <option name="LAST_COMMIT_MESSAGE" value="태그 포함되지 않고 순위정렬(태그 생성만 완료)" />
+    <MESSAGE value="tnos로 선택된 태그번호 여러개 보내기 완료(storeListByTag)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tnos로 선택된 태그번호 여러개 보내기 완료(storeListByTag)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

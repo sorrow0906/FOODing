@@ -134,6 +134,7 @@ public class StoreController {
         List<StoreTag> storeTags;
         if (tnos != null && !tnos.isEmpty()) {
             String[] stringTnos = tnos.split(",");
+            // 가져온 태그들을 서버로그에 띄우기 위해서 사용
             for (String tno : stringTnos) {
                 System.out.println(tno);
             }
