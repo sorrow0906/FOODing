@@ -42,34 +42,34 @@
         </tr>
         </thead>
         <tbody id="store-list">
-        <c:forEach var="storeTag" items="${stores}" varStatus="status">
+        <c:forEach var="store" items="${stores}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
-                <td><a href="${pageContext.request.contextPath}/storeDetail?sno=${storeTag.store.sno}">${storeTag.store.sname}</a></td>
+                <td><a href="${pageContext.request.contextPath}/storeDetail?sno=${store.sno}">${store.sname}</a></td>
                 <td>
                     <c:choose>
-                        <c:when test="${storeTag.store.scate == '한식'}">
+                        <c:when test="${store.scate == '한식'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/korean_food_icon.png" alt="한식">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '일식'}">
+                        <c:when test="${store.scate == '일식'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/japanese_food_icon.png" alt="일식">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '중식'}">
+                        <c:when test="${store.scate == '중식'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/chinese_food_icon.png" alt="중식">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '양식'}">
+                        <c:when test="${store.scate == '양식'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/western_food_icon.png" alt="양식">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '세계요리'}">
+                        <c:when test="${store.scate == '세계요리'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/global_food_icon.png" alt="세계요리">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '빵/디저트'}">
+                        <c:when test="${store.scate == '빵/디저트'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/dessert_icon.png" alt="빵/디저트">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '차/커피'}">
+                        <c:when test="${store.scate == '차/커피'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/coffee_icon.png" alt="차/커피">
                         </c:when>
-                        <c:when test="${storeTag.store.scate == '술집'}">
+                        <c:when test="${store.scate == '술집'}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/pub_icon.png" alt="술집">
                         </c:when>
                         <c:otherwise>
@@ -77,11 +77,11 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>${storeTag.store.saddr}</td>
-                <td>${storeTag.store.stime}</td>
+                <td>${store.saddr}</td>
+                <td>${store.stime}</td>
                 <td>
                     <c:choose>
-                        <c:when test="${fn:contains(storeTagstore.spark, '없음') or fn:contains(storeTag.store.spark, '불가')}">
+                        <c:when test="${fn:contains(store.spark, '없음') or fn:contains(store.spark, '불가')}">
                             <img src="${pageContext.request.contextPath}/resources/store_images/non_parking2.png" alt="주차 불가">
                         </c:when>
                         <c:otherwise>
@@ -91,8 +91,8 @@
                 </td>
                 <td class="sort-value">
                     <c:choose>
-                        <c:when test="${sortStandard == 'score'}"><fmt:formatNumber value="${storeTag.store.scoreArg}" pattern="0.0"/>점</c:when>
-                        <c:otherwise>${storeTag.store.pickNum}</c:otherwise>
+                        <c:when test="${sortStandard == 'score'}"><fmt:formatNumber value="${store.scoreArg}" pattern="0.0"/>점</c:when>
+                        <c:otherwise>${store.pickNum}</c:otherwise>
                     </c:choose>
                 </td>
             </tr>
@@ -120,9 +120,12 @@
             $(this).addClass('selected');
             selectedTags.push(tno);
         }
-        loadStoreList(sortStandard);
+        var nowStandard = $('.sort-element.active').attr('id');
+        if(nowStandard == 'sort_by_pick')
+            loadStoreList('pick');
+        else if(nowStandard == 'sort_by_score')
+            loadStoreList('score');
     });
-
         function loadStoreList(sortBy) {
             $.ajax({
                 url: '${pageContext.request.contextPath}/storeListByTag',

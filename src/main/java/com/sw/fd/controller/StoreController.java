@@ -124,44 +124,41 @@ public class StoreController {
 
         return "storeListByRank";
     }
-
     @GetMapping("/storeListByTag")
     public String showStoreListByTag(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "tnos", required = false) String tnos, Model model/*, Integer tno*/) {
 
         List<Tag> allTags = tagService.getAllTags();
         model.addAttribute("allTags", allTags);
 
-        List<StoreTag> storeTags;
+        List<Store> storesByTag = storeService.getAllStores();
         if (tnos != null && !tnos.isEmpty()) {
             String[] stringTnos = tnos.split(",");
+            List<Integer> numTnos = new ArrayList<>();
             // 가져온 태그들을 서버로그에 띄우기 위해서 사용
             for (String tno : stringTnos) {
                 System.out.println(tno);
-            }
-            List<Integer> numTnos = new ArrayList<>();
-            for (String tno : stringTnos) {
                 numTnos.add(Integer.parseInt(tno));
             }
-            storeTags = storeService.getStoreTagsByTnos(numTnos);
-        } else {
-            // 기본적으로 첫 번째 태그를 사용하거나 다른 기본 값을 사용
-            storeTags = storeService.getStoreTagsByTno(1);
+
+            for (int tno : numTnos) {
+                storesByTag = storeService.getStoresByTagCountAndTno(tno, storesByTag);
+            }
         }
 
-        for(StoreTag storeTag : storeTags) {
-            System.out.println("storeTag.getStore().getScoreArg() = "+ storeTag.getStore().getScoreArg());
-            System.out.println("storeTag.getStore().getPickNum() = "+ storeTag.getStore().getPickNum());
+        for(Store store : storesByTag) {
+            System.out.println("storeTag.getStore().getScoreArg() = "+ store.getScoreArg());
+            System.out.println("storeTag.getStore().getPickNum() = "+ store.getPickNum());
         }
 
         if ("score".equals(sortBy)) {
-            /*storeTags.sort(Comparator.comparingDouble(storeTag-> storeTag.getStore().getScoreArg()).reversed());*/
+            storesByTag.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
             model.addAttribute("sortStandard", "score");
         } else {
-            /*storeTags.sort(Comparator.comparingDouble(storeTag-> storeTag.getStore().getPickNum()).reversed());*/
+            storesByTag.sort(Comparator.comparingInt(Store::getPickNum).reversed());
             model.addAttribute("sortStandard", "pick");
         }
 
-        model.addAttribute("stores", storeTags);
+        model.addAttribute("stores", storesByTag);
 
         return "storeListByTag";
     }

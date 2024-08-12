@@ -35,6 +35,9 @@ public class StoreService {
     private LocationService locationService;
 
     @Autowired
+    private ReviewService reviewService;
+
+    @Autowired
     private TagRepository tagRepository;
 
     public void saveStore(Store store) {
@@ -79,17 +82,15 @@ public class StoreService {
             int tno = entry.getKey();
             long count = entry.getValue();
 
-            List<StoreTag> storeTags = storeTagRepository.findByStore_SnoAndTag_Tno(store.getSno(), tno);
-            StoreTag storeTag;
+            StoreTag storeTag = storeTagRepository.findByStore_SnoAndTag_Tno(store.getSno(), tno);
 
-            if (storeTags.isEmpty()) {
+            if (storeTag == null) {
                 storeTag = new StoreTag();
                 storeTag.setStore(store);
                 Tag tag = tagRepository.findByTno(tno);
                 storeTag.setTag(tag);
                 storeTag.setTagCount((int) count);
             } else {
-                storeTag = storeTags.get(0);
                 /*System.out.println("값 갱신전: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTagCount());*/
                 storeTag.setTagCount((int) count);
                 /*System.out.println("값 갱신후: " + storeTag.getTag().getTtag() + "의 수: " + storeTag.getTagCount());*/
@@ -130,6 +131,31 @@ public class StoreService {
 
     public List<StoreTag> getStoreTagsByTnos(List<Integer> tnos){
         return storeTagRepository.findByTag_tno(tnos);
+    }
+
+    public List<Store> getStoresByTagCountAndTno(int tno, List<Store> stores) {
+        int rCount;
+        int minTagCount = 3;
+        List<Store> selectedStores = new ArrayList<>();
+
+        for (Store store : stores) {
+            StoreTag storeTag = storeTagRepository.findByStore_SnoAndTag_Tno(tno, store.getSno());
+
+            // 별점 평균 계산
+            Double averageScore = reviewRepository.findAverageScoreBySno(store.getSno());
+            store.setScoreArg(averageScore != null ? averageScore : 0);
+            // Pick 수 계산
+            int pickCount = pickRepository.countBySno(store.getSno());
+            store.setPickNum(pickCount);
+
+            // 해당 가게의 전체 리뷰수를 가져와서 태그가 리뷰의 30%이상을 차지했을 때 대표 태그로 판단
+            rCount = reviewService.getReviewsBySno(store.getSno()).size();
+            if (storeTag != null && storeTag.getTagCount() >= minTagCount /*rCount*0.3*/) {
+                selectedStores.add(store);
+            }
+        }
+
+        return selectedStores;
     }
 
     public Store getStoreById(int sno) {
