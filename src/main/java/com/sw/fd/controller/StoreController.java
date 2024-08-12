@@ -110,7 +110,7 @@ public class StoreController {
 
     @GetMapping("/storeListByRank")
     public String showStoreListByPick(@RequestParam(value = "sortBy", required = false) String sortBy, Model model) {
-        List<Store> stores = storeService.getAllStores();
+        List<Store> stores = storeService.getAllStoresWithRank();
 
         if ("score".equals(sortBy)) {
             stores.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
@@ -130,7 +130,7 @@ public class StoreController {
         List<Tag> allTags = tagService.getAllTags();
         model.addAttribute("allTags", allTags);
 
-        List<Store> storesByTag = storeService.getAllStores();
+        List<Store> storesByTag = storeService.getAllStoresWithRank();
         if (tnos != null && !tnos.isEmpty()) {
             String[] stringTnos = tnos.split(",");
             List<Integer> numTnos = new ArrayList<>();
@@ -143,11 +143,6 @@ public class StoreController {
             for (int tno : numTnos) {
                 storesByTag = storeService.getStoresByTagCountAndTno(tno, storesByTag);
             }
-        }
-
-        for(Store store : storesByTag) {
-            System.out.println("storeTag.getStore().getScoreArg() = "+ store.getScoreArg());
-            System.out.println("storeTag.getStore().getPickNum() = "+ store.getPickNum());
         }
 
         if ("score".equals(sortBy)) {

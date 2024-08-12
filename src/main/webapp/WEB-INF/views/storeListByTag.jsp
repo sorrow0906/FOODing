@@ -18,6 +18,7 @@
         <c:forEach var="stag" items="${allTags}">
                 <button type="button" class="main-tag-button" data-tno="${stag.tno}">${stag.ttag}</button>
         </c:forEach>
+        <p id="waiting-comment"></p>
     </div>
     <div class="sort-area">
         <a class="sort-element ${sortStandard == 'pick' ? 'active' : ''}" id="sort_by_pick" href="#">찜 많은순</a>
@@ -101,7 +102,6 @@
     </table>
 </section>
 <c:import url="/bottom.jsp" />
-
 <script>
     var sortStandard = '${sortStandard}';
     var selectedTags = [];
@@ -127,6 +127,7 @@
             loadStoreList('score');
     });
         function loadStoreList(sortBy) {
+            $('#waiting-comment').text('가게 목록을 불러오는 중입니다. 잠시만 기다려주세요...');
             $.ajax({
                 url: '${pageContext.request.contextPath}/storeListByTag',
                 type: 'GET',
@@ -146,6 +147,7 @@
                         $('#sort_by_pick').addClass('active');
                         $('#sort_by_score').removeClass('active');
                     }
+                    $('#waiting-comment').text('');
                 },
                 error: function(xhr, status, error) {
                     console.log('Error loading stores:', status, error);
