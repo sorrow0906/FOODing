@@ -415,7 +415,10 @@ public class MemberController {
             return "changePass";
         }
 
-        member.setMpass(newPass);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPass);
+        member.setMpass(encodedPassword);
+
         memberService.updateMember(member);
         model.addAttribute("message", "비밀번호가 성공적으로 변경되었습니다.");
         return "redirect:/login";

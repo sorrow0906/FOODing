@@ -9,14 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="2차 통합(정희씨 파트)">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupManage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/transferJauth.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/transferJauth.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/transferJauth.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/transferJauth.css" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="2차 통합완료">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +253,7 @@
       <workItem from="1723162731917" duration="25293000" />
       <workItem from="1723193149561" duration="425000" />
       <workItem from="1723421788395" duration="27761000" />
-      <workItem from="1723509646668" duration="4924000" />
+      <workItem from="1723509646668" duration="5477000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -637,7 +631,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723514241459</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="2차 통합(희진씨 파트)">
+      <option name="closed" value="true" />
+      <created>1723514783183</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1723514783183</updated>
+    </task>
+    <task id="LOCAL-00049" summary="2차 통합완료">
+      <option name="closed" value="true" />
+      <created>1723514806555</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1723514806555</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,8 +668,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="nowLocationList complete" />
-    <MESSAGE value="inputLocationList complete" />
     <MESSAGE value="system.println modify" />
     <MESSAGE value="DB 테이블 새로 갱신하기 전" />
     <MESSAGE value="DB 수정 및 갱신된 review 파트 추가 그리고 위치별 정렬 완료" />
@@ -683,7 +691,9 @@
     <MESSAGE value="태그별 검색 별점 픽수 오류 수정 (1차 완성)" />
     <MESSAGE value="2차 통합(다현씨 파트)" />
     <MESSAGE value="2차 통합(정희씨 파트)" />
-    <option name="LAST_COMMIT_MESSAGE" value="2차 통합(정희씨 파트)" />
+    <MESSAGE value="2차 통합(희진씨 파트)" />
+    <MESSAGE value="2차 통합완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="2차 통합완료" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
