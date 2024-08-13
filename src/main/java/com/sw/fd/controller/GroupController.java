@@ -11,14 +11,13 @@ import com.sw.fd.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class GroupController {
@@ -44,7 +43,6 @@ public class GroupController {
         List<MemberGroupDTO> memberGroups = memberGroupService.getMemberGroupsWithGroup(member);
         for (MemberGroupDTO memberGroup : memberGroups) {
             System.out.println(memberGroup.getJno() + "의 getGroup().getGname() = :" + memberGroup.getGroup().getGname());
-            System.out.println(memberGroup.getGroup().getGname() + "에서의 해당 회원 권한은 = :" + memberGroup.getJauth());
         }
 
         model.addAttribute("group", new GroupDTO());
@@ -175,8 +173,8 @@ public class GroupController {
         return "redirect:/groupManage";
     }
 
-    @PostMapping("/deleteMember")
-    public String deleteMember(@ModelAttribute("gno") int gno,
+    @PostMapping("/deleteMemberToGroup")
+    public String deleteMemberToGroup(@ModelAttribute("gno") int gno,
                                @ModelAttribute("mid") String memberId,
                                HttpSession session,
                                Model model) {
@@ -257,7 +255,6 @@ public class GroupController {
             return "redirect:/login";
         }
 
-        System.out.println( );
         // gno와 현재 로그인된 멤버의 ID를 사용하여 해당 MemberGroup 객체를 가져옴
         MemberGroup memberGroup = memberGroupService.getMemberGroupByGroupGnoAndMemberMid(gno, member.getMid());
         if (memberGroup == null) {
@@ -265,8 +262,50 @@ public class GroupController {
             return "redirect:/groupList";
         }
 
+        // 현재 모임장의 ID를 제외한 일반 회원 목록을 가져옴
+        List<MemberGroupDTO> memberGroups = memberGroupService.findMembersByGroupGnoWithDTO(memberGroup.getGroup().getGno());
+        List<MemberGroupDTO> regularMembers = new ArrayList<>();
+        for (MemberGroupDTO mg : memberGroups) {
+            if (mg.getJauth() == 0 ) {
+                regularMembers.add(mg);
+                System.out.println(mg.getMemberNick());
+            }
+        }
+
         model.addAttribute("memberGroup", memberGroup);
+        model.addAttribute("regularMembers", regularMembers);
 
         return "transferJauth";
+    }
+
+    @PostMapping("/transferJauth")
+    @ResponseBody
+    public Map<String, String> transferJauth(@RequestParam("gno") int gno,
+                                @RequestParam("memberNick") String newLeaderNick,
+                                HttpSession session, Model model) {
+        Map<String, String> response = new HashMap<>();
+        Member member = (Member) session.getAttribute("loggedInMember");
+        if (member == null) {
+            response.put("status", "error");
+            response.put("message", "로그인된 회원 정보가 없습니다.");
+            return response;
+        }
+
+        // 현재 모임장 확인
+        MemberGroup currentLeaderGroup = memberGroupService.getMemberGroupByGroupGnoAndMemberMid(gno, member.getMid());
+
+        // 새로운 모임장으로 설정할 회원 찾기
+        MemberGroup newLeaderGroup = memberGroupService.findMemberGroupByGroupGnoAndNick(gno, newLeaderNick);
+
+        // 권한 위임 및 기존 모임장 권한 변경
+        memberGroupService.updateMemberGroupJauth(gno, newLeaderGroup.getMember().getMid(), 1);
+        memberGroupService.updateMemberGroupJauth(gno, member.getMid(), 0);
+
+        // 기존 모임장 그룹에서 제거
+        memberGroupService.removeMemberGroup(currentLeaderGroup);
+
+        response.put("status", "success");
+        response.put("message", "모임장 권한 위임이 성공했습니다.");
+        return response;
     }
 }

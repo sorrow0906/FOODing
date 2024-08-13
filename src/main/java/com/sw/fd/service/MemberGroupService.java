@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberGroupService {
@@ -21,6 +22,9 @@ public class MemberGroupService {
 
     @Autowired
     private GroupRepository groupRepository;
+
+    @Autowired
+    private GroupService groupService;
 
     public boolean isMemberInGroup(String memberId, int gno) {
         return memberGroupRepository.existsByGroupGnoAndMemberMid(gno, memberId);
@@ -84,5 +88,33 @@ public class MemberGroupService {
         }
 
         return memberGroupDTOs;
+    }
+
+    public List<MemberGroupDTO> findMembersByGroupGnoWithDTO(int gno) {
+        List<MemberGroup> memberGroups = memberGroupRepository.findByGroupGno(gno);
+
+        // Convert to MemberGroupDTO
+        return memberGroups.stream().map(mg -> {
+            GroupDTO groupDTO = groupService.getGroupById(mg.getGroup().getGno());
+            return new MemberGroupDTO(
+                    mg.getJno(),
+                    groupDTO,
+                    mg.getMember().getMnick(),
+                    mg.getJauth(),
+                    mg.getJdate()
+            );
+        }).collect(Collectors.toList());
+    }
+
+    public MemberGroup findMemberGroupByGroupGnoAndNick(int gno, String nick) {
+        return memberGroupRepository.findByGroupGnoAndMemberNick(gno, nick);
+    }
+
+    public void updateMemberGroupJauth(int gno, String mid, int newJauth) {
+        MemberGroup memberGroup = memberGroupRepository.findByGroupGnoAndMemberMid(gno, mid);
+        if (memberGroup != null) {
+            memberGroup.setJauth(newJauth);
+            memberGroupRepository.save(memberGroup);
+        }
     }
 }
