@@ -9,16 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="태그별 검색 별점 픽수 오류 수정 (1차 완성)">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="2차 통합(다현씨 파트)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/ReviewTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/ReviewTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/review.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/findPassAuth.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/findPassAuth.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/findPass_IdAuth.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/findPass_IdAuth.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +261,7 @@
       <workItem from="1723162731917" duration="25293000" />
       <workItem from="1723193149561" duration="425000" />
       <workItem from="1723421788395" duration="27761000" />
-      <workItem from="1723509646668" duration="2735000" />
+      <workItem from="1723509646668" duration="4410000" />
     </task>
     <task id="LOCAL-00001" summary="add menu entity">
       <option name="closed" value="true" />
@@ -623,7 +623,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723448311767</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="2차 통합(다현씨 파트)">
+      <option name="closed" value="true" />
+      <created>1723512489139</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1723512489139</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +652,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="storeDetail.css editing (not complete)" />
     <MESSAGE value="add getAllStores() with pickNum and scoreAvg" />
     <MESSAGE value="nowLocationList complete" />
     <MESSAGE value="inputLocationList complete" />
@@ -669,7 +676,8 @@
     <MESSAGE value="storeListByTag 집가서 할거" />
     <MESSAGE value="태그별 검색 다수 선택 완료" />
     <MESSAGE value="태그별 검색 별점 픽수 오류 수정 (1차 완성)" />
-    <option name="LAST_COMMIT_MESSAGE" value="태그별 검색 별점 픽수 오류 수정 (1차 완성)" />
+    <MESSAGE value="2차 통합(다현씨 파트)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2차 통합(다현씨 파트)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
