@@ -123,6 +123,14 @@
             }
         });
     });*/
+    function toggleTagList() {
+        var tagList = document.getElementById('tagList');
+        if (tagList.style.display === 'none' || tagList.style.display === '') {
+            tagList.style.display = 'block';
+        } else {
+            tagList.style.display = 'none';
+        }
+    }
 
     var selectedTags = [];
 
@@ -201,6 +209,16 @@
         window.open(url, name, specs);
     }
 
+    function openReportWindow(rno, sno) {
+        var url = "${pageContext.request.contextPath}/review/report?rno=" + rno +  "&sno=" + sno;
+        var name = "reportReview";
+        var specs = "width=500,height=350";
+        window.open(url, name, specs);
+    }
+
+    function openPickWindow(mno) {
+
+    }
     initializeReviewScript();
 
     document.addEventListener("DOMContentLoaded", function() {
