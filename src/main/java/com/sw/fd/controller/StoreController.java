@@ -50,11 +50,11 @@ public class StoreController {
         List<Menu> menus = menuService.getMenuBySno(sno);
         List<StoreTag> storeTags = storeService.getStoreTagsByStoreSno(sno);
         int rCount = reviewService.getReviewsBySno(sno).size();
-        System.out.println("rCount = " + rCount);
-        System.out.println("<s" + sno + "가게의 태그수>");
-        for(StoreTag storeTag : storeTags) {
+/*        System.out.println("rCount = " + rCount);
+        System.out.println("<s" + sno + "가게의 태그수>");*/
+/*        for(StoreTag storeTag : storeTags) {
             System.out.println(storeTag.getTag().getTtag() +"의 수: " + storeTag.getTagCount());
-        }
+        }*/
         model.addAttribute("rCount", rCount);
         model.addAttribute("store", store);
         model.addAttribute("menus", menus);
