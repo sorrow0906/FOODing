@@ -45,5 +45,15 @@
         </ul>
         <button class = "nextBtn"></button>
     </div>
+    <div class="category-area">
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
 </section>
 <c:import url = "/bottom.jsp" />

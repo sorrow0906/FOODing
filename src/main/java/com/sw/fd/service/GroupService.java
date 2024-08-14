@@ -4,6 +4,7 @@ import com.sw.fd.dto.GroupDTO;
 import com.sw.fd.entity.Group;
 import com.sw.fd.entity.Member;
 import com.sw.fd.repository.GroupRepository;
+import com.sw.fd.repository.MemberGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class GroupService {
 
     @Autowired
     private GroupRepository groupRepository;
+
+    @Autowired
+    private MemberGroupRepository memberGroupRepository;
 
     @Transactional
     public void save(Group group) {
@@ -63,5 +67,13 @@ public class GroupService {
 
         // 저장된 그룹의 gno 값을 groupDTO에 설정
         groupDTO.setGno(savedGroup.getGno());
+    }
+
+    public void deleteGroupByGno(int gno) {
+        groupRepository.delete(gno);
+    }
+
+    public int groupMemberCount(int gno) {
+        return memberGroupRepository.countByGroupGno(gno);
     }
 }
