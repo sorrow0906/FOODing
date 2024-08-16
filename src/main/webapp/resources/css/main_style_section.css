@@ -126,8 +126,17 @@ section {
 
 }
 
-.category-area td{
+.category-area td {
+    text-align: center;
+    vertical-align: middle;
 }
+
+.category-area td img,
+.category-area td button {
+    display: block;
+    margin: 0 auto;
+}
+
 .category-area table img{
     width: 40px;
     height: 40px;
