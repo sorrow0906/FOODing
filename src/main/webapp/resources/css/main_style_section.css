@@ -106,14 +106,14 @@ section {
 }
 
 .show-area2{
+    gap: 50px;
     display: flex;
     justify-content: center;
     min-height: 160px;
 }
 
 .show-area2 > div{
-    margin: 0 auto;
-    width: 45%;
+    width: 35%;
     border: 2px solid #f5ba00;
     border-radius: 30px;
 }
@@ -122,22 +122,35 @@ section {
     height: 100%
 }
 
-.category-area tr{
+.category-area tbody{
+    display: inline-block;
+}
 
+.category-area tr{
+    height: 120px;
+    display: table-row;
 }
 
 .category-area td {
+    width: 120px;
+    border-collapse: collapse;
+    margin: auto;
     text-align: center;
-    vertical-align: middle;
 }
 
 .category-area td img,
 .category-area td button {
     display: block;
-    margin: 0 auto;
+    margin: 4px auto;
 }
 
 .category-area table img{
     width: 40px;
     height: 40px;
+}
+
+.category-area td button {
+    width: max-content;
+    border: transparent;
+    background-color: transparent;
 }

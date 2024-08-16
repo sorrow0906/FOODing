@@ -52,38 +52,54 @@
         <table>
             <tr>
                 <td>
-                    <img src="${pageContext.request.contextPath}/resources/store_images/korean_food_icon.png" href="${pageContext.request.contextPath}/storeList?scate=한식">
+                    <a href="${pageContext.request.contextPath}/storeList?scate=한식">
+                    <img src="${pageContext.request.contextPath}/resources/store_images/korean_food_icon.png">
                     <button href="${pageContext.request.contextPath}/storeList?scate=한식">한식</button>
+                    </a>
                 </td>
                 <td>
-                    <img src="${pageContext.request.contextPath}/resources/store_images/japanese_food_icon.png" href="${pageContext.request.contextPath}/storeList?scate=일식">
+                    <a href="${pageContext.request.contextPath}/storeList?scate=일식">
+                    <img src="${pageContext.request.contextPath}/resources/store_images/japanese_food_icon.png">
                     <button href="${pageContext.request.contextPath}/storeList?scate=일식">일식</button>
+                    </a>
                 </td>
                 <td>
-                    <img src="${pageContext.request.contextPath}/resources/store_images/chinese_food_icon.png" href="${pageContext.request.contextPath}/storeList?scate=중식">
+                    <a href="${pageContext.request.contextPath}/storeList?scate=중식">
+                    <img src="${pageContext.request.contextPath}/resources/store_images/chinese_food_icon.png">
                     <button href="${pageContext.request.contextPath}/storeList?scate=중식">중식</button>
+                    </a>
                 </td>
                 <td>
-                    <img src="${pageContext.request.contextPath}/resources/store_images/western_food_icon.png" href="${pageContext.request.contextPath}/storeList?scate=양식">
+                    <a href="${pageContext.request.contextPath}/storeList?scate=양식">
+                    <img src="${pageContext.request.contextPath}/resources/store_images/western_food_icon.png">
                     <button href="${pageContext.request.contextPath}/storeList?scate=한식">양식</button>
+                    </a>
                 </td>
             </tr>
             <tr>
                 <td>
+                    <a href="${pageContext.request.contextPath}/storeList?scate=세계요리">
                     <img src="${pageContext.request.contextPath}/resources/store_images/global_food_icon.png">
                     <button>세계요리</button>
+                    </a>
                 </td>
                 <td>
+                    <a href="${pageContext.request.contextPath}/storeList?scate=빵/디저트">
                     <img src="${pageContext.request.contextPath}/resources/store_images/dessert_icon.png">
                     <button>빵/디저트</button>
+                    </a>
                 </td>
                 <td>
+                    <a href="${pageContext.request.contextPath}/storeList?scate=차/커피">
                     <img src="${pageContext.request.contextPath}/resources/store_images/coffee_icon.png">
                     <button>차/커피</button>
+                    </a>
                 </td>
                 <td>
+                    <a href="${pageContext.request.contextPath}/storeList?scate=술집">
                     <img src="${pageContext.request.contextPath}/resources/store_images/pub_icon2.png">
                     <button>술집</button>
+                    </a>
                 </td>
             </tr>
         </table>
