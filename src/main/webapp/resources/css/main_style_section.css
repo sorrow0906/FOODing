@@ -106,20 +106,38 @@ section {
 }
 
 .show-area2{
-    gap: 50px;
+    gap: 130px;
     display: flex;
     justify-content: center;
     min-height: 160px;
 }
 
-.show-area2 > div{
-    width: 35%;
-    border: 2px solid #f5ba00;
+.show-area2 > div:first-child{
+    height: max-content;
+    width: 30%;
+    border: transparent;
+    background-color: #f0f0f0;
     border-radius: 30px;
+}
+
+.show-area2 > div:nth-child(2){
+    width: 30%;
+    border-top: 3px solid #f5ba00;
+    border-bottom: 3px solid #f5ba00;
+}
+
+#category-title{
+    margin-top: 10px;
+    border: none;
+    background: wheat;
+    border-radius: 50%;
+    width: 160px;
+    font-size: 20px;
+    height: 40px;
+    font-weight: bold;
 }
 .category-area table{
     width: 100%;
-    height: 100%
 }
 
 .category-area tbody{
@@ -150,7 +168,40 @@ section {
 }
 
 .category-area td button {
+    background-color: white;
+    border-radius: 40%;
     width: max-content;
     border: transparent;
     background-color: transparent;
+}
+
+.each-group-area{
+    margin-bottom: 20px;
+    text-align: -webkit-center;
+}
+
+.groupshow-area table {
+    border: none;
+/*    width : 100%;
+    height : 100%;*/
+    margin-top : 5px;
+}
+
+.groupshow-area table th, .groupshow-area table td {
+    border: none;
+/*    padding : 12px;*/
+    text-align : center;
+}
+
+.group-img{
+    width: 70px;
+    height: 70px;
+    border-radius: 40%;
+}
+
+#grouparea-title {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: bold;
 }

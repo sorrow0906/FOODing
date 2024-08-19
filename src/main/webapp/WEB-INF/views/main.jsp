@@ -49,6 +49,7 @@
     </div>
     <div class="show-area2">
     <div class="category-area">
+        <button id="category-title">카테고리별</button>
         <table>
             <tr>
                 <td>
@@ -104,16 +105,48 @@
             </tr>
         </table>
     </div>
-    <div class="groupshow-area">
-        <table>
-            <tr>
-                <td>모임방1</td>
-            </tr>
-            <tr>
-                <td>모임방2</td>
-            </tr>
-        </table>
-    </div>
+        <div class="groupshow-area">
+            <h1 id="grouparea-title">내가 참여한 모임</h1>
+            <c:forEach var="memberGroup" items="${myMemberGroups}" varStatus="status">
+                <p style="color: #dddddd">--------------------------------------------------------</p>
+            <div class="each-group-area">
+                <img class="group-img" src="${pageContext.request.contextPath}/resources/images/group-thumbnail1.png"/>
+                <table class="group-table">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <c:choose>
+                                <c:when test="${memberGroup.jauth == 1}">
+                                    ★
+                                </c:when>
+                                <c:otherwise>
+                                    ☆
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td><a href="#">${memberGroup.group.gname}</a></td>
+                        <td>
+                            <c:forEach var="entry" items="${leaderList}">
+                                <c:if test="${entry.key == memberGroup.group.gno}">
+                                    ${entry.value}
+                                </c:if>
+                            </c:forEach>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <c:forEach var="entry" items="${allMemberList}">
+                                <c:if test="${entry.key == memberGroup.group.gno}">
+                                    ${entry.value}
+                                </c:if>
+                            </c:forEach>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            </c:forEach>
+        </div>
     </div>
 </section>
 <c:import url = "/bottom.jsp" />
