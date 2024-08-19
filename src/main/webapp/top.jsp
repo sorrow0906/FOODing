@@ -14,6 +14,21 @@
         <a class = "header2" href = "${pageContext.request.contextPath}/main">ing</a>
         <a class = "header2" href = "${pageContext.request.contextPath}/main">
             <img src = "${pageContext.request.contextPath}/resources/images/chefudding.png" width = "100px" height = "100px">
+
+            <!-- 알림 기능 추가(희진) -->
+            <div class="anb">
+                <div class="subalarm">
+                <c:choose>
+                    <c:when test="${hasAlarms == true}">
+                        알림 내용
+                    </c:when>
+                    <c:otherwise>
+                        알림이 없습니다.
+                    </c:otherwise>
+                </c:choose>
+                </div>
+            </div>
+
         </a>
         <div class = "hello2">
             <table border = "0" align = "center">
@@ -29,12 +44,17 @@
                 </tr>
                 <tr>
                     <td align = "center">
-                        <span>
-                            <a class = "bell" href = "#">
-                                <img src = "${pageContext.request.contextPath}/resources/images/bell.png" width = "30px" height = "30px">
-                            </a>
-                        </span>
-                        <span>|</span>
+
+                        <!-- 알림 기능 추가(희진) -->
+                        <c:if test="${sessionScope.loggedInMember != null}">
+                            <span>
+                                <a class = "bell" href = "#">
+                                    <img src = "${pageContext.request.contextPath}/resources/images/bell.png" width = "30px" height = "30px">
+                                </a>
+                            </span>
+                            <span>|</span>
+                        </c:if>
+
                         <span>
                              <c:if test="${sessionScope.loggedInMember != null}">
                                  <a class="helloBox" href="<%= request.getContextPath() %>/myPage">마이페이지</a>

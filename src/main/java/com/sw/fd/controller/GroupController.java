@@ -2,12 +2,8 @@ package com.sw.fd.controller;
 
 import com.sw.fd.dto.GroupDTO;
 import com.sw.fd.dto.MemberGroupDTO;
-import com.sw.fd.entity.Group;
-import com.sw.fd.entity.Member;
-import com.sw.fd.entity.MemberGroup;
-import com.sw.fd.service.GroupService;
-import com.sw.fd.service.MemberGroupService;
-import com.sw.fd.service.MemberService;
+import com.sw.fd.entity.*;
+import com.sw.fd.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +26,12 @@ public class GroupController {
 
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private InviteService inviteService;
+
+    @Autowired
+    private AlarmService alarmService;
 
     @GetMapping("/groupList")
     public String groupList(Model model, HttpSession session) {
@@ -96,8 +98,8 @@ public class GroupController {
         return "redirect:/groupList";
     }
 
-    @PostMapping("/addMember")
-    public String addMemberSubmit(@ModelAttribute MemberGroup memberGroup, Model model, HttpSession session) {
+    @PostMapping("/inviteMember")
+    public String inviteMemberSubmit(@ModelAttribute MemberGroup memberGroup, Model model, HttpSession session) {
         Member member = (Member) session.getAttribute("loggedInMember");
         if (member == null) {
             return "redirect:/login";
@@ -114,13 +116,43 @@ public class GroupController {
         group.setGno(groupDTO.getGno());
         group.setGname(groupDTO.getGname());
 
-        // 추가하려는 회원이 이미 모임에 존재하는지 확인
+        // 초대하려는 회원이 이미 모임에 존재하는지 확인
         if (memberGroupService.isMemberInGroup(newMember.getMid(), group.getGno())) {
             model.addAttribute("error", "이미 모임에 참여하고 있는 회원입니다.");
             return groupList(model, session);
         }
 
-        memberGroupService.addMemberToGroup(newMember, group, 0);
+        // 현재 로그인한 회원의 모임에서의 권한 조회
+        int currentMemberJauth = memberGroupService.getMemberJauth(member.getMid(), group.getGno());
+
+        // 초대하는 회원의 MemberGroup 객체를 데이터베이스에서 조회
+        MemberGroup inviterMemberGroup = memberGroupService.getMemberGroupByGroupGnoAndMemberMid(group.getGno(), member.getMid());
+        if (inviterMemberGroup == null) {
+            model.addAttribute("error", "초대하는 회원의 모임 정보가 존재하지 않습니다.");
+            return "groupList";
+        }
+
+        // 초대 유형 설정
+        int inviteType = (currentMemberJauth == 1) ? 6 : 0;
+
+        // Invite 엔티티 생성 및 설정
+        Invite invite = new Invite();
+        invite.setMemberGroup(inviterMemberGroup); // 초대하는 회원의 정보를 jno로 설정
+        invite.setMember(newMember); // 초대받는 회원의 정보를 mno로 설정
+        invite.setItype(inviteType);
+
+        // 초대 정보 저장
+        inviteService.saveInvite(invite);
+
+        // 알림 엔티티 생성 및 설정
+        Alarm alarm = new Alarm();
+        alarm.setLinkedPk(String.valueOf(invite.getIno())); // 초대 엔티티의 ino 값을 문자열로 설정
+        alarm.setAtype(inviteType == 6 ? "모임장 초대" : "일반 회원 초대"); // 초대 유형에 따라 알림 유형 설정
+        alarm.setMember(newMember); // 알림을 받을 회원
+        alarm.setIsChecked(0); // 확인 여부는 0 (미확인 상태)
+
+        // 알림 정보 저장
+        alarmService.saveAlarm(alarm);
 
         return "redirect:/groupList";
     }
