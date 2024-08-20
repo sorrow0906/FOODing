@@ -19,10 +19,7 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class ReviewController {
@@ -137,6 +134,16 @@ public class ReviewController {
         // 로그인한 회원의 mno를 가져와서 해당 회원이 작성한 리뷰들을 가져옴
         int mno = loggedInMember.getMno();
         List<Review> reviews = reviewService.getReviewsByMno(mno);
+
+        // 리뷰신고 기능을 위한 삭제 리뷰 예외처리(다혜)
+        Iterator<Review> iterator = reviews.iterator();
+        while (iterator.hasNext()) {
+            Review review = iterator.next();
+            if ((review.getMdelete() != null && review.getMdelete() == 1) ||
+                    (review.getAdelete() != null && review.getAdelete() == 1))
+                iterator.remove();
+        }
+
         model.addAttribute("reviews", reviews);
 
         return "myReviews"; // 내가 쓴 리뷰 목록을 보여주는 JSP 파일명
@@ -149,8 +156,7 @@ public class ReviewController {
         Review review = reviewService.getReviewByRno(rno);
 
         // 리뷰 삭제
-        reviewService.deleteReviewByRno(rno);
-
+        reviewService.markReviewAsDeleted(rno);
         /*redirectAttributes.addFlashAttribute("message", "삭제가 완료되었습니다.");*/
 
         // 리뷰 삭제 후 해당 가게의 리뷰 페이지로 리다이렉션

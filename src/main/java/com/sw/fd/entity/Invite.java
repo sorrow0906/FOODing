@@ -26,6 +26,9 @@ public class Invite {
 
     private int itype; // 처리유형
 
+    @Column(name = "leadernum")
+    private int leaderNum;
+
     @Override
     public String toString() {
         return "Invite{ino=" + ino + ", memberGroup=" + memberGroup + ", itype=" + itype + "}";

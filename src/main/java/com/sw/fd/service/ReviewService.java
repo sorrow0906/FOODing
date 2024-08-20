@@ -67,5 +67,9 @@ public class ReviewService {
         reviewTagRepository.deleteTags(review);
     }
 
+    public void markReviewAsDeleted(Integer rno) {
+        reviewRepository.markReviewAsDeleted(rno);
+    }
+
 
 }

@@ -65,6 +65,7 @@
         <c:when test="${not empty reviews}">
             <div id="review-list">
                 <c:forEach var="review" items="${reviews}">
+                    <c:if test="${review.adelete != 1 && review.mdelete != 1}">
                     <div class="review-container">
                         <div class="review-item review-item-left">${review.dateToString}</div>
                         <div class="review-item review-item-left" style="top: 35px;"><strong>${review.member.mnick}</strong></div>
@@ -98,6 +99,7 @@
                             </c:forEach>
                         </div>
                     </div>
+                    </c:if>
                 </c:forEach>
             </div>
         </c:when>

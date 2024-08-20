@@ -39,15 +39,22 @@ public class MainController {
                 leaderList.put(thisGno, memberGroupService.getLeaderByGno(thisGno).getMember().getMnick());
             }
         }
+        else{
+            myMemberGroups = null;
+        }
 
-        List<Store> stores = storeService.getAllStoresWithRank();
-        stores.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
-        List<Store> rankedStores = stores.subList(0, 5);
+        List<Store> stores1 = storeService.getAllStoresWithRank();
+        List<Store> stores2 = storeService.getAllStoresWithRank();
+        stores1.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
+        List<Store> rankedByScoreStores = stores1.subList(0, 5);
+        stores2.sort(Comparator.comparingDouble(Store::getPickNum).reversed());
+        List<Store> rankedByPickStores = stores2.subList(0, 5);
 
         model.addAttribute("myMemberGroups", myMemberGroups);
         model.addAttribute("allMemberList", allMemberList);
         model.addAttribute("leaderList", leaderList);
-        model.addAttribute("stores", rankedStores);
+        model.addAttribute("rankByScore", rankedByScoreStores);
+        model.addAttribute("rankByPick", rankedByPickStores);
 
 
         return "main";
