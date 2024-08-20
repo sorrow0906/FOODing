@@ -43,8 +43,8 @@ public class MainController {
             myMemberGroups = null;
         }
 
-        List<Store> stores1 = storeService.getAllStoresWithRank();
-        List<Store> stores2 = storeService.getAllStoresWithRank();
+        List<Store> stores1 = storeService.getAllStores();
+        List<Store> stores2 = storeService.getAllStores();
         stores1.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
         List<Store> rankedByScoreStores = stores1.subList(0, 5);
         stores2.sort(Comparator.comparingDouble(Store::getPickNum).reversed());

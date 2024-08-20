@@ -3,7 +3,7 @@
     /*    height: 100%;
         width: 100%;
         min-height: 100vh;*/
-    width: 20%;
+    max-width: 360px;
     background-color: #fbfaff;
     display: flex;
     align-items: center;

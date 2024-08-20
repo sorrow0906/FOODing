@@ -26,7 +26,7 @@ public class Invite {
 
     private int itype; // 처리유형
 
-    @Column(name = "leadernum")
+    @Column(name = "leadnum")
     private int leaderNum;
 
     @Override
