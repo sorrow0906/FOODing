@@ -147,7 +147,7 @@ public class ReviewController {
         Review review = reviewService.getReviewByRno(rno);
 
         // 리뷰 삭제
-        reviewService.markReviewAsDeleted(rno);
+        reviewService.deleteReviewByRno(rno);
         /*redirectAttributes.addFlashAttribute("message", "삭제가 완료되었습니다.");*/
 
         // 리뷰 삭제 후 해당 가게의 리뷰 페이지로 리다이렉션

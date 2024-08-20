@@ -51,10 +51,16 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
+    @Transactional
+    public void deleteReviewTags(Review review) {
+        reviewTagRepository.deleteTags(review);
+    }
+
+    /*--------------------------- 리뷰 미삭제 처리를 위해서 수정한 함수들 (다혜) ------------------------*/
+
     public List<Review> getReviewsBySno(int sno) {
         return reviewRepository.findValidReviewsByStoreSno(sno);
     }
-
 
     @Transactional
     public List<Review> getReviewsByMno(int mno) {
@@ -62,17 +68,7 @@ public class ReviewService {
     }
 
     public void deleteReviewByRno(int rno) {
-        reviewRepository.delete(rno);
-    }
-
-    @Transactional
-    public void deleteReviewTags(Review review) {
-        reviewTagRepository.deleteTags(review);
-    }
-
-    public void markReviewAsDeleted(Integer rno) {
         reviewRepository.markReviewAsDeleted(rno);
     }
-
 
 }
