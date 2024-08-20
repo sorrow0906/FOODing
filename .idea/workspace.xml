@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="리뷰 신고에 대한 예외처리 완료">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Invite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_ranking_box.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_ranking_box.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,15 +259,7 @@
       <workItem from="1723766639211" duration="13038000" />
       <workItem from="1723786837788" duration="10139000" />
       <workItem from="1724028740826" duration="26321000" />
-      <workItem from="1724113425889" duration="17134000" />
-    </task>
-    <task id="LOCAL-00011" summary="add Store List by Location">
-      <option name="closed" value="true" />
-      <created>1720678703736</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1720678703736</updated>
+      <workItem from="1724113425889" duration="19441000" />
     </task>
     <task id="LOCAL-00012" summary="add new review(add star)">
       <option name="closed" value="true" />
@@ -659,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724129692718</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐">
+      <option name="closed" value="true" />
+      <created>1724139146381</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1724139146382</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -680,7 +674,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="storeDetail에 대표태그 자동추가 완료" />
     <MESSAGE value="다현씨 파트 통합완료" />
     <MESSAGE value="정희씨 파트 통합완료" />
     <MESSAGE value="희진씨 파트 통합완료(1차 통합 끝)" />
@@ -705,7 +698,8 @@
     <MESSAGE value="main.jsp에 모임방 미리보기까지 완료" />
     <MESSAGE value="희진씨와 통합" />
     <MESSAGE value="리뷰 신고에 대한 예외처리 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="리뷰 신고에 대한 예외처리 완료" />
+    <MESSAGE value="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐" />
+    <option name="LAST_COMMIT_MESSAGE" value="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

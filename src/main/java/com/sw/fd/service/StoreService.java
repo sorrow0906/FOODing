@@ -49,6 +49,7 @@ public class StoreService {
     public void initializeStoreScores() {
         List<Store> stores = storeRepository.findAll();
         for (Store store : stores) {
+            updateStoreTags(store);
             calculateAndCacheStoreScores(store);
         }
     }
