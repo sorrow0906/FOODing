@@ -55,8 +55,21 @@ public class StoreService {
     }
 
     @Transactional
+    public void updateStoreInCache(int sno) {
+        Store store = storeRepository.findBySno(sno).orElse(null);
+        if (store != null) {
+            // 별점 평균과 Pick 수를 다시 계산
+            calculateAndCacheStoreScores(store);
+
+            // 태그 수 갱신
+            updateStoreTags(store);
+        }
+    }
+
+
+    @Transactional
     public void calculateAndCacheStoreScores(Store store) {
-        Double averageScore = reviewRepository.findAverageScoreBySno(store.getSno());
+        Double averageScore = reviewRepository.findAverageRstarBySno(store.getSno());
         store.setScoreArg(averageScore != null ? averageScore : 0);
 
         int pickCount = pickRepository.countBySno(store.getSno());
@@ -93,7 +106,7 @@ public class StoreService {
 
     @Transactional
     public void updateStoreTags(Store store) {
-        List<ReviewTag> reviewTags = reviewTagRepository.findByReview_Store_Sno(store.getSno());
+        List<ReviewTag> reviewTags = reviewTagRepository.findValidReviewTagsByStoreSno(store.getSno());
 
         if (reviewTags == null || reviewTags.isEmpty()) {
             return;

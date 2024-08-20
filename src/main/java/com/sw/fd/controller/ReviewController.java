@@ -135,15 +135,6 @@ public class ReviewController {
         int mno = loggedInMember.getMno();
         List<Review> reviews = reviewService.getReviewsByMno(mno);
 
-        // 리뷰신고 기능을 위한 삭제 리뷰 예외처리(다혜)
-        Iterator<Review> iterator = reviews.iterator();
-        while (iterator.hasNext()) {
-            Review review = iterator.next();
-            if ((review.getMdelete() != null && review.getMdelete() == 1) ||
-                    (review.getAdelete() != null && review.getAdelete() == 1))
-                iterator.remove();
-        }
-
         model.addAttribute("reviews", reviews);
 
         return "myReviews"; // 내가 쓴 리뷰 목록을 보여주는 JSP 파일명

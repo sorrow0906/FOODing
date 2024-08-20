@@ -39,6 +39,8 @@ public class PickService {
         if (existingPick != null) {
             pickRepository.delete(existingPick);
 
+            // 가게 Pick수 계산을 위해 추가(다혜)
+            storeService.updateStoreInCache(existingPick.getStore().getSno());
             return false;
 /*            try {
                 // 참조된 레코드를 먼저 처리 (예: pfno를 NULL로 설정)
@@ -58,6 +60,8 @@ public class PickService {
             Pick newPick = new Pick(member, store, pfolder);
             pickRepository.save(newPick);
 
+            // 가게 Pick수 계산을 위해 추가(다혜)
+            storeService.updateStoreInCache(newPick.getStore().getSno());
             return true;
         }
 
