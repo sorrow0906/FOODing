@@ -32,7 +32,7 @@
                 <c:forEach var="memberGroup" items="${leaderList}" varStatus="status">
                     <tr>
                         <td>${status.index + 1}</td>
-                        <td><a href="#">${memberGroup.group.gname}</a></td>
+                        <td><a href="${pageContext.request.contextPath}/board?gno=${memberGroup.group.gno}">${memberGroup.group.gname}</a></td>
                         <td>${memberGroup.member.mnick}</td>
                         <td>${memberGroup.group.gdate}</td>
                     </tr>
@@ -101,6 +101,13 @@
         </form:form>
         <div class="groupMember-leave-area">
             <h1>모임 탈퇴</h1>
+  <%--          <script>
+                var memberCount = {
+                    <c:forEach var="entry" items="${memberCount}">
+                    "${entry.key}": ${entry.value}<c:if test="${!entry.last}">,</c:if>
+                    </c:forEach>
+                };
+            </script>--%>
             <form:form name="group-leaveForm" action="${pageContext.request.contextPath}/leaveGroup" method="post" modelAttribute="group" onsubmit="submitLeaveForm(event)">
                 <table class="groupMember-leave-table">
                     <tr>

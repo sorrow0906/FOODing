@@ -33,6 +33,9 @@ public class GroupController {
     @Autowired
     private AlarmService alarmService;
 
+    @Autowired
+    private BoardService boardService;
+
     @GetMapping("/groupList")
     public String groupList(Model model, HttpSession session) {
         Member member = (Member) session.getAttribute("loggedInMember");
@@ -94,6 +97,10 @@ public class GroupController {
         group.setGno(createdGroupDTO.getGno());
         group.setGname(createdGroupDTO.getGname());
         memberGroupService.addMemberToGroup(member, group, 1);
+
+//-----------------------------------------모임 생성 시 게시판 같이 생성(정희)------------------------------
+        int gno = group.getGno();
+        boardService.createBoard(gno);
 
         return "redirect:/groupList";
     }

@@ -9,23 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="위치별 정렬 속도 개선">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="희진씨 코드 통합">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/AlarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/AlarmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Alarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Alarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/AlarmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/AlarmRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/InviteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/InviteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/MemberGroupRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/AlarmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/AlarmService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/InviteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/InviteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/nav_hover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/nav_hover.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Write.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Write.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,15 +262,7 @@
       <workItem from="1723786837788" duration="10139000" />
       <workItem from="1724028740826" duration="26321000" />
       <workItem from="1724113425889" duration="24448000" />
-      <workItem from="1724199358516" duration="10890000" />
-    </task>
-    <task id="LOCAL-00016" summary="presentation off">
-      <option name="closed" value="true" />
-      <created>1721103755673</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1721103755673</updated>
+      <workItem from="1724199358516" duration="17427000" />
     </task>
     <task id="LOCAL-00017" summary="start secend">
       <option name="closed" value="true" />
@@ -668,7 +648,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724207047718</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="희진씨 코드 통합">
+      <option name="closed" value="true" />
+      <created>1724210791881</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1724210791881</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +677,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="빠진부분 다시 push" />
     <MESSAGE value="모임방 openEditWindow 문제 해결" />
     <MESSAGE value="태그 포함되지 않고 순위정렬(태그 생성만 완료)" />
     <MESSAGE value="tnos로 선택된 태그번호 여러개 보내기 완료(storeListByTag)" />
@@ -714,7 +701,8 @@
     <MESSAGE value="리뷰 미삭제 처리 수정 pick수와 별점 평균 갱신 부분 수정" />
     <MESSAGE value="화요일 할 일 끝!" />
     <MESSAGE value="위치별 정렬 속도 개선" />
-    <option name="LAST_COMMIT_MESSAGE" value="위치별 정렬 속도 개선" />
+    <MESSAGE value="희진씨 코드 통합" />
+    <option name="LAST_COMMIT_MESSAGE" value="희진씨 코드 통합" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
