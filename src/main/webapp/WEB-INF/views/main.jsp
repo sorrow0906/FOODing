@@ -32,23 +32,23 @@
             <button class="preBtn"></button>
             <ul class="mainSliderList">
                 <li class="slider mainSlider1 active">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/groupList">
                         <div class="sliderImg">
-                            <img src="${pageContext.request.contextPath}/resources/images/chefudding.png">
+                            <img src="${pageContext.request.contextPath}/resources/images/banner1.png">
                         </div>
                     </a>
                 </li>
                 <li class="slider mainSlider2">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/storeListByLocation">
                         <div class="sliderImg">
-                            <img src="${pageContext.request.contextPath}/resources/images/chefudding.png">
+                            <img src="${pageContext.request.contextPath}/resources/images/banner2.png">
                         </div>
                     </a>
                 </li>
                 <li class="slider mainSlider3">
                     <a href="#">
                         <div class="sliderImg">
-                            <img src="${pageContext.request.contextPath}/resources/images/chefudding.png">
+                            <img src="${pageContext.request.contextPath}/resources/images/banner3.png">
                         </div>
                     </a>
                 </li>

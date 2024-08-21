@@ -20,6 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -67,6 +70,15 @@ public class MemberController {
 
     @PostMapping("/register/user")
     public String registerUser(@Valid @ModelAttribute("member") Member member, BindingResult bindingResult, Model model) {
+        // 생년월일 형식 검증
+        try {
+            if (member.getMbirth() != null) {
+                LocalDate.parse(member.getMbirth().toString(), DateTimeFormatter.ofPattern("yyyyMMdd"));
+            }
+        } catch (DateTimeParseException e) {
+            bindingResult.rejectValue("mbirth", "error.member", "생년월일이 올바른 형식이 아닙니다. (예: YYYYMMDD)");
+        }
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("memberType", "손님");
             return "registerUser";
@@ -97,6 +109,15 @@ public class MemberController {
 
     @PostMapping("/register/owner")
     public String registerOwner(@Valid @ModelAttribute("member") Member member, BindingResult bindingResult, Model model) {
+        // 생년월일 형식 검증
+        try {
+            if (member.getMbirth() != null) {
+                LocalDate.parse(member.getMbirth().toString(), DateTimeFormatter.ofPattern("yyyyMMdd"));
+            }
+        } catch (DateTimeParseException e) {
+            bindingResult.rejectValue("mbirth", "error.member", "생년월일이 올바른 형식이 아닙니다. (예: YYYYMMDD)");
+        }
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("memberType", "사장님");
             return "registerOwner";
