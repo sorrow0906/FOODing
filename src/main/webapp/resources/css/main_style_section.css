@@ -223,5 +223,6 @@ section {
 .show-area3 .group-show-area{
     height: max-content;
     width: 30%;
+    min-width: 20%;
     align-self: center;
 }
