@@ -17,16 +17,39 @@
 
             <!-- 알림 기능 추가(희진) -->
             <div class="anb">
-                <div class="subalarm">
-                <c:choose>
-                    <c:when test="${hasAlarms == true}">
-                        알림 내용
-                    </c:when>
-                    <c:otherwise>
-                        알림이 없습니다.
-                    </c:otherwise>
-                </c:choose>
-                </div>
+
+                    <c:choose>
+                        <c:when test="${hasAlarms}">
+                            <c:forEach items="${alarms}" var="alarm">
+                        <div class="subalarm">
+                                <div>
+                                    <c:choose>
+                                        <c:when test="${alarm.atype == '모임장 초대'}">
+                                            <c:out value="${alarm.message} (모임장)" escapeXml="false"/>
+                                        </c:when>
+                                        <c:when test="${alarm.atype == '일반 회원 초대'}">
+                                            <c:out value="${alarm.message} (일반회원)" escapeXml="false"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div>알림 내용</div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+                                <!-- 확인 및 삭제 버튼 추가 -->
+                                <div class="button-group">
+                                    <button type="button" class="btn btn-primary btn-sm">확인</button>
+                                    <button type="button" class="btn btn-danger btn-sm">삭제</button>
+                                </div>
+                        </div>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="subalarm">
+                            <div>알림이 없습니다.</div>
+                        </div>
+                        </c:otherwise>
+                    </c:choose>
+
             </div>
 
         </a>

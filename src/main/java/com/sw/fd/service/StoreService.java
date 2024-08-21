@@ -272,6 +272,7 @@ public class StoreService {
                 userLon - searchRadius, userLon + searchRadius
         );
 
+
         // STRtree를 사용하여 근처 가게 검색
         @SuppressWarnings("unchecked")
         List<Store> nearbyStores = storeTree.query(searchEnv);
