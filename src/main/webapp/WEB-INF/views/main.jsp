@@ -64,49 +64,49 @@
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=한식">
                             <img src="${pageContext.request.contextPath}/resources/store_images/korean_food_icon.png">
-                            <button href="${pageContext.request.contextPath}/storeList?scate=한식">한식</button>
+                            <p>한식</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=일식">
                             <img src="${pageContext.request.contextPath}/resources/store_images/japanese_food_icon.png">
-                            <button href="${pageContext.request.contextPath}/storeList?scate=일식">일식</button>
+                            <p>일식</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=중식">
                             <img src="${pageContext.request.contextPath}/resources/store_images/chinese_food_icon.png">
-                            <button href="${pageContext.request.contextPath}/storeList?scate=중식">중식</button>
+                            <p>중식</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=양식">
                             <img src="${pageContext.request.contextPath}/resources/store_images/western_food_icon.png">
-                            <button href="${pageContext.request.contextPath}/storeList?scate=한식">양식</button>
+                            <p>양식</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=세계요리">
                             <img src="${pageContext.request.contextPath}/resources/store_images/global_food_icon.png">
-                            <button>세계요리</button>
+                            <p>세계요리</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=빵/디저트">
                             <img src="${pageContext.request.contextPath}/resources/store_images/dessert_icon.png">
-                            <button>빵/디저트</button>
+                            <p>빵/디저트</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=차/커피">
                             <img src="${pageContext.request.contextPath}/resources/store_images/coffee_icon.png">
-                            <button>차/커피</button>
+                            <p>차/커피</p>
                         </a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/storeList?scate=술집">
                             <img src="${pageContext.request.contextPath}/resources/store_images/pub_icon2.png">
-                            <button>술집</button>
+                            <p>술집</p>
                         </a>
                     </td>
                 </tr>
@@ -172,7 +172,7 @@
             <h1 id="group-area-title">내가 참여한 모임</h1>
             <c:choose>
                 <c:when test="${myMemberGroups==null}">
-                    <p style="height: 100px; align-content: center;">해당 서비스는 로그인 후 이용 가능합니다.</p>
+                    <p style="height: 100px; align-content: center">해당 서비스는 로그인 후 이용 가능합니다.</p>
                 </c:when>
                 <c:otherwise>
                     <c:forEach var="memberGroup" items="${myMemberGroups}">

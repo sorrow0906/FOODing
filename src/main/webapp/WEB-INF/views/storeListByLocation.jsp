@@ -56,18 +56,18 @@
 <body>
 <c:import url="/top.jsp" />
 <section class="content">
-    <h1>위치별 가게 리스트</h1>
+    <h1>위치별 맛집</h1>
     <p>현재 위치: ${nowAddr}</p>
     <div class="location-set">
     <form id="inputLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
         <input type="text" id="inputAddr" name="inputAddr" placeholder="주소"/>
-        <button class="location-btn" type="button" onclick="sample5_execDaumPostcode()">주소 찾기</button>
-        <button class="location-btn" type="button" onclick="validateAndSubmitForm()">해당 주소로 검색</button>
+        <button class="location-btn" type="button" onclick="sample5_execDaumPostcode()"><img src="${pageContext.request.contextPath}/resources/store_images/addr_setting_icon.png">주소 찾기</button>
+        <button class="location-btn" type="button" onclick="validateAndSubmitForm()"><img src="${pageContext.request.contextPath}/resources/store_images/addr_search_icon.png">해당 주소로 검색</button>
     </form>
     <form id="userLocationForm" action="${pageContext.request.contextPath}/storeListByLocation" method="get">
         <input type="hidden" id="userLat" name="userLat" value="${defaultLat}" />
         <input type="hidden" id="userLon" name="userLon" value="${defaultLon}" />
-        <button class="location-btn" type="button" onclick="getLocationAndSubmit()">내 위치로 검색</button>
+        <button class="location-btn" type="button" onclick="getLocationAndSubmit()"><img src="${pageContext.request.contextPath}/resources/store_images/gps_icon.png">내 위치로 검색</button>
     </form>
     </div>
     <table class="store-table">
@@ -114,7 +114,7 @@
                             <img src="${pageContext.request.contextPath}/resources/store_images/pub_icon.png" alt="술집">
                         </c:when>
                         <c:otherwise>
-                            <img src="${pageContext.request.contextPath}/resources/store_images/global_food_icon.png" alt="기타음식">
+                            <img src="${pageContext.request.contextPath}/resources/store_images/other_food_icon.png" alt="기타음식">
                         </c:otherwise>
                     </c:choose>
                 </td>

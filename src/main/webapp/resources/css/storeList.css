@@ -100,7 +100,32 @@ h1 {
 }
 
 .location-btn{
-    height: 30px;
+/*    height: 30px;*/
+}
+
+.location-set input{
+    height: 100%;
+}
+
+.location-set button img{
+    width: 30px;
+    margin-right: 6px;
+}
+
+.location-set button {
+    border-radius: 15px;
+    border: 2px solid #c58a00;
+    background-color: #fff68f;
+}
+
+#inputLocationForm{
+    display: flex;
+    gap: 10px;
+}
+
+#inputLocationForm button img, #inputLocationForm button text{
+    vertical-align: middle;
+
 }
 
 .main-tag-button{
@@ -120,6 +145,42 @@ h1 {
 }
 
 .sort-element.active {
-    color: #894f1a; /* 활성화된 상태일 때 버튼 색상 */
+    color: #894f1a !important; /* 활성화된 상태일 때 버튼 색상 */
     font-weight: bold; /* 굵은 글씨 */
 }
+.sort-element:link { color : grey; text-decoration : none }
+.sort-element:visited { color : grey; text-decoration : none }
+.sort-element:hover { color : #ffea00; text-decoration : none }
+
+.scate-area{
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+    gap: 1%;
+}
+
+.each-scate-area{
+    text-align: center;
+}
+
+.store-cate-button{
+    height: 50px;
+    padding: 5px 10px;
+    margin: 3px;
+}
+
+.store-cate-button p{
+    background: #fff3db;
+    border-radius: 20px;
+}
+.store-cate-button p:link { color : saddlebrown; text-decoration : none }
+.store-cate-button p:visited { color : saddlebrown; text-decoration : none }
+.store-cate-button p:active { color : saddlebrown; text-decoration : none }
+.store-cate-button p:hover { color : #ffb217; font-weight:bolder }
+
+
+.store-cate-button.selected{
+    background-color: #ffe490;
+    border-radius: 30px;
+}
+

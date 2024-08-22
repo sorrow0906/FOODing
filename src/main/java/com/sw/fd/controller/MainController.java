@@ -56,18 +56,22 @@ public class MainController {
         if (loggedInMember != null) {
             myMemberGroups = memberGroupService.getMemberGroupsWithGroup(loggedInMember);
 
-            for (MemberGroupDTO memberGroup : myMemberGroups) {
-                int thisGno = memberGroup.getGroup().getGno();
-                // 해당 gno 그룹의 모든 맴버 닉네임을 한줄의 String으로 만들어서 gno와 함께 Map화 (key= gno, value= 모임방의 모든 맴버 닉네임)
-                allMemberList.put(thisGno, memberGroupService.findMnicksByGroupGno(thisGno));
-                // 해당 gno 그룹의 모임장을 찾아서 모임장의 닉네임을 gno와 함께 Map화 (key= gno, value= 모임장 닉네임)
-                if(memberGroupService.getLeaderByGno(thisGno) != null) {
-                    leaderList.put(thisGno, memberGroupService.getLeaderByGno(thisGno).getMember().getMnick());
-                    model.addAttribute("leaderList", leaderList);
+            if (myMemberGroups.isEmpty())
+                model.addAttribute("myMemberGroups", null);
+            else {
+                for (MemberGroupDTO memberGroup : myMemberGroups) {
+                    int thisGno = memberGroup.getGroup().getGno();
+                    // 해당 gno 그룹의 모든 맴버 닉네임을 한줄의 String으로 만들어서 gno와 함께 Map화 (key= gno, value= 모임방의 모든 맴버 닉네임)
+                    allMemberList.put(thisGno, memberGroupService.findMnicksByGroupGno(thisGno));
+                    // 해당 gno 그룹의 모임장을 찾아서 모임장의 닉네임을 gno와 함께 Map화 (key= gno, value= 모임장 닉네임)
+                    if (memberGroupService.getLeaderByGno(thisGno) != null) {
+                        leaderList.put(thisGno, memberGroupService.getLeaderByGno(thisGno).getMember().getMnick());
+                        model.addAttribute("leaderList", leaderList);
+                    } else {
+                        model.addAttribute("leaderList", null);
+                    }
                 }
-                else {
-                    model.addAttribute("leaderList", null);
-                }
+                model.addAttribute("myMemberGroups", myMemberGroups);
             }
         }
 
@@ -78,8 +82,6 @@ public class MainController {
         stores2.sort(Comparator.comparingDouble(Store::getPickNum).reversed());
         List<Store> rankedByPickStores = stores2.subList(0, 5);
 
-        model.addAttribute("myMemberGroups", myMemberGroups);
-        model.addAttribute("leaderList", leaderList);
         model.addAttribute("rankByScore", rankedByScoreStores);
         model.addAttribute("rankByPick", rankedByPickStores);
 

@@ -140,8 +140,18 @@ section {
     font-weight: bold;
 }
 .category-area table{
+    /* background-color: #ffe6a9; */
+    border: white;
+    border-radius: 50px;
     display: inline-block;
     width: 75%;
+}
+.category-area p{
+    width: 70%;
+    background: #fff3db;
+    border-radius: 20px;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .category-area tbody{
@@ -156,7 +166,7 @@ section {
     width: 120px;
     border-collapse: collapse;
     margin: auto;
-    text-align: center;
+    text-align: -webkit-center;
 }
 
 .category-area td img,
@@ -166,17 +176,16 @@ section {
 }
 
 .category-area table img{
+    margin-top: 1rem;
     width: 40px;
     height: 40px;
 }
 
-.category-area td button {
-    background-color: white;
-    border-radius: 40%;
-    width: max-content;
-    border: transparent;
-    background-color: transparent;
-}
+.category-area a:link { color : saddlebrown; text-decoration : none }
+.category-area a:visited { color : saddlebrown; text-decoration : none }
+.category-area a:active { color : saddlebrown; text-decoration : none }
+.category-area a:hover { color : #ffb217; font-weight:bolder }
+
 
 .each-group-area{
     margin-bottom: 20px;
@@ -224,3 +233,5 @@ section {
     min-width: 20%;
     align-self: center;
 }
+
+
