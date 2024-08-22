@@ -66,12 +66,11 @@ public class MainController {
                     // 해당 gno 그룹의 모임장을 찾아서 모임장의 닉네임을 gno와 함께 Map화 (key= gno, value= 모임장 닉네임)
                     if (memberGroupService.getLeaderByGno(thisGno) != null) {
                         leaderList.put(thisGno, memberGroupService.getLeaderByGno(thisGno).getMember().getMnick());
-                        model.addAttribute("leaderList", leaderList);
-                    } else {
-                        model.addAttribute("leaderList", null);
                     }
                 }
                 model.addAttribute("myMemberGroups", myMemberGroups);
+                model.addAttribute("leaderList", leaderList);
+                model.addAttribute("allMemberList", allMemberList);
             }
         }
 

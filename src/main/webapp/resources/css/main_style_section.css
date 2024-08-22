@@ -103,6 +103,26 @@ section {
     background-color: transparent; /* 배경 색상 투명으로 설정 */
 }
 
+slider-div button:active,
+slider-div button:focus,
+slider-div button:hover {
+    outline: none;
+}
+
+.preBtn:active,
+.preBtn:focus,
+.preBtn:hover {
+    border: none;
+    outline: none;
+}
+
+.nextBtn:active,
+.nextBtn:focus,
+.nextBtn:hover {
+    border: none;
+    outline: none;
+}
+
 
 /*---------------------------메인 콘텐츠를 위해 추가(다혜)--------------------------------*/
 .show-area2{
@@ -201,7 +221,6 @@ section {
 
 .group-show-area table th, .group-show-area table td {
     border: none;
-    /*    padding : 12px;*/
     text-align : center;
 }
 

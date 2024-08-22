@@ -9,10 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="8월 22일 오전 작업 완료">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="위치별 맛집 화면 UI 수정 완료">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchStore.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeListByLocation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_ranking_box.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_ranking_box.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_section.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_section.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,15 +268,7 @@
       <workItem from="1724028740826" duration="26321000" />
       <workItem from="1724113425889" duration="24448000" />
       <workItem from="1724199358516" duration="25897000" />
-      <workItem from="1724285975170" duration="17812000" />
-    </task>
-    <task id="LOCAL-00020" summary="complete store score avg">
-      <option name="closed" value="true" />
-      <created>1722501442388</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1722501442388</updated>
+      <workItem from="1724285975170" duration="29622000" />
     </task>
     <task id="LOCAL-00021" summary="storeDetail.css editing (not complete)">
       <option name="closed" value="true" />
@@ -656,7 +654,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724298722727</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="위치별 맛집 화면 UI 수정 완료">
+      <option name="closed" value="true" />
+      <created>1724304843005</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1724304843005</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +683,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="storeListByTag 집가서 할거" />
     <MESSAGE value="태그별 검색 다수 선택 완료" />
     <MESSAGE value="태그별 검색 별점 픽수 오류 수정 (1차 완성)" />
     <MESSAGE value="2차 통합(다현씨 파트)" />
@@ -702,7 +707,8 @@
     <MESSAGE value="정희씨 코드 통합 완료(게시글 작성)" />
     <MESSAGE value="배너 수정 완료" />
     <MESSAGE value="8월 22일 오전 작업 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="8월 22일 오전 작업 완료" />
+    <MESSAGE value="위치별 맛집 화면 UI 수정 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="위치별 맛집 화면 UI 수정 완료" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

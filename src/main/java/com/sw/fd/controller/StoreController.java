@@ -160,7 +160,7 @@ public class StoreController {
     }
 
     @GetMapping("/storeListByScate")
-    public String showStoreListByScate(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "scates", required = false) String scates, Model model/*, Integer tno*/) {
+    public String showStoreListByScate(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "scates", required = false) String scates, Model model) {
         System.out.println(scates);
         List<String> allScates = List.of("한식", "일식", "중식", "양식", "세계요리", "빵/디저트", "차/커피", "술집");;
         model.addAttribute("allScates", allScates);
@@ -190,4 +190,32 @@ public class StoreController {
 
         return "storeListByScate";
     }
+
+   /* @GetMapping("/searchStore")
+    public String searchStoreByKeyword(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "scates", required = false) String scates, Model model) {
+        List<Store> storesByScate = new ArrayList<>();
+        if (scates != null && !scates.trim().isEmpty()) {
+            String[] selectedScates = scates.split(",");
+
+            for (String scate : selectedScates) {
+                storesByScate.addAll(storeService.getStoresByCategory(scate));
+            }
+        }
+        else{
+            storesByScate = storeService.getAllStores();
+        }
+
+        storesByScate.sort(Comparator.comparingDouble(Store::getSno).reversed());
+        if ("score".equals(sortBy)) {
+            storesByScate.sort(Comparator.comparingDouble(Store::getScoreArg).reversed());
+            model.addAttribute("sortStandard", "score");
+        } else {
+            storesByScate.sort(Comparator.comparingInt(Store::getPickNum).reversed());
+            model.addAttribute("sortStandard", "pick");
+        }
+
+        model.addAttribute("stores", storesByScate);
+
+        return "storeListByScate";
+    }*/
 }

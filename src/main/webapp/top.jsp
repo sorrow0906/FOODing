@@ -108,6 +108,7 @@
         <a class = "nav" href = "${pageContext.request.contextPath}/groupList">모임</a>
         <a class = "nav" href = "#">찜</a>
         <form class="d-flex">
+<%--<form:form name="store-searchForm" action="${pageContext.request.contextPath}/searchStore">--%>
             <div class = "search-form">
                 <input class="form-control me-2" type="search" placeholder="가게를 검색하세욧" aria-label="Search">
                 <a class = "btn btn-link" href = "#" role = "button">
