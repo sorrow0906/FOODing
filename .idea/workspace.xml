@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="정희씨 파일 5차 통합 완료">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="5차 통합 완료">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/dto/GroupDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/dto/GroupDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/viewMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_section.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_section.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +25,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -261,15 +265,7 @@
       <workItem from="1724113425889" duration="24448000" />
       <workItem from="1724199358516" duration="25897000" />
       <workItem from="1724285975170" duration="30147000" />
-      <workItem from="1724373626882" duration="4043000" />
-    </task>
-    <task id="LOCAL-00026" summary="DB 테이블 새로 갱신하기 전">
-      <option name="closed" value="true" />
-      <created>1722907994118</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1722907994118</updated>
+      <workItem from="1724373626882" duration="18074000" />
     </task>
     <task id="LOCAL-00027" summary="DB 수정 및 갱신된 review 파트 추가 그리고 위치별 정렬 완료">
       <option name="closed" value="true" />
@@ -655,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724377258900</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="5차 통합 완료">
+      <option name="closed" value="true" />
+      <created>1724378067699</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1724378067699</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,7 +680,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="2차 통합(희진씨 파트)" />
     <MESSAGE value="2차 통합완료" />
     <MESSAGE value="2차 통합완료(비밀번호 찾기 오류 수정)" />
     <MESSAGE value="3차 통합완료" />
@@ -701,7 +704,8 @@
     <MESSAGE value="5차 통합전" />
     <MESSAGE value="희진씨 파일 5차 통합 완료" />
     <MESSAGE value="정희씨 파일 5차 통합 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="정희씨 파일 5차 통합 완료" />
+    <MESSAGE value="5차 통합 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="5차 통합 완료" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
