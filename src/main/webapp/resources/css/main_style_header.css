@@ -140,3 +140,8 @@ header {
     border: none;
     outline: none;
 }
+
+.login-image {
+    width: 30px;
+    border-radius: 80%;
+}

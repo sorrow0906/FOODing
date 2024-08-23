@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +61,10 @@ public class GroupController {
         for (MemberGroupDTO memberGroup : memberGroups) {
              memberCount.put(memberGroup.getGroup().getGno(), groupService.groupMemberCount(memberGroup.getGroup().getGno()));
             System.out.println(memberGroup.getJno() + "의 getGroup().getGname() = :" + memberGroup.getGroup().getGname());
+
+            LocalDateTime gdate = memberGroup.getGroup().getGdate();
+            String formattedDate = (gdate != null) ? gdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) : "N/A";
+            model.addAttribute("formattedDate", formattedDate);
         }
 
         model.addAttribute("group", new GroupDTO());

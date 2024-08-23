@@ -83,7 +83,14 @@ public class MemberGroupService {
         for (MemberGroup memberGroup : memberGroups) {
             Group group = memberGroup.getGroup();
             if (group != null) {
-                GroupDTO groupDTO = new GroupDTO(group.getGno(), group.getGname(), group.getGdate());
+                GroupDTO groupDTO;
+                if (group.getGimage() != null && !group.getGimage().isEmpty()) {
+                    // gimage 값이 비어있지 않으면 gimage를 포함한 생성자를 사용
+                    groupDTO = new GroupDTO(group.getGno(), group.getGname(), group.getGdate(), group.getGimage());
+                } else {
+                    // gimage 값이 비어있으면 gimage 없이 생성자를 사용
+                    groupDTO = new GroupDTO(group.getGno(), group.getGname(), group.getGdate());
+                }
                 MemberGroupDTO memberGroupDTO = new MemberGroupDTO(
                         memberGroup.getJno(),
                         groupDTO,

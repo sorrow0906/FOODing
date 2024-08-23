@@ -77,6 +77,16 @@
                 <tr>
                     <td align = "center">
                         <c:if test="${sessionScope.loggedInMember != null}">
+                            <c:choose>
+                                <c:when test="${not empty sessionScope.loggedInMember.mimage}">
+                                    <!-- 설정된 이미지가 있을 경우 -->
+                                    <img class="login-image" src="${pageContext.request.contextPath}${sessionScope.loggedInMember.mimage}" alt="Profile Image" style="max-width: 150px; max-height: 150px;">
+                                </c:when>
+                                <c:otherwise>
+                                    <!-- 기본 이미지(빈 이미지)를 표시 -->
+                                    <img class="login-image" src="${pageContext.request.contextPath}/resources/images/default-profile.png" alt="Default Profile Image" style="max-width: 150px; max-height: 150px;">
+                                </c:otherwise>
+                            </c:choose>
                             ${sessionScope.loggedInMember.mname}님, 안녕하세요!
                         </c:if>
                         <c:if test="${sessionScope.loggedInMember == null}">

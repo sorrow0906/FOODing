@@ -81,6 +81,7 @@ public class MainController {
                 model.addAttribute("myMemberGroups", null);
             else {
                 for (MemberGroupDTO memberGroup : myMemberGroups) {
+                    System.out.println(memberGroup.getGroup().getGimage());
                     int thisGno = memberGroup.getGroup().getGno();
                     // 해당 gno 그룹의 모든 맴버 닉네임을 한줄의 String으로 만들어서 gno와 함께 Map화 (key= gno, value= 모임방의 모든 맴버 닉네임)
                     allMemberList.put(thisGno, memberGroupService.findMnicksByGroupGno(thisGno));

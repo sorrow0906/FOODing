@@ -21,6 +21,7 @@
                 <thead>
                 <%------그룹 이미지를 띄워주는 것으로 수정(다혜)------%>
                 <tr>
+                    <th>번호</th>
                     <th>그룹 이미지</th>
                     <th colspan="2" align="center">모임명</th>
                     <th>모임 생성 날짜</th>
@@ -30,6 +31,7 @@
                 <tbody>
                 <c:forEach var="group" items="${leaderGroups}" varStatus="status">
                     <tr>
+                        <td>${status.index + 1}</td>
                         <td>
                             <c:choose>
                                 <c:when test="${not empty group.gimage}">
@@ -56,7 +58,7 @@
                                     <input type="button" value="수정" onclick="openEditWindow(${group.gno});">
                                 </form>
                             </td>
-                            <td><<%--fmt:formatDate pattern="yy년 MM월 dd일" value="--%>${group.gdate}"<%--/>--%></td>
+                        <td>${formattedDate}</td>
                         </tr>
                         <c:set var="mnickString" value=""/>
                         <c:forEach var="memberGroup" items="${allMemberGroups}">
@@ -67,7 +69,7 @@
                             </c:choose>
                         </c:forEach>
                         <tr>
-                            <td colspan="4" align="center">
+                            <td colspan="5" align="center">
                                     ${mnickString}
                             </td>
                         </tr>

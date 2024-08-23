@@ -25,6 +25,7 @@
                 <thead>
                 <tr>
                     <th>번호</th>
+                    <th>그룹 이미지</th>
                     <th>모임명</th>
                     <th>모임장</th>
                     <th>모임 생성 날짜</th>
@@ -34,9 +35,19 @@
                 <c:forEach var="memberGroup" items="${leaderList}" varStatus="status">
                     <tr>
                         <td>${status.index + 1}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${not empty memberGroup.group.gimage}">
+                                    <img src="${pageContext.request.contextPath}${memberGroup.group.gimage}" alt="Group Image" style="max-width: 100px; max-height: 100px;">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/resources/images/default-group.png" alt="Default Group Image" style="max-width: 100px; max-height: 100px;">
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
                         <td><a href="${pageContext.request.contextPath}/board?gno=${memberGroup.group.gno}">${memberGroup.group.gname}</a></td>
                         <td>${memberGroup.member.mnick}</td>
-                        <td>${memberGroup.group.gdate}</td>
+                        <td>${formattedDate}</td>
                     </tr>
                     <c:set var="mnickString" value=""/>
                     <c:forEach var="allMemberGroup" items="${allMembers}" varStatus="status">
@@ -47,7 +58,7 @@
                         </c:choose>
                     </c:forEach>
                     <tr>
-                        <td colspan="4" align="center">
+                        <td colspan="5" align="center">
                                 ${mnickString}
                         </td>
                     </tr>

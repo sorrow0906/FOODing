@@ -178,11 +178,11 @@
                             <div class="col">
                                 <div class="card h-100">
                                     <c:choose>
-                                        <c:when test="${not empty group.gimage}">
-                                            <img src="${pageContext.request.contextPath}${memberGroup.group.gimage}" class="card-img-top img-fluid">
+                                        <c:when test="${not empty memberGroup.group.gimage}">
+                                            <img src="${pageContext.request.contextPath}${memberGroup.group.gimage}" class="card-img-top">
                                         </c:when>
                                         <c:otherwise>
-                                            <img src="${pageContext.request.contextPath}/resources/images/default-group.png" class="card-img-top img-fluid">
+                                            <img src="${pageContext.request.contextPath}/resources/images/default-group.png" class="card-img-top">
                                         </c:otherwise>
                                     </c:choose>
                                     <div class="card-body">
