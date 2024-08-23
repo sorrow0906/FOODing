@@ -1,12 +1,10 @@
 package com.sw.fd.service;
 
-import com.sw.fd.entity.Board;
 import com.sw.fd.entity.Write;
 import com.sw.fd.repository.WriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
@@ -27,7 +25,7 @@ public class WriteService {
 
         // 시간순으로 정렬 가능하도록 레파지토리 단계에서는 전체 게시글을 가져오도록 수정(다혜)
         List<Write> writeList = writeRepository.findByBoardBno(bno);
-        writeList.sort(Comparator.comparing(Write::getWdate));
+        writeList.sort(Comparator.comparing(Write::getWdate).reversed());
         int start = (page - 1) * size;
         int end = Math.min(start + size, writeList.size());
 
@@ -46,4 +44,22 @@ public class WriteService {
         return writeRepository.countByBoardBno(bno);
     }
 
+    public Write findByWno(int wno) {
+        Write write = (Write) writeRepository.findByWno(wno).orElse(null);
+        if (write != null) {
+            write.setDateToString(write.getWdate().format(DateTimeFormatter.ofPattern("yy-MM-dd")));
+        }
+        return write;
+    }
+
+    public Write updateWrite(Write write) {
+
+        return writeRepository.save(write);
+    }
+
+    public void deleteWrite(int wno) {
+        writeRepository.delete(wno);
+    }
 }
+
+

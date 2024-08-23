@@ -36,7 +36,7 @@
                         <td>${status.index + 1}</td>
                         <td><a href="${pageContext.request.contextPath}/board?gno=${memberGroup.group.gno}">${memberGroup.group.gname}</a></td>
                         <td>${memberGroup.member.mnick}</td>
-                        <td><fmt:formatDate pattern="yy년 MM월 dd일" value="${group.gdate}"/></td>
+                        <td>${memberGroup.group.gdate}</td>
                     </tr>
                     <c:set var="mnickString" value=""/>
                     <c:forEach var="allMemberGroup" items="${allMembers}" varStatus="status">
