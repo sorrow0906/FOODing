@@ -14,10 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/slider.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
-            rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"  rel="stylesheet"/>
 </head>
 <body>
 <c:import url = "/top.jsp" />

@@ -4,6 +4,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +36,7 @@
                         <td>${status.index + 1}</td>
                         <td><a href="${pageContext.request.contextPath}/board?gno=${memberGroup.group.gno}">${memberGroup.group.gname}</a></td>
                         <td>${memberGroup.member.mnick}</td>
-                        <td>${memberGroup.group.gdate}</td>
+                        <td><fmt:formatDate pattern="yy년 MM월 dd일" value="${group.gdate}"/></td>
                     </tr>
                     <c:set var="mnickString" value=""/>
                     <c:forEach var="allMemberGroup" items="${allMembers}" varStatus="status">

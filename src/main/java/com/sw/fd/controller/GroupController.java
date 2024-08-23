@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +40,9 @@ public class GroupController {
 
     @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private ServletContext servletContext;
 
     @GetMapping("/groupList")
     public String groupList(Model model, HttpSession session) {
@@ -201,7 +209,8 @@ public class GroupController {
         return "groupManage";
     }
 
-    @PostMapping("/updateGroupName")
+    /*--------------------희진씨의 원래 모임방 이름 수정 코드(다혜)----------*/
+/*    @PostMapping("/updateGroupName")
     public String updateGroupName(HttpSession session, Model model, String newGname, int gno) {
         Member member = (Member) session.getAttribute("loggedInMember");
         if (member == null) {
@@ -230,7 +239,7 @@ public class GroupController {
         }
 
         return "redirect:/groupManage";
-    }
+    }*/
 
     @PostMapping("/deleteMemberToGroup")
     public String deleteMemberToGroup(@ModelAttribute("gno") int gno,
@@ -393,6 +402,39 @@ public class GroupController {
 
         // 그룹 삭제
         groupService.deleteGroupByGno(gno);
+
+        return "redirect:/groupManage";
+    }
+
+
+
+   /* -------------그룹 프로필을 위해 추가한 함수(다혜)----------*/
+
+    @GetMapping("/editGroup")
+    public String showEditForm(Model model, @RequestParam("gno") int gno) {
+        Group group = groupService.findGroupByGno(gno);
+        model.addAttribute("group", group);
+        return "editGroup";
+    }
+
+    @PostMapping("/editGroup")
+    @ResponseBody
+    public String updateGroup(@RequestParam("gno") int gno, @RequestParam("gname") String gname, @RequestParam("gimageFile") MultipartFile gimageFile) throws IOException {
+        Group originalGroup = groupService.findGroupByGno(gno);
+        originalGroup.setGname(gname);
+
+        if (!gimageFile.isEmpty()) {
+            String fileName = gimageFile.getOriginalFilename();
+            String uploadDir = servletContext.getRealPath("/resources/images/");
+            String filePath = Paths.get(uploadDir, fileName).toString();
+
+            gimageFile.transferTo(new File(filePath));
+
+            String fileUrl = "/resources/images/" + fileName;
+            originalGroup.setGimage(fileUrl);
+        }
+
+        groupService.save(originalGroup);
 
         return "redirect:/groupManage";
     }
