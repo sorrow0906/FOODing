@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ include file="/WEB-INF/views/includes/cacheControl.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -201,7 +202,8 @@
                                         </p>
                                     </div>
                                     <div class="card-footer">
-                                        <small class="text-muted">${memberGroup.jdate}</small>
+                                        <small class="text-muted">
+                                            생성일: <tf:formatDateTime value="${memberGroup.group.gdate}" pattern="yyyy-MM-dd" /></small>
                                     </div>
                                 </div>
                             </div>
