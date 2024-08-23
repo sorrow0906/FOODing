@@ -1,0 +1,125 @@
+.pick-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pickList-container, .pickFolders-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    width: 40%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.pick-table, .folder-table {
+    border: 1px solid #ccc;
+    width: 96%;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 2%;
+    height: 250px;
+    font-size: 17px;
+    overflow-y: auto;
+    display: inline-flex;
+}
+
+.folder-items {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2px;
+    margin-left: 7px;
+    border: 2px;
+}
+
+.folder-items-left label {
+    margin-left: 8px;
+    margin-bottom: 3px;
+    width: 150px;
+}
+
+
+.storeName, .folderName, .pfolderName {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.pfolderName {
+    width: 150px;
+    text-align: left;
+    padding-bottom: 5px;
+    margin-left: 5px;
+}
+
+.storeName:hover, .folderName:hover, pfolderName:hover {
+    text-decoration: underline;
+    border: none;
+}
+
+.createFolder {
+    width: 100px;
+}
+
+.addFolder-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.removeButton-container {
+    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.removePick, .deleteFolder, .createFolder {
+    text-align: right;
+    color: gray;
+    border: none;
+    background-color: white;
+    display: block;
+    margin-top: 5px;
+    padding: 5px;
+    margin-right: 2%;
+}
+
+.edit-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+.edit-button img, .addToFolder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.addToFolder-container {
+    display: flex;
+    align-items: center;
+}
+
+.add-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+}
+
+.add-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.td {
+    height: auto;
+}

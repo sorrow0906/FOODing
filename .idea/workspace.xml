@@ -9,9 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="5.1 통합완료">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="5.1 통합 및 메인화면 완료!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Pfolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/entity/Pfolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PfolderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PfolderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/StoreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/pickFolder.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,15 +273,7 @@
       <workItem from="1724199358516" duration="25897000" />
       <workItem from="1724285975170" duration="30147000" />
       <workItem from="1724373626882" duration="21240000" />
-      <workItem from="1724396521199" duration="910000" />
-    </task>
-    <task id="LOCAL-00029" summary="롤백용으로 파일 수정(updateStoreTags 부분을 모두 주석처리)">
-      <option name="closed" value="true" />
-      <created>1722997161991</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1722997161991</updated>
+      <workItem from="1724396521199" duration="7736000" />
     </task>
     <task id="LOCAL-00030" summary="storeTag 집에가서 할 부분">
       <option name="closed" value="true" />
@@ -657,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724396261441</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="5.1 통합 및 메인화면 완료!!!">
+      <option name="closed" value="true" />
+      <created>1724397457855</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1724397457856</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +688,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="3차 통합완료" />
     <MESSAGE value="희진씨의 그룹탈퇴 기능 해결 및 추가완료" />
     <MESSAGE value="모임초대 및 알림 테이블 추가 전" />
     <MESSAGE value="모임초대 및 알림 테이블 추가 전(헤더 hover 문제해결)" />
@@ -703,7 +712,8 @@
     <MESSAGE value="5차 통합 완료" />
     <MESSAGE value="메인화면 모임방 그리드 완성" />
     <MESSAGE value="5.1 통합완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.1 통합완료" />
+    <MESSAGE value="5.1 통합 및 메인화면 완료!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.1 통합 및 메인화면 완료!!!" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

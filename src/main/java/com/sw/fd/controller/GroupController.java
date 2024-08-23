@@ -47,7 +47,7 @@ public class GroupController {
     private ServletContext servletContext;
 
     @GetMapping("/groupList")
-    public String groupList(Model model, HttpSession session) {
+    public String bringGroupList(Model model, HttpSession session) {
         Member member = (Member) session.getAttribute("loggedInMember");
         if (member == null) {
             return "redirect:/login";
@@ -129,7 +129,7 @@ public class GroupController {
         Member newMember = memberService.getMemberById(memberGroup.getMember().getMid());
         if (newMember == null) {
             model.addAttribute("error", "해당 ID의 회원은 존재하지 않습니다.");
-            return groupList(model, session);
+            return bringGroupList(model, session);
         }
 
         GroupDTO groupDTO = groupService.getGroupById(memberGroup.getGroup().getGno());
@@ -140,7 +140,7 @@ public class GroupController {
         // 초대하려는 회원이 이미 모임에 존재하는지 확인
         if (memberGroupService.isMemberInGroup(newMember.getMid(), group.getGno())) {
             model.addAttribute("error", "이미 모임에 참여하고 있는 회원입니다.");
-            return groupList(model, session);
+            return bringGroupList(model, session);
         }
 
         // 현재 로그인한 회원의 모임에서의 권한 조회

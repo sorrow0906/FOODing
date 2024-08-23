@@ -142,7 +142,7 @@
         <a class = "nav" href="${pageContext.request.contextPath}/storeListByScate">카테고리별 맛집</a>
         <a class = "nav" href="${pageContext.request.contextPath}/storeList">맛집 찾기</a>
         <a class = "nav" href = "${pageContext.request.contextPath}/groupList">모임</a>
-        <a class = "nav" href = "#">찜</a>
+        <a class = "nav" href = "${pageContext.request.contextPath}/pickList">찜</a>
         <form class="d-flex">
 <%--<form:form name="store-searchForm" action="${pageContext.request.contextPath}/searchStore">--%>
             <div class = "search-form">

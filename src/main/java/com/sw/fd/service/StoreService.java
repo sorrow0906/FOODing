@@ -13,10 +13,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class StoreService {
@@ -294,4 +292,13 @@ public class StoreService {
         return filteredStores;
     }
 
+    public List<Store> findStoresBySnos(String snos) {
+        if (snos == null || snos.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        String[] snoArray = snos.split(",");
+        List<Integer> snoList = Arrays.stream(snoArray).map(Integer::parseInt).collect(Collectors.toList());
+        return storeRepository.findBySno(snoList);
+    }
 }
