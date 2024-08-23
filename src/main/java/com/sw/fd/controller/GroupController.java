@@ -159,7 +159,7 @@ public class GroupController {
         // 모임장의 MemberGroup 객체를 가져와서 leaderNum을 설정
         MemberGroup groupLeaderMemberGroup = memberGroupService.getGroupLeaderMemberGroup(groupDTO.getGno());
         if (groupLeaderMemberGroup != null) {
-            invite.setLeaderNum(groupLeaderMemberGroup.getJno()); // 모임장의 jno를 설정
+            invite.setLeadNum(groupLeaderMemberGroup.getJno()); // 모임장의 jno를 설정
         } else {
             model.addAttribute("error", "모임장 정보를 찾을 수 없습니다.");
             return "redirect:/groupList";
@@ -402,39 +402,6 @@ public class GroupController {
 
         // 그룹 삭제
         groupService.deleteGroupByGno(gno);
-
-        return "redirect:/groupManage";
-    }
-
-
-
-   /* -------------그룹 프로필을 위해 추가한 함수(다혜)----------*/
-
-    @GetMapping("/editGroup")
-    public String showEditForm(Model model, @RequestParam("gno") int gno) {
-        Group group = groupService.findGroupByGno(gno);
-        model.addAttribute("group", group);
-        return "editGroup";
-    }
-
-    @PostMapping("/editGroup")
-    @ResponseBody
-    public String updateGroup(@RequestParam("gno") int gno, @RequestParam("gname") String gname, @RequestParam("gimageFile") MultipartFile gimageFile) throws IOException {
-        Group originalGroup = groupService.findGroupByGno(gno);
-        originalGroup.setGname(gname);
-
-        if (!gimageFile.isEmpty()) {
-            String fileName = gimageFile.getOriginalFilename();
-            String uploadDir = servletContext.getRealPath("/resources/images/");
-            String filePath = Paths.get(uploadDir, fileName).toString();
-
-            gimageFile.transferTo(new File(filePath));
-
-            String fileUrl = "/resources/images/" + fileName;
-            originalGroup.setGimage(fileUrl);
-        }
-
-        groupService.save(originalGroup);
 
         return "redirect:/groupManage";
     }

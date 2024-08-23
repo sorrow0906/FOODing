@@ -97,6 +97,7 @@ header {
     text-align : center;
     z-index : 1;
     margin-top : 0;
+    gap: 10px;
 }
 
 .anb .subalarm {
@@ -109,5 +110,33 @@ header {
     flex-direction: column;
     justify-content : center;
     align-items : center;
-    margin : 5px 0;
+    margin : 10px 0;
+}
+
+.anb .subalarm a:link { color : black; text-decoration : none; }
+.anb .subalarm a:visited { color : black; text-decoration : none; }
+.anb .subalarm a:active { color : orange; text-decoration : none; }
+.anb .subalarm a:hover { color : #ffea00; text-decoration : none; }
+
+.alarmButton-area {
+    display: flex;
+    width: max-content;
+    height: max-content;
+}
+
+.alarmButton {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.alarmButton img {
+    width: 30px;
+}
+
+.alarmButton:active,
+.alarmButton:focus,
+.alarmButton:hover {
+    border: none;
+    outline: none;
 }

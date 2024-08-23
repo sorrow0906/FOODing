@@ -46,4 +46,5 @@ $(document).ready(function() {
             $(".anb").css("display", "flex"); // anb의 display 속성을 flex로 변경
         }
     });
+
 });
