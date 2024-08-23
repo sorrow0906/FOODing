@@ -405,4 +405,37 @@ public class GroupController {
 
         return "redirect:/groupManage";
     }
+
+
+
+   /* -------------그룹 프로필을 위해 추가한 함수(다혜)----------*/
+
+    @GetMapping("/editGroup")
+    public String showEditForm(Model model, @RequestParam("gno") int gno) {
+        Group group = groupService.findGroupByGno(gno);
+        model.addAttribute("group", group);
+        return "editGroup";
+    }
+
+    @PostMapping("/editGroup")
+    @ResponseBody
+    public String updateGroup(@RequestParam("gno") int gno, @RequestParam("gname") String gname, @RequestParam("gimageFile") MultipartFile gimageFile) throws IOException {
+        Group originalGroup = groupService.findGroupByGno(gno);
+        originalGroup.setGname(gname);
+
+        if (!gimageFile.isEmpty()) {
+            String fileName = gimageFile.getOriginalFilename();
+            String uploadDir = servletContext.getRealPath("/resources/images/");
+            String filePath = Paths.get(uploadDir, fileName).toString();
+
+            gimageFile.transferTo(new File(filePath));
+
+            String fileUrl = "/resources/images/" + fileName;
+            originalGroup.setGimage(fileUrl);
+        }
+
+        groupService.save(originalGroup);
+
+        return "redirect:/groupManage";
+    }
 }

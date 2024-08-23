@@ -9,18 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="희진씨 파일 5차 통합 완료">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/WriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/WriteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/WriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/WriteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/WriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/WriteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/board.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/write.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/write.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="정희씨 파일 5차 통합 완료">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,15 +261,7 @@
       <workItem from="1724113425889" duration="24448000" />
       <workItem from="1724199358516" duration="25897000" />
       <workItem from="1724285975170" duration="30147000" />
-      <workItem from="1724373626882" duration="3559000" />
-    </task>
-    <task id="LOCAL-00025" summary="system.println modify">
-      <option name="closed" value="true" />
-      <created>1722850850778</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1722850850778</updated>
+      <workItem from="1724373626882" duration="4043000" />
     </task>
     <task id="LOCAL-00026" summary="DB 테이블 새로 갱신하기 전">
       <option name="closed" value="true" />
@@ -665,7 +647,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724375742974</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="정희씨 파일 5차 통합 완료">
+      <option name="closed" value="true" />
+      <created>1724377258900</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1724377258900</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +676,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="2차 통합(정희씨 파트)" />
     <MESSAGE value="2차 통합(희진씨 파트)" />
     <MESSAGE value="2차 통합완료" />
     <MESSAGE value="2차 통합완료(비밀번호 찾기 오류 수정)" />
@@ -711,7 +700,8 @@
     <MESSAGE value="UI 조금 수정" />
     <MESSAGE value="5차 통합전" />
     <MESSAGE value="희진씨 파일 5차 통합 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="희진씨 파일 5차 통합 완료" />
+    <MESSAGE value="정희씨 파일 5차 통합 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="정희씨 파일 5차 통합 완료" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,12 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>모임 정보 수정</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/editGroup.css">
     <script type="text/javascript">
         function submitGroupForm(event) {
             event.preventDefault();
