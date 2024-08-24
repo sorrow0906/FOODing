@@ -198,11 +198,11 @@ public class StoreController {
         model.addAttribute("searchKeyword", searchKeyword);
         List<Store> storesBykeyword = storeService.getAllStores();
         if (searchKeyword != null && !searchKeyword.isEmpty()) {
-            searchKeyword = searchKeyword.replaceAll("[^a-zA-Z0-9\\s]", "");
+            searchKeyword = searchKeyword.replaceAll("[^a-zA-Z0-9가-힣\\s]", "");
             String[] keywords = searchKeyword.split("\\s+");
 
             for (String keyword : keywords) {
-                System.out.println(keyword);
+                System.out.println("검색 키워드: "+ keyword);
                 storesBykeyword = storeService.getStoresBykeyword(keyword, storesBykeyword);
             }
         }
