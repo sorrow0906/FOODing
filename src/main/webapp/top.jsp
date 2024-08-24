@@ -143,13 +143,12 @@
         <a class = "nav" href="${pageContext.request.contextPath}/storeList">맛집 찾기</a>
         <a class = "nav" href = "${pageContext.request.contextPath}/groupList">모임</a>
         <a class = "nav" href = "${pageContext.request.contextPath}/pickList">찜</a>
-        <form class="d-flex">
-<%--<form:form name="store-searchForm" action="${pageContext.request.contextPath}/searchStore">--%>
-            <div class = "search-form">
-                <input class="form-control me-2" type="search" placeholder="가게를 검색하세욧" aria-label="Search">
-                <a class = "btn btn-link" href = "#" role = "button">
-                    <img src = "${pageContext.request.contextPath}/resources/images/search.png" alt="Search">
-                </a>
+        <form action="${pageContext.request.contextPath}/searchResultView" method="GET" class="d-flex">
+            <div class="search-form">
+                <input class="form-control me-2" name="searchKeyword" type="search" placeholder="가게를 검색하세욧" aria-label="Search">
+                <button type="submit" class="btn btn-link">
+                    <img src="${pageContext.request.contextPath}/resources/images/search.png" alt="Search">
+                </button>
             </div>
         </form>
         <ul class = "snb">

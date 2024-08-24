@@ -7,30 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <title>검색결과</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/storeList.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/searchResultView.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <c:import url="/top.jsp" />
 <section class="content">
-    <h1>카테고리별 맛집</h1>
-    <div class="scate-area">
-        <c:forEach var="scate" items="${allScates}">
-            <div class="each-scate-area">
-            <c:choose>
-                <c:when test="${scate == '빵/디저트'}">
-                    <img src="${pageContext.request.contextPath}/resources/store_images/korean_images/빵&디저트.png" type="button" class="store-cate-button" data-scate="${scate}">
-                </c:when>
-                <c:when test="${scate == '차/커피'}">
-                    <img src="${pageContext.request.contextPath}/resources/store_images/korean_images/차&커피.png" type="button" class="store-cate-button" data-scate="${scate}">
-                </c:when>
-                <c:otherwise>
-                    <img src="${pageContext.request.contextPath}/resources/store_images/korean_images/${scate}.png" type="button" class="store-cate-button" data-scate="${scate}">
-                </c:otherwise>
-            </c:choose>
-            <p>${scate}</p>
-            </div>
-        </c:forEach>
+    <div class="keyword-area">
+        <h1><p id="nowKeyword">'${searchKeyword}'</p><p>(으)로 검색한 결과입니다.</p></h1>
     </div>
     <div class="sort-area">
         <a class="sort-element ${sortStandard == 'pick' ? 'active' : ''}" id="sort_by_pick" href="#">찜 많은순</a>
@@ -116,66 +100,44 @@
 <c:import url="/bottom.jsp" />
 <script>
     var sortStandard = '${sortStandard}';
-    var selectedScates = [];
 
-    $('.store-cate-button').click(function() {
-        var scate = $(this).attr('data-scate');
+    function loadStoreList(sortBy) {
+        $('#waiting-comment').text('가게 목록을 불러오는 중입니다. 잠시만 기다려주세요...');
+        $.ajax({
+            url: '${pageContext.request.contextPath}/storeListByScate',
+            type: 'GET',
+            data: {
+                sortBy: sortBy
+            },
+            success: function (response) {
+                $('#store-list').html($(response).find('#store-list').html());
+                $('#sort-header').html($(response).find('#sort-header').html());
 
-        // 태그가 이미 선택된 경우 배열에서 제거
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-            selectedScates = selectedScates.filter(function(item) {
-                return item !== scate;
-            });
-        } else {
-            // 선택되지 않은 태그의 경우 배열에 추가
-            $(this).addClass('selected');
-            selectedScates.push(scate);
-        }
-        var nowStandard = $('.sort-element.active').attr('id');
-        if(nowStandard == 'sort_by_pick')
-            loadStoreList('pick');
-        else if(nowStandard == 'sort_by_score')
-            loadStoreList('score');
-    });
-        function loadStoreList(sortBy) {
-            $('#waiting-comment').text('가게 목록을 불러오는 중입니다. 잠시만 기다려주세요...');
-            $.ajax({
-                url: '${pageContext.request.contextPath}/storeListByScate',
-                type: 'GET',
-                data: {
-                    sortBy: sortBy,
-                    scates: selectedScates.join(',')
-                },
-                success: function(response) {
-                    $('#store-list').html($(response).find('#store-list').html());
-                    $('#sort-header').html($(response).find('#sort-header').html());
-
-                    // 정렬 기준에 따라 활성화된 버튼 상태 유지
-                    if (sortBy === 'score') {
-                        $('#sort_by_score').addClass('active');
-                        $('#sort_by_pick').removeClass('active');
-                    } else {
-                        $('#sort_by_pick').addClass('active');
-                        $('#sort_by_score').removeClass('active');
-                    }
-                    $('#waiting-comment').text('');
-                },
-                error: function(xhr, status, error) {
-                    console.log('Error loading stores:', status, error);
+                // 정렬 기준에 따라 활성화된 버튼 상태 유지
+                if (sortBy === 'score') {
+                    $('#sort_by_score').addClass('active');
+                    $('#sort_by_pick').removeClass('active');
+                } else {
+                    $('#sort_by_pick').addClass('active');
+                    $('#sort_by_score').removeClass('active');
                 }
-            });
-        }
-
-        $('#sort_by_pick').click(function(event) {
-            event.preventDefault();
-            loadStoreList('pick');
+                $('#waiting-comment').text('');
+            },
+            error: function (xhr, status, error) {
+                console.log('Error loading stores:', status, error);
+            }
         });
+    }
 
-        $('#sort_by_score').click(function(event) {
-            event.preventDefault();
-            loadStoreList('score');
-        });
+    $('#sort_by_pick').click(function (event) {
+        event.preventDefault();
+        loadStoreList('pick');
+    });
+
+    $('#sort_by_score').click(function (event) {
+        event.preventDefault();
+        loadStoreList('score');
+    });
 </script>
 </body>
 </html>

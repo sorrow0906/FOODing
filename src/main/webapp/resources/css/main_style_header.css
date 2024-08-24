@@ -144,4 +144,5 @@ header {
 .login-image {
     width: 30px;
     border-radius: 80%;
+    aspect-ratio: 1;
 }

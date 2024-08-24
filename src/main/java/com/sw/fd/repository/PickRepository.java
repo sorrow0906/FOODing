@@ -21,8 +21,8 @@ public interface PickRepository extends JpaRepository<Pick, Integer> {
     List<Pick> findByMemberMno(@Param("mno") int mno);
 
     // pick수 계산을 위해 추가한 부분 (다혜)
-    @Query("SELECT COUNT(p) FROM Pick p WHERE p.store.sno = :sno")
-    int countBySno(@Param("sno") int sno);
+    @Query("SELECT COUNT(p) FROM Pick p WHERE p.store.sno = :sno AND p.pfolder.pfno = 1")
+    int countBySnoAndPfno(@Param("sno") int sno);
 
     List<Pick> findByPfolder(Pfolder pfolder);
 
