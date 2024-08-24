@@ -100,14 +100,17 @@
 <c:import url="/bottom.jsp" />
 <script>
     var sortStandard = '${sortStandard}';
+    var searchKeyword = '${searchKeyword}';
 
     function loadStoreList(sortBy) {
+
         $('#waiting-comment').text('가게 목록을 불러오는 중입니다. 잠시만 기다려주세요...');
         $.ajax({
-            url: '${pageContext.request.contextPath}/storeListByScate',
+            url: '${pageContext.request.contextPath}/searchResultView',
             type: 'GET',
             data: {
-                sortBy: sortBy
+                sortBy: sortBy,
+                searchKeyword: searchKeyword
             },
             success: function (response) {
                 $('#store-list').html($(response).find('#store-list').html());

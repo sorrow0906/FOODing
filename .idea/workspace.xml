@@ -11,7 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="가게 검색 기능 완성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/StoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResultView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResultView.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,14 +265,6 @@
       <workItem from="1724285975170" duration="30147000" />
       <workItem from="1724373626882" duration="21240000" />
       <workItem from="1724396521199" duration="7736000" />
-    </task>
-    <task id="LOCAL-00031" summary="storeTag 로그 확인할 수 있는 롤백용 코드">
-      <option name="closed" value="true" />
-      <created>1723021426285</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1723021426285</updated>
     </task>
     <task id="LOCAL-00032" summary="storeTag DB에 저장되는 부분 완료. 그러나 tcount에 문제있음">
       <option name="closed" value="true" />
@@ -657,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724487184080</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="가게 검색 기능 완성">
+      <option name="closed" value="true" />
+      <created>1724493670230</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1724493670231</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
