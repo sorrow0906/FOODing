@@ -310,8 +310,10 @@ public class StoreService {
         String processedKeyword = keyword.toLowerCase();
         List<Store> filteredStores = new ArrayList<>();
 
+        System.out.print("검색결과 가게 sno = ");
         for (Store store : stores) {
             if (store.getSname().toLowerCase().contains(processedKeyword)) {
+                System.out.print(store.getSno() + " ");
                 filteredStores.add(store);
             }
         }

@@ -20,29 +20,35 @@
     <div class="store-div">
         <!-- 가게 정보 섹션 -->
         <c:choose>
+            <c:when test="${store.sno == 1 || store.sno == 19 || store.sno == 82 || store.sno == 181}">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/${store.sno}.jpg" alt="국밥">
+            </c:when>
             <c:when test="${store.scate == '한식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/korean_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/korean_food.jpg" alt="한식">
             </c:when>
             <c:when test="${store.scate == '일식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/japanese_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/japanese_food.jpg" alt="일식">
             </c:when>
             <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg" alt="중식">
             </c:when>
-            <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
+            <c:when test="${store.scate == '양식'}">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/western_food.jpg" alt="양식">
             </c:when>
-            <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
+            <c:when test="${store.scate == '세계요리'}">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/global_food.jpg" alt="세계요리">
             </c:when>
-            <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
+            <c:when test="${store.scate == '빵/디저트'}">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/dessert.jpg" alt="빵/디저트">
             </c:when>
-            <c:when test="${store.scate == '중식'}">
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/chinese_food.jpg">
+            <c:when test="${store.scate == '차/커피'}">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/coffee.jpg" alt="차/커피">
+            </c:when>
+            <c:when test="${store.scate == '술집'}">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/pub.jpg" alt="술집">
             </c:when>
             <c:otherwise>
-                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/fastfood.jpg">
+                <img id="store-img" src="${pageContext.request.contextPath}/resources/store_images/other_food_icon.png" alt="기타음식">
             </c:otherwise>
         </c:choose>
         <div class="store-head">
