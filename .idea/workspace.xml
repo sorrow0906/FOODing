@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="가게 검색 기능 진짜 완성">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResultView2.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/searchResultView2.css" afterDir="false" />
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="가게 검색 기능 진짜진짜 완성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResultView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResultView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/searchResultView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/searchResultView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/store_images/fastfood.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/store_images/western_food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/store_images/western_food.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,14 +265,6 @@
       <workItem from="1724285975170" duration="30147000" />
       <workItem from="1724373626882" duration="21240000" />
       <workItem from="1724396521199" duration="7736000" />
-    </task>
-    <task id="LOCAL-00033" summary="storeTag DB에 중복없이 저장완료!">
-      <option name="closed" value="true" />
-      <created>1723023622381</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1723023622381</updated>
     </task>
     <task id="LOCAL-00034" summary="storeDetail에 대표태그 자동추가 완료">
       <option name="closed" value="true" />
@@ -664,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724495958218</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="가게 검색 기능 진짜진짜 완성">
+      <option name="closed" value="true" />
+      <created>1724505657151</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1724505657152</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +679,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="모임초대 및 알림 테이블 추가 전(헤더 hover 문제해결)" />
     <MESSAGE value="main.jsp에 음식점 카테고리 정렬 완료" />
     <MESSAGE value="main.jsp에 모임방 미리보기까지 완료" />
     <MESSAGE value="희진씨와 통합" />
@@ -710,7 +703,8 @@
     <MESSAGE value="5.1 통합 및 메인화면 완료!!!" />
     <MESSAGE value="가게 검색 기능 완성" />
     <MESSAGE value="가게 검색 기능 진짜 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="가게 검색 기능 진짜 완성" />
+    <MESSAGE value="가게 검색 기능 진짜진짜 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="가게 검색 기능 진짜진짜 완성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -24,7 +24,7 @@
         <a class="sort-element ${sortStandard == 'score' ? 'active' : ''}" id="sort_by_score" href="#">별점 높은순</a>
     </div>
     <div class="container bootstrap snippets bootdey">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="store-list" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <c:forEach var="store" items="${stores}" varStatus="status">
                 <div class="well search-result">
                     <div class="row">
