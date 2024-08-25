@@ -66,6 +66,15 @@ public class MainController {
                         String inviteeName = invite.getMember().getMnick();
                         alarm.setMessage(inviteeName + "님이<br>모임장 수락을 요청하였습니다.");
                     }
+                    /*----------모임장 수락 승인을 위해 수락한 부분(다혜)----------------*/
+                    else if (alarm.getAtype().equals("모임장 수락")) {
+                        String inviteeName = invite.getMember().getMnick();
+                        alarm.setMessage(inviteeName + "님의 초대를<br>모임장이 수락하였습니다.");
+                    }
+                    else if (alarm.getAtype().equals("모임장 수락 거절")) {
+                        String inviteeName = invite.getMember().getMnick();
+                        alarm.setMessage(inviteeName + "님의 초대를<br>모임장 수락 거절하였습니다.");
+                    }
                 }
                 model.addAttribute("alarmChecked", alarmChecked);
             }
@@ -81,7 +90,7 @@ public class MainController {
                 model.addAttribute("myMemberGroups", null);
             else {
                 for (MemberGroupDTO memberGroup : myMemberGroups) {
-                    System.out.println(memberGroup.getGroup().getGimage());
+/*                    System.out.println(memberGroup.getGroup().getGimage());*/
                     int thisGno = memberGroup.getGroup().getGno();
                     // 해당 gno 그룹의 모든 맴버 닉네임을 한줄의 String으로 만들어서 gno와 함께 Map화 (key= gno, value= 모임방의 모든 맴버 닉네임)
                     allMemberList.put(thisGno, memberGroupService.findMnicksByGroupGno(thisGno));

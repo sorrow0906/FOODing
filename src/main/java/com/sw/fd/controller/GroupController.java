@@ -54,13 +54,13 @@ public class GroupController {
         }
 
         String nick = member.getMnick();
-        System.out.println("Member의 이름: " + nick);
+//        System.out.println("Member의 이름: " + nick);
 
         Map<Integer, Integer> memberCount = new HashMap<>();
         List<MemberGroupDTO> memberGroups = memberGroupService.getMemberGroupsWithGroup(member);
         for (MemberGroupDTO memberGroup : memberGroups) {
              memberCount.put(memberGroup.getGroup().getGno(), groupService.groupMemberCount(memberGroup.getGroup().getGno()));
-            System.out.println(memberGroup.getJno() + "의 getGroup().getGname() = :" + memberGroup.getGroup().getGname());
+//            System.out.println(memberGroup.getJno() + "의 getGroup().getGname() = :" + memberGroup.getGroup().getGname());
 
             LocalDateTime gdate = memberGroup.getGroup().getGdate();
             String formattedDate = (gdate != null) ? gdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) : "N/A";
@@ -86,11 +86,11 @@ public class GroupController {
             }
         }
 
-        if (memberCount.isEmpty()) {
+/*        if (memberCount.isEmpty()) {
             System.out.println("memberCount is empty.");
         } else {
             System.out.println("memberCount: " + memberCount);
-        }
+        }*/
         model.addAttribute("allMembers", allMembers);
         model.addAttribute("leaderList", leaderList);
         model.addAttribute("memberCount", memberCount);
@@ -153,6 +153,11 @@ public class GroupController {
             return "groupList";
         }
 
+        if(inviteService.checkInviteExists(newMember.getMno(), group.getGno())){
+            model.addAttribute("error", "이미 초대된 회원입니다.");
+            return bringGroupList(model, session);
+        }
+
         // 초대 유형 설정
         int inviteType = (currentMemberJauth == 1) ? 6 : 0;
 
@@ -165,7 +170,7 @@ public class GroupController {
         // 모임장의 MemberGroup 객체를 가져와서 leaderNum을 설정
         MemberGroup groupLeaderMemberGroup = memberGroupService.getGroupLeaderMemberGroup(groupDTO.getGno());
         if (groupLeaderMemberGroup != null) {
-            invite.setLeadNum(groupLeaderMemberGroup.getJno()); // 모임장의 jno를 설정
+            invite.setLeadNum(groupLeaderMemberGroup.getMember().getMno()); // 모임장의 mno를 설정
         } else {
             model.addAttribute("error", "모임장 정보를 찾을 수 없습니다.");
             return "redirect:/groupList";
@@ -203,10 +208,17 @@ public class GroupController {
         }
 
         List<MemberGroup> allMemberGroups = new ArrayList<>();
+
         for (Group group : leaderGroups) {
             List<MemberGroup> memberGroupsForGroup = memberGroupService.findMembersByGroupGno(group.getGno());
             allMemberGroups.addAll(memberGroupsForGroup);
         }
+
+        // 모임장 수락을 위해 추가한 부분(다혜)
+        List<Invite> inviteList = inviteService.getInvitesByLeadNum(member.getMno());
+
+        // 모임장 수락을 위해 추가한 부분(다혜)
+        model.addAttribute("invites", inviteList);
 
         model.addAttribute("leaderGroups", leaderGroups);
         model.addAttribute("allMemberGroups", allMemberGroups);

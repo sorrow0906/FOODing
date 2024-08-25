@@ -22,23 +22,40 @@
                         <c:forEach items="${alarms}" var="alarm">
                             <div class="subalarm">
                                 <div>
-                                    <c:if test="${alarm.atype == '모임장 초대'}">
-                                        <a href="${pageContext.request.contextPath}/inviteManage">
-                                            <c:out value="${alarm.message} (모임장)" escapeXml="false"/>
-                                        </a>
-                                    </c:if>
-                                    <c:if test="${alarm.atype == '일반 회원 초대'}">
-                                        <a href="${pageContext.request.contextPath}/inviteManage">
-                                            <c:out value="${alarm.message} (일반회원)" escapeXml="false"/></a>
-                                    </c:if>
-                                    <c:if test="${alarm.atype == '초대 거절'}">
-                                        <c:out value="${alarm.message}" escapeXml="false"/>
-                                    </c:if>
-                                    <c:if test="${alarm.atype == '모임장 수락 대기'}">
-                                        <a href="${pageContext.request.contextPath}/groupManage">
+                                    <c:choose>
+                                        <c:when test="${alarm.atype == '모임장 초대'}">
+                                            <a href="${pageContext.request.contextPath}/inviteManage">
+                                                <c:out value="${alarm.message} (모임장)" escapeXml="false"/>
+                                            </a>
+                                        </c:when>
+                                        <c:when test="${alarm.atype == '일반 회원 초대'}">
+                                            <a href="${pageContext.request.contextPath}/inviteManage">
+                                                <c:out value="${alarm.message} (일반회원)" escapeXml="false"/></a>
+                                        </c:when>
+                                        <c:when test="${alarm.atype == '초대 거절'}">
                                             <c:out value="${alarm.message}" escapeXml="false"/>
-                                        </a>
-                                    </c:if>
+                                        </c:when>
+                                        <c:when test="${alarm.atype == '모임장 수락 대기'}">
+                                            <a href="${pageContext.request.contextPath}/groupManage">
+                                                <c:out value="${alarm.message}" escapeXml="false"/>
+                                            </a>
+                                        </c:when>
+
+                                        <%--     모임장 수락을 위해 추가한 부분(다혜)--%>
+                                        <c:when test="${alarm.atype == '모임장 수락'}">
+                                            <a href="${pageContext.request.contextPath}/groupList">
+                                                <c:out value="${alarm.message}" escapeXml="false"/>
+                                            </a>
+                                        </c:when>
+                                        <c:when test="${alarm.atype == '모임장 수락 거절'}">
+                                            <a href="#">
+                                                <c:out value="${alarm.message}" escapeXml="false"/>
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a>메세지를 읽어오는 데에 실패하였습니다.</a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <!-- 확인 및 삭제 버튼 추가 -->
                                 <div class="alarmButton-area">

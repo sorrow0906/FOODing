@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +58,7 @@
                                     <input type="button" value="수정" onclick="openEditWindow(${group.gno});">
                                 </form>
                             </td>
-                        <td>${formattedDate}</td>
+                        <td><tf:formatDateTime value="${group.gdate}" pattern="yyyy-MM-dd" /></td>
                         </tr>
                         <c:set var="mnickString" value=""/>
                         <c:forEach var="memberGroup" items="${allMemberGroups}">
@@ -73,7 +73,27 @@
                                     ${mnickString}
                             </td>
                         </tr>
+                    <c:forEach var="invite" items="${invites}">
+                        <c:if test="${invite.memberGroup.group.gno == group.gno}">
+                            <tr>
+                                <td>초대 대상</td>
+                                <td>${invite.memberGroup.member.mnick}</td>
+                                <td colspan="3">
+                                        <form action="${pageContext.request.contextPath}/leaderAcceptInvite" method="post"
+                                              style="display:inline;">
+                                            <input type="hidden" name="inviteId" value="${invite.ino}"/>
+                                            <button type="submit" class="btn btn-success">모임장 수락</button>
+                                        </form>
+                                        <form action="${pageContext.request.contextPath}/leaderRejectInvite" method="post"
+                                              style="display:inline;">
+                                            <input type="hidden" name="inviteId" value="${invite.ino}"/>
+                                            <button type="submit" class="btn btn-warning">모임장 거절</button>
+                                        </form>
+                                </td>
+                            </tr>
+                        </c:if>
                     </c:forEach>
+                </c:forEach>
                 </tbody>
             </table>
             <c:if test="${not empty error}">
@@ -137,7 +157,6 @@
         </div>
     </div>
 </section>
-
 <%--모임방 프로필 설정을 위해 추가한 부분(다혜)--%>
 <script>
     function openEditWindow(gno) {

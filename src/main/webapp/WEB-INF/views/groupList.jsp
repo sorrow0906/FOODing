@@ -126,7 +126,6 @@
                                     "${entry.key}": ${entry.value},
                                     </c:forEach>
                                 };
-                                console.log(memberCount);
                             </script>
                             <form:select path="gno" id="leaveGnoSelect">
                                 <c:forEach var="memberGroup" items="${memberGroups}">
