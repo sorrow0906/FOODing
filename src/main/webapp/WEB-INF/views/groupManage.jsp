@@ -77,7 +77,7 @@
                         <c:if test="${invite.memberGroup.group.gno == group.gno}">
                             <tr>
                                 <td>초대 대상</td>
-                                <td>${invite.memberGroup.member.mnick}</td>
+                                <td>${invite.member.mnick}</td>
                                 <td colspan="3">
                                         <form action="${pageContext.request.contextPath}/leaderAcceptInvite" method="post"
                                               style="display:inline;">

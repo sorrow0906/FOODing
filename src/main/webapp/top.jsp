@@ -40,20 +40,19 @@
                                                 <c:out value="${alarm.message}" escapeXml="false"/>
                                             </a>
                                         </c:when>
-
                                         <%--     모임장 수락을 위해 추가한 부분(다혜)--%>
                                         <c:when test="${alarm.atype == '모임장 수락'}">
                                             <a href="${pageContext.request.contextPath}/groupList">
                                                 <c:out value="${alarm.message}" escapeXml="false"/>
                                             </a>
                                         </c:when>
-                                        <c:when test="${alarm.atype == '모임장 수락 거절'}">
+                                        <c:when test="${alarm.atype == '모임장 수락 거절1' || alarm.atype == '모임장 수락 거절2'}">
                                             <a href="#">
                                                 <c:out value="${alarm.message}" escapeXml="false"/>
                                             </a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a>메세지를 읽어오는 데에 실패하였습니다.</a>
+                                            <a style="color: dimgray">메세지를 불러오지 못 하였습니다</a>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>

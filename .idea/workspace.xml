@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="모임장 초대수락 완성">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="제출용 파일 완성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/InviteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/InviteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/InviteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/InviteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/groupList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/groupList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,15 +267,7 @@
       <workItem from="1724285975170" duration="30147000" />
       <workItem from="1724373626882" duration="21240000" />
       <workItem from="1724396521199" duration="7736000" />
-      <workItem from="1724569115979" duration="15715000" />
-    </task>
-    <task id="LOCAL-00036" summary="정희씨 파트 통합완료">
-      <option name="closed" value="true" />
-      <created>1723086812325</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1723086812325</updated>
+      <workItem from="1724569115979" duration="18163000" />
     </task>
     <task id="LOCAL-00037" summary="희진씨 파트 통합완료(1차 통합 끝)">
       <option name="closed" value="true" />
@@ -663,7 +653,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724582968177</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="제출용 파일 완성">
+      <option name="closed" value="true" />
+      <created>1724585223182</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1724585223182</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +682,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="희진씨와 통합" />
     <MESSAGE value="리뷰 신고에 대한 예외처리 완료" />
     <MESSAGE value="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐" />
     <MESSAGE value="속도 문제와 가게 태그 문제 해결" />
@@ -709,7 +706,8 @@
     <MESSAGE value="가게 검색 기능 진짜진짜 완성" />
     <MESSAGE value="가게 검색 기능 진짜진짜진짜 완성" />
     <MESSAGE value="모임장 초대수락 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="모임장 초대수락 완성" />
+    <MESSAGE value="제출용 파일 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="제출용 파일 완성" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

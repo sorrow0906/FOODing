@@ -173,7 +173,7 @@ public class InviteController {
             // 초대받은 사람에게 모임장이 승인 거절했다는 알림 생성
             Alarm alarmToInvitee = new Alarm();
             alarmToInvitee.setLinkedPk(String.valueOf(invite.getIno())); // 초대 엔티티의 ino 값을 문자열로 설정
-            alarmToInvitee.setAtype("모임장 수락 거절");
+            alarmToInvitee.setAtype("모임장 수락 거절1");
             // 알림을 받을 회원 설정
             Member invitee = invite.getMember();
             alarmToInvitee.setMember(invitee); // 초대받은 회원을 알림의 대상자로 설정
@@ -186,9 +186,9 @@ public class InviteController {
             // 초대한 사람에게 모임장이 승인 거절했다는 알림 생성
             Alarm alarmToInviter = new Alarm();
             alarmToInviter.setLinkedPk(String.valueOf(invite.getIno())); // 초대 엔티티의 ino 값을 문자열로 설정
-            alarmToInviter.setAtype("모임장 수락 거절");
+            alarmToInviter.setAtype("모임장 수락 거절2");
             // 알림을 받을 회원 설정
-            Member inviter = invite.getMember();
+            Member inviter = invite.getMemberGroup().getMember();
             alarmToInviter.setMember(inviter); // 초대한 회원을 알림의 대상자로 설정
             alarmToInviter.setIsChecked(0);
 
