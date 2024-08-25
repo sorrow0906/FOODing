@@ -170,6 +170,9 @@ public class InviteController {
         if (invite != null) {
             invite.setItype(4); // itype을 1로 변경
 
+            // 이전에 생성되었던 해당 초대에 대한 알람 모두 삭제
+            inviteService.deleteAlarmsByIno(inviteId);
+
             // 초대받은 사람에게 모임장이 승인 거절했다는 알림 생성
             Alarm alarmToInvitee = new Alarm();
             alarmToInvitee.setLinkedPk(String.valueOf(invite.getIno())); // 초대 엔티티의 ino 값을 문자열로 설정

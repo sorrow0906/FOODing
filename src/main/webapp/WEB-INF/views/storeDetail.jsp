@@ -53,6 +53,7 @@
         </c:choose>
         <div class="store-head">
             <div class="head-elements">
+                <div class="s-first-area">
                 <a id="star-area" class="star-area">
                     <img class="pickStar" src="${pageContext.request.contextPath}/resources/images/bookmark_icon.png" alt="StarE"/>
                 </a>
@@ -64,6 +65,11 @@
                             <p id="store-score"><fmt:formatNumber value="${store.scoreArg}" pattern="0.0"/>점</p>
                         </c:when>
                     </c:choose>
+                </div>
+                </div>
+                <div class="pickNum-area">
+                    <img src="${pageContext.request.contextPath}/resources/images/pickNum_icon2.png">
+                    <p>${store.pickNum}찜</p>
                 </div>
             </div>
             <div class="stag-area">

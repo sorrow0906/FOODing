@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="제출용 파일 완성">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="월요일 파일 완성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/InviteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/InviteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeDetail.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +42,12 @@
     &quot;assignee&quot;: &quot;sorrow0906&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sorrow0906/FOODing.git",
-    "accountId": "b120332f-0fe1-4446-ae1f-8c94db9b51aa"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sorrow0906/FOODing.git&quot;,
+    &quot;accountId&quot;: &quot;b120332f-0fe1-4446-ae1f-8c94db9b51aa&quot;
   }
-}]]></component>
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -267,15 +267,8 @@
       <workItem from="1724285975170" duration="30147000" />
       <workItem from="1724373626882" duration="21240000" />
       <workItem from="1724396521199" duration="7736000" />
-      <workItem from="1724569115979" duration="18163000" />
-    </task>
-    <task id="LOCAL-00037" summary="희진씨 파트 통합완료(1차 통합 끝)">
-      <option name="closed" value="true" />
-      <created>1723087825213</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1723087825213</updated>
+      <workItem from="1724569115979" duration="18588000" />
+      <workItem from="1724588942023" duration="2284000" />
     </task>
     <task id="LOCAL-00038" summary="storeListByTag (tno 넘기는 부분 작성중)">
       <option name="closed" value="true" />
@@ -661,7 +654,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724585223182</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="월요일 파일 완성">
+      <option name="closed" value="true" />
+      <created>1724587757847</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1724587757847</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +683,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="리뷰 신고에 대한 예외처리 완료" />
     <MESSAGE value="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐" />
     <MESSAGE value="속도 문제와 가게 태그 문제 해결" />
     <MESSAGE value="리뷰 미삭제 처리 수정 pick수와 별점 평균 갱신 부분 수정" />
@@ -707,7 +707,8 @@
     <MESSAGE value="가게 검색 기능 진짜진짜진짜 완성" />
     <MESSAGE value="모임장 초대수락 완성" />
     <MESSAGE value="제출용 파일 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="제출용 파일 완성" />
+    <MESSAGE value="월요일 파일 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="월요일 파일 완성" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
