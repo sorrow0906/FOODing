@@ -56,6 +56,9 @@ public class InviteController {
             if (invite.getItype() == 0) {
                 invite.setItype(1); // itype을 1로 변경
 
+                // 수락했으므로 이전에 있던 초대 알람 삭제
+                inviteService.deleteAlarmsByIno(inviteId);
+
                 // 새로운 알림 엔티티 생성 및 설정
                 Alarm alarm = new Alarm();
                 alarm.setLinkedPk(String.valueOf(invite.getIno())); // 초대 엔티티의 ino 값을 문자열로 설정
@@ -186,13 +189,14 @@ public class InviteController {
             alarmToInviter.setAtype("모임장 수락 거절");
             // 알림을 받을 회원 설정
             Member inviter = invite.getMember();
-            alarmToInviter.setMember(invitee); // 초대한 회원을 알림의 대상자로 설정
+            alarmToInviter.setMember(inviter); // 초대한 회원을 알림의 대상자로 설정
             alarmToInviter.setIsChecked(0);
 
             // 알림 정보 저장
             alarmService.saveAlarm(alarmToInviter);
 
-            inviteService.deleteInvite(invite.getIno()); // 초대 삭제
+            // 거절 받았다는 알림을 삭제하지 않고 invite만 삭제
+            inviteService.deleteInviteWithoutAlarm(invite.getIno()); // 초대 삭제
         }
 
         return "redirect:/groupManage";

@@ -38,10 +38,10 @@
                         <td>
                             <c:choose>
                                 <c:when test="${not empty memberGroup.group.gimage}">
-                                    <img src="${pageContext.request.contextPath}${memberGroup.group.gimage}" alt="Group Image" style="max-width: 100px; max-height: 100px;">
+                                    <img id="group-img" src="${pageContext.request.contextPath}${memberGroup.group.gimage}" alt="Group Image" style="object-fit:cover; width: 100px; height: 100px;">
                                 </c:when>
                                 <c:otherwise>
-                                    <img src="${pageContext.request.contextPath}/resources/images/default-group.png" alt="Default Group Image" style="max-width: 100px; max-height: 100px;">
+                                    <img id="group-img" src="${pageContext.request.contextPath}/resources/images/default-group.png" alt="Default Group Image" style="max-width: 100px; max-height: 100px;">
                                 </c:otherwise>
                             </c:choose>
                         </td>

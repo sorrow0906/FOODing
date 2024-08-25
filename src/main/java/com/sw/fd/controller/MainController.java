@@ -51,9 +51,14 @@ public class MainController {
                         alarmChecked = false;
                     }
 
+                    String inviterName = "";
+                    String groupName = "";
                     Invite invite = inviteService.getInviteByIno(Integer.parseInt(alarm.getLinkedPk()));
-                    String inviterName = invite.getMemberGroup().getMember().getMnick();
-                    String groupName = invite.getMemberGroup().getGroup().getGname();
+                    if (invite != null) {
+                        inviterName = invite.getMemberGroup().getMember().getMnick();
+                        groupName = invite.getMemberGroup().getGroup().getGname();
+                    }
+
                     System.out.println("alarm.getAtype() = " + alarm.getAtype());
                     if (alarm.getAtype().equals("일반 회원 초대") || alarm.getAtype().equals("모임장 초대")) {
                         alarm.setMessage(inviterName + "님이 " + groupName + " 모임에<br>회원님을 초대하였습니다.");
@@ -72,8 +77,7 @@ public class MainController {
                         alarm.setMessage(inviteeName + "님의 초대를<br>모임장이 수락하였습니다.");
                     }
                     else if (alarm.getAtype().equals("모임장 수락 거절")) {
-                        String inviteeName = invite.getMember().getMnick();
-                        alarm.setMessage(inviteeName + "님의 초대를<br>모임장 수락 거절하였습니다.");
+                        alarm.setMessage("모임장이 초대 수락을 거절하였습니다.");
                     }
                 }
                 model.addAttribute("alarmChecked", alarmChecked);

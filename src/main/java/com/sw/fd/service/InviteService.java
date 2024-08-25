@@ -53,4 +53,12 @@ public class InviteService {
     public boolean checkInviteExists(int mno, int gno) {
         return inviteRepository.existsByMnoAndGno(mno, gno);
     }
+
+    public void deleteInviteWithoutAlarm(int ino) {
+        inviteRepository.delete(ino);
+    }
+
+    public void deleteAlarmsByIno(int ino) {
+        alarmService.deleteAlarmsByInviteId(ino);
+    }
 }
