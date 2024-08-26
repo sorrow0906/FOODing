@@ -173,6 +173,9 @@
                 <c:when test="${myMemberGroups==null}">
                     <p style="height: 100px; align-content: center">해당 서비스는 로그인 후 이용 가능합니다.</p>
                 </c:when>
+                <c:when test="${myMemberGroups=='모임방x'}">
+                    <p style="height: 100px; align-content: center">참여한 모임방이 없습니다.<br>모임방에 참여해보세요!</p>
+                </c:when>
                 <c:otherwise>
                     <div class="row row-cols-1 row-cols-md-2 g-4 gy-4">
                         <c:forEach var="memberGroup" items="${myMemberGroups}">

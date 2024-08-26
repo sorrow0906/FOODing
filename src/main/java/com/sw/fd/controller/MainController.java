@@ -103,7 +103,7 @@ public class MainController {
             myMemberGroups = memberGroupService.getMemberGroupsWithGroup(loggedInMember);
 
             if (myMemberGroups.isEmpty())
-                model.addAttribute("myMemberGroups", null);
+                model.addAttribute("myMemberGroups", "모임방x");
             else {
                 for (MemberGroupDTO memberGroup : myMemberGroups) {
 /*                    System.out.println(memberGroup.getGroup().getGimage());*/

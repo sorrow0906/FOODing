@@ -53,7 +53,14 @@
                     <c:forEach var="allMemberGroup" items="${allMembers}" varStatus="status">
                         <c:choose>
                             <c:when test="${allMemberGroup.group.gno == memberGroup.group.gno}">
-                                <c:set var="mnickString" value="${mnickString}${allMemberGroup.member.mnick} "/>
+                                <c:choose>
+                                    <c:when test="${empty mnickString}">
+                                        <c:set var="mnickString" value="${allMemberGroup.member.mnick}"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="mnickString" value="${mnickString} / ${allMemberGroup.member.mnick}"/>
+                                    </c:otherwise>
+                                </c:choose>
                             </c:when>
                         </c:choose>
                     </c:forEach>

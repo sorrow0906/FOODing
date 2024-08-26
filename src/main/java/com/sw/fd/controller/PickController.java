@@ -76,23 +76,22 @@ public class PickController {
         return isPicked ? "picked" : "unpicked";
     }
 
-    /*@PostMapping("/removePick")
-    @ResponseBody
-    public String removePick(@RequestParam("pno") int pno) {
-        try {
-            pickService.removePickByPno(pno);
-            return "success";
-        } catch (Exception e) {
-            return "error";
-        }
-        return "redirect:/pickList";
-    }*/
-
+    // 전체 가게 목록에서 찜 삭제 (pfno == 1)
     @PostMapping("/removePick")
     @ResponseBody
     public String removePick(@RequestParam("snos") List<Integer> snos) {
         for (int sno : snos) {
             pickService.removePicksBySno(sno);
+        }
+        return "success";
+    }
+
+    // 찜 폴더 내부에서 가게 삭제
+    @PostMapping("deletePickFromFolder")
+    @ResponseBody
+    public String deletePickFromFolder(@RequestParam("snos") List<Integer> snos, @RequestParam("pfno") Integer pfno) {
+        for (int sno : snos) {
+            pickService.removePicksByPfolderAndSno(pfno, sno);
         }
         return "success";
     }
@@ -143,13 +142,6 @@ public class PickController {
             List<Store> stores = storeService.findStoresBySnos(snos);
 
             for (Pfolder pfolder : pfolders) {
-                if (!pfolder.getMember().equals(loggedInMember)) {
-                    System.out.println("사용자와 폴더 소유자 불일치: " + pfolder);
-                    System.out.println("LoggedIn Member: " + loggedInMember.getMid());
-                    System.out.println("Pfolder Member: " + pfolder.getMember().getMid());
-                    continue;
-                }
-
                 for (Store store : stores) {
                     Pick newPick = new Pick();
                     newPick.setPfolder(pfolder);
@@ -180,16 +172,16 @@ public class PickController {
         }
 
         return picks;
-        /*if (picks == null || picks.isEmpty()) {
-            return "폴더가 비어있습니다.";
-        }
+    }
 
-        StringBuilder contentHtml = new StringBuilder("<ul>");
-        for (Pick pick : picks) {
-            contentHtml.append("<li>").append(pick.getStore().getSname()).append("</li>");
-            System.out.println("contentHtml= " + contentHtml);
-        }
-        contentHtml.append("</ul>");
-        return contentHtml.toString();*/
+    @GetMapping("/folder/{pfno}")
+    public String viewFolderContent(@PathVariable("pfno") Integer pfno, Model model, HttpSession session) {
+        Pfolder pfolder = pfolderService.findByPfno(pfno);
+
+        List<Pick> picks = pickService.getPicksByPfolder(pfolder);
+        model.addAttribute("pfolder", pfolder);
+        model.addAttribute("picks", picks);
+
+        return "folderContent"; // 새로운 폴더 내용을 보여줄 JSP 페이지 이름
     }
 }

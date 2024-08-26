@@ -32,4 +32,6 @@ public interface PickRepository extends JpaRepository<Pick, Integer> {
 
     List<Pick> findByPfolder_PfnoAndMember_MnoAndStore_Sno(int pfno, int mno, int sno);
 
+    void deleteByPfolder_PfnoAndStore_Sno(Integer pfno, Integer sno);
+
 }

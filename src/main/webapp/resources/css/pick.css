@@ -1,4 +1,28 @@
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: saddlebrown;
+    font-weight : bold;
+}
+
+body {
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .pick-container {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -8,18 +32,36 @@
     border-radius: 5px;
     padding: 5px;
     margin: 10px;
-    width: 40%;
+    width: 50%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-
+    padding-top: 20px;
 }
 
-.pick-table, .folder-table {
+
+h4 {
+    text-align: center;
+}
+
+.pick-table {
     border: 1px solid #ccc;
     width: 96%;
     border-radius: 5px;
-    padding: 10px;
+    padding: 23px;
+    margin: 2%;
+    height: 250px;
+    font-size: 17px;
+    overflow-y: auto;
+    display: inline-flex;
+    margin-top: 30px;
+}
+
+.folder-table {
+    border: 1px solid #ccc;
+    width: 96%;
+    border-radius: 5px;
+    padding: 23px;
     margin: 2%;
     height: 250px;
     font-size: 17px;
@@ -27,13 +69,22 @@
     display: inline-flex;
 }
 
+.pick-table td {
+    padding-bottom: 5px;
+}
+
 .folder-items {
     display: flex;
-    align-items: center;
     width: 100%;
-    padding: 2px;
-    margin-left: 7px;
     border: 2px;
+}
+
+.folder-items-left {
+    flex-grow: 1;
+}
+
+.folder-items-right {
+    flex-shrink: 0;
 }
 
 .folder-items-left label {
@@ -43,17 +94,38 @@
 }
 
 
-.storeName, .folderName, .pfolderName {
+.storeName, .folderName {
     border: none;
-    background-color: white;
+    background-color: transparent;
     cursor: pointer;
 }
 
 .pfolderName {
-    width: 150px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 200px;
     text-align: left;
     padding-bottom: 5px;
     margin-left: 5px;
+}
+
+.edit-input {
+    margin-left: 10px;
+    margin-right: 2px;
+
+}
+
+.save-pfname, .cancel-pfname {
+    background-color: lightgrey;
+    padding: 2px;
+    cursor: pointer;
+    width: 45px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 2px;
+    font-size: 15px;
 }
 
 .storeName:hover, .folderName:hover, pfolderName:hover {
@@ -76,15 +148,23 @@
     flex-direction: row-reverse;
 }
 
-.removePick, .deleteFolder, .createFolder {
+.removePick, .deleteFolder {
     text-align: right;
     color: gray;
     border: none;
-    background-color: white;
+    background-color: transparent;
     display: block;
-    margin-top: 5px;
-    padding: 5px;
     margin-right: 2%;
+}
+
+.createFolder {
+    text-align: right;
+    color: gray;
+    border: none;
+    background-color: transparent;
+    display: block;
+    margin-right: 2%;
+    margin-left: auto;
 }
 
 .edit-button {
@@ -120,6 +200,44 @@
     object-fit: contain;
 }
 
-.td {
-    height: auto;
+
+#backButton {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 2%;
+}
+
+.folder-list {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 23px;
+    margin: 8px;
+    width: 96%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 13px;
+    height: 235px;
+}
+
+.folder-item {
+    padding-bottom: 7px;
+}
+
+.store-checkbox {
+    margin-right: 10px;
+}
+
+.store-label {
+    font-size: 17px;
+}
+
+.isEmpty {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }

@@ -194,7 +194,7 @@ public class MemberGroupService {
 
     public String findMnicksByGroupGno(Integer gno) {
         List<MemberGroup> memberGroups = memberGroupRepository.findByGroupGnoIn(List.of(gno));
-        StringJoiner allMemberString = new StringJoiner(" ");
+        StringJoiner allMemberString = new StringJoiner(" / ");
 
         for (MemberGroup memberGroup : memberGroups) {
             allMemberString.add(memberGroup.getMember().getMnick());
