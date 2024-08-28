@@ -9,28 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="월요일 파일 완성">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="진짜 최종">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/PickController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/repository/PickRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/MemberGroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editReview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editReview.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/LocationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editChangePass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editChangePass.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupManage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/pickPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/pickPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/storeDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/editMember.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/editReview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/editReview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/index_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/index_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main_style_nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/pick.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/pick.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/viewMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/viewMember.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/월요일 통합용.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +51,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/sorrow0906/FOODing.git&quot;,
-    &quot;accountId&quot;: &quot;b120332f-0fe1-4446-ae1f-8c94db9b51aa&quot;
+    &quot;accountId&quot;: &quot;0fab1ba6-a5c9-4107-a423-60ce2379c4ef&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -286,14 +275,9 @@
       <workItem from="1724396521199" duration="7736000" />
       <workItem from="1724569115979" duration="18588000" />
       <workItem from="1724588942023" duration="2284000" />
-    </task>
-    <task id="LOCAL-00038" summary="storeListByTag (tno 넘기는 부분 작성중)">
-      <option name="closed" value="true" />
-      <created>1723107284738</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1723107284738</updated>
+      <workItem from="1724648249970" duration="3555000" />
+      <workItem from="1724718299828" duration="11032000" />
+      <workItem from="1724807075503" duration="1206000" />
     </task>
     <task id="LOCAL-00039" summary="빠진부분 다시 push">
       <option name="closed" value="true" />
@@ -679,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724587757847</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="진짜 최종">
+      <option name="closed" value="true" />
+      <created>1724643273431</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1724643273431</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +692,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="가게 리스트 속도 문제 해결. 하지만 가게 대표 태그가 안 불러와짐" />
     <MESSAGE value="속도 문제와 가게 태그 문제 해결" />
     <MESSAGE value="리뷰 미삭제 처리 수정 pick수와 별점 평균 갱신 부분 수정" />
     <MESSAGE value="화요일 할 일 끝!" />
@@ -725,7 +716,8 @@
     <MESSAGE value="모임장 초대수락 완성" />
     <MESSAGE value="제출용 파일 완성" />
     <MESSAGE value="월요일 파일 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="월요일 파일 완성" />
+    <MESSAGE value="진짜 최종" />
+    <option name="LAST_COMMIT_MESSAGE" value="진짜 최종" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
