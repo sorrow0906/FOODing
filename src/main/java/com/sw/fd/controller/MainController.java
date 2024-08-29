@@ -81,10 +81,10 @@ public class MainController {
                         }*/
                         /*----------모임장 수락 승인을 위해 수락한 부분(다혜)----------------*/
                         if (alarm.getAtype().equals("모임장 수락 거절1")) {
-                            alarm.setMessage("회원님이 받은 초대를 모임장이 수락 거절하였습니다.");
+                            alarm.setMessage("회원님이 받은 초대를 모임장이<br>수락 거절하였습니다.");
                         }
                         else if (alarm.getAtype().equals("모임장 수락 거절2")) {
-                            alarm.setMessage("회원님의 초대를 모임장이 수락 거절하였습니다.");
+                            alarm.setMessage("회원님의 초대를 모임장이<br>수락 거절하였습니다.");
                         }
                         else{
                             alarm.setMessage("이미 삭제된 초대에 대한 알림입니다.");

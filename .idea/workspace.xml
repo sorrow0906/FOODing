@@ -9,17 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="진짜 최종">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="최종 제출일 파일">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/LocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editChangePass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editChangePass.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/groupManage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/pickPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/pickPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/pick.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/pick.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/storeList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,15 +269,8 @@
       <workItem from="1724588942023" duration="2284000" />
       <workItem from="1724648249970" duration="3555000" />
       <workItem from="1724718299828" duration="11032000" />
-      <workItem from="1724807075503" duration="1206000" />
-    </task>
-    <task id="LOCAL-00039" summary="빠진부분 다시 push">
-      <option name="closed" value="true" />
-      <created>1723162781418</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1723162781418</updated>
+      <workItem from="1724807075503" duration="3188000" />
+      <workItem from="1724818176477" duration="4552000" />
     </task>
     <task id="LOCAL-00040" summary="모임방 openEditWindow 문제 해결">
       <option name="closed" value="true" />
@@ -671,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724643273431</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="최종 제출일 파일">
+      <option name="closed" value="true" />
+      <created>1724808455912</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1724808455912</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +685,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="속도 문제와 가게 태그 문제 해결" />
     <MESSAGE value="리뷰 미삭제 처리 수정 pick수와 별점 평균 갱신 부분 수정" />
     <MESSAGE value="화요일 할 일 끝!" />
     <MESSAGE value="위치별 정렬 속도 개선" />
@@ -717,7 +709,8 @@
     <MESSAGE value="제출용 파일 완성" />
     <MESSAGE value="월요일 파일 완성" />
     <MESSAGE value="진짜 최종" />
-    <option name="LAST_COMMIT_MESSAGE" value="진짜 최종" />
+    <MESSAGE value="최종 제출일 파일" />
+    <option name="LAST_COMMIT_MESSAGE" value="최종 제출일 파일" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
