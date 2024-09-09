@@ -51,7 +51,6 @@ public class LoginController {
 
             if (hasAlarms) {
                 List<Alarm> alarms = alarmService.getAlarmsByMember(member.getMid());
-                session.setAttribute("alarms", alarms);  // 세션에 알림 리스트 저장
 
                 boolean alarmChecked = true;
                 for (Alarm alarm : alarms) {
@@ -87,6 +86,7 @@ public class LoginController {
                         }
                     }
                 }
+                session.setAttribute("alarms", alarms);  // 세션에 알림 리스트 저장
                 session.setAttribute("alarmChecked", alarmChecked);  // 세션에 알림 확인 여부 저장
             } else {
                 session.setAttribute("hasAlarms", false);  // 세션에 알림 없음 저장
