@@ -47,16 +47,12 @@ public class PickService {
             storeService.updateStoreInCache(existingPick.getStore().getSno());
             return false;
 /*            try {
-                // 참조된 레코드를 먼저 처리 (예: pfno를 NULL로 설정)
                 pickRepository.updatePfnoToNull(existingPick.getPno());
 
-                // 그런 다음 레코드 삭제
                 pickRepository.delete(existingPick);
             } catch (DataIntegrityViolationException e) {
-                // 외래 키 제약 조건 위반 시 처리
                 throw new RuntimeException("Error while deleting the pick due to foreign key constraint", e);
             } catch (Exception e) {
-                // 일반적인 예외 처리
                 throw new RuntimeException("Error while deleting the pick", e);
             }
             return false;*/

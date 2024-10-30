@@ -15,6 +15,19 @@
         <a class = "header2" href = "${pageContext.request.contextPath}/main">
             <img src = "${pageContext.request.contextPath}/resources/images/chefudding.png" width = "100px" height = "100px">
 
+            <script>
+                function redirectToCurrentPage(actionUrl, form) {
+                    var currentPage = window.location.href; // 현재 페이지 URL
+                    var formAction = actionUrl;
+                    form.action = formAction;
+                    var input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = "returnUrl";
+                    input.value = encodeURIComponent(currentPage); // 현재 페이지 URL을 인코딩하여 추가
+                    form.appendChild(input);
+                    form.submit();
+                }
+            </script>
             <!-- 알림 기능 추가(희진) -->
             <div class="anb">
                 <c:choose>

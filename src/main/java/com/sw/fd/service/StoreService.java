@@ -84,7 +84,7 @@ public class StoreService {
         int pickCount = pickRepository.countBySnoAndPfno(store.getSno());
         store.setPickNum(pickCount);
 
-        // 캐시에 저장
+        // 캐시에 저장!
         storeCache.put(store.getSno(), store);
     }
 
@@ -287,7 +287,7 @@ public class StoreService {
             double[] coordinates = locationService.getCoordinates(store.getSaddr());
             double distance = calculateDistance(userLat, userLon, coordinates[0], coordinates[1]);
             if (distance <= 2) {
-                store.setDistance(distance); // 거리 저장하는 부분
+                store.setDistance(distance); // 거리 저장하는 부분!!
                 filteredStores.add(store);
             }
         }

@@ -89,7 +89,7 @@ public class MainController {
 	
 	// 확인 버튼 클릭 시 알림의 isChecked 상태를 1로 변경 (희진 추가)
     @PostMapping("/alarmChecked")
-    public String alarmChecked(@RequestParam("alarmId") int alarmId, HttpSession session) {
+    public String alarmChecked(@RequestParam("alarmId") int alarmId,@RequestParam("returnUrl") String returnUrl, HttpSession session) {
         Member loggedInMember = (Member) session.getAttribute("loggedInMember");
 
         if (loggedInMember != null) {
@@ -116,7 +116,7 @@ public class MainController {
 	
 	/* 알림 기능 추가 (희진) */
     @PostMapping("/alarmDelete")
-    public String alarmDelete(@RequestParam("alarmId") int alarmId, HttpSession session) {
+    public String alarmDelete(@RequestParam("alarmId") int alarmId,  @RequestParam("returnUrl") String returnUrl, HttpSession session) {
         Member loggedInMember = (Member) session.getAttribute("loggedInMember");
 
         if (loggedInMember != null) {
@@ -137,6 +137,6 @@ public class MainController {
             // 알림이 더 이상 없으면 hasAlarms를 false로 설정
             session.setAttribute("hasAlarms", !alarms.isEmpty());
         }
-        return "redirect:/main";
+        return "redirect:" + returnUrl;
     }
 }

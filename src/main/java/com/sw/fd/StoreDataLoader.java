@@ -36,7 +36,7 @@ public class StoreDataLoader {
 
     @PostConstruct
     public void init() throws Exception {
-        // DB에 데이터가 있는지 확인
+        // DB에 데이터가 있는지 확인~
         if (storeService.getAllStores().isEmpty()) {
             List<JsonNode> dataList = fetchDataFromApi();
             for (JsonNode node : dataList) {
@@ -46,7 +46,7 @@ public class StoreDataLoader {
                 store.setSaddr(node.get("GNG_CS").asText());
                 store.setStel(node.get("TLNO").asText());
                 store.setSeg(node.get("SMPL_DESC").asText());
-                // FD_CS 값을 변환하여 설정
+                // FD_CS 값을 변환!
                 String fdCs = node.get("FD_CS").asText();
                 switch (fdCs) {
                     case "디저트/베이커리":
@@ -59,14 +59,14 @@ public class StoreDataLoader {
                         fdCs = "술집";
                         break;
                     default:
-                        // 변환이 필요 없는 경우 그대로 사용
+                        // 변환이 필요 없는 경우 그대로 사용!!
                         break;
                 }
                 store.setScate(fdCs);
 
                 store.setStime(node.get("MBZ_HR").asText());
 
-                // spark 필드의 길이 검사 및 잘라내기
+                // spark 필드의 길이 검사 및 잘라내기 (설명이 너무 길면 공간이 안 되어서 자름)
                 String spark = node.get("PKPL").asText();
                 if (spark.length() > 20) {
                     spark = spark.substring(0, 20);
@@ -129,7 +129,7 @@ public class StoreDataLoader {
             // 메뉴 항목을 <br /> 태그 기준으로 분리
             String[] menuItems = menuString.split("\\u003Cbr /\\u003E");
             for (String item : menuItems) {
-                // '[채식'으로 시작하는 항목 스킵
+                // '[채식'으로 시작하는 항목 넘김!
                 if (item.startsWith("[채식")) {
                     continue;
                 }
@@ -142,13 +142,13 @@ public class StoreDataLoader {
                 String menuPrice = "";
                 String menuName = item;
 
-                // 가격을 먼저 추출하고, 메뉴 이름에서 제거
+                // 가격을 먼저 추출 -> 메뉴 이름에서 제거
                 if (matcher.find()) {
                     menuPrice = matcher.group(0);
                     menuName = item.replace(menuPrice, "").trim();
                 }
 
-                // 메뉴 이름의 길이를 50자로 제한
+                // 메뉴 이름의 길이를 50자로 제한 (너무 긴 이름이 있음...)
                 if (menuName.length() > 50) {
                     menuName = menuName.substring(0, 50);
                 }

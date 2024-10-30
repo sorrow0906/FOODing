@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="월요일 파일 완성2">
+    <list default="true" id="7c97111f-8ffa-4f95-9c78-500d517d9b86" name="Changes" comment="알림 세션추가(아직 새고고침하면 메인으로 리다이렉트됨)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/StoreDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/StoreDataLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/PickService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sw/fd/service/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +44,12 @@
     &quot;assignee&quot;: &quot;sorrow0906&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sorrow0906/FOODing.git",
-    "accountId": "b120332f-0fe1-4446-ae1f-8c94db9b51aa"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sorrow0906/FOODing.git&quot;,
+    &quot;accountId&quot;: &quot;b120332f-0fe1-4446-ae1f-8c94db9b51aa&quot;
   }
-}]]></component>
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -76,7 +79,7 @@
     &quot;Tomcat Server.Tomcat 9.0.90.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;test&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/SW work/spring work/FOODing/src/main/webapp/resources/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/FOODing_Project&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -110,7 +113,6 @@
     <configuration name="Tomcat 9.0.90" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="FOODing:war exploded">
@@ -193,17 +195,15 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="FOODing:war exploded" />
-        </option>
+        <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -272,15 +272,10 @@
       <workItem from="1724718299828" duration="11032000" />
       <workItem from="1724807075503" duration="3188000" />
       <workItem from="1724818176477" duration="4552000" />
-      <workItem from="1725793504471" duration="2177000" />
-    </task>
-    <task id="LOCAL-00040" summary="모임방 openEditWindow 문제 해결">
-      <option name="closed" value="true" />
-      <created>1723170879240</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1723170879240</updated>
+      <workItem from="1725793504471" duration="3305000" />
+      <workItem from="1727864472640" duration="2818000" />
+      <workItem from="1730208437301" duration="1541000" />
+      <workItem from="1730253366337" duration="2542000" />
     </task>
     <task id="LOCAL-00041" summary="태그 포함되지 않고 순위정렬(태그 생성만 완료)">
       <option name="closed" value="true" />
@@ -666,7 +661,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724808455912</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="알림 세션추가(아직 새고고침하면 메인으로 리다이렉트됨)">
+      <option name="closed" value="true" />
+      <created>1725795734567</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1725795734568</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +690,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="리뷰 미삭제 처리 수정 pick수와 별점 평균 갱신 부분 수정" />
     <MESSAGE value="화요일 할 일 끝!" />
     <MESSAGE value="위치별 정렬 속도 개선" />
     <MESSAGE value="희진씨 코드 통합" />
@@ -712,7 +714,8 @@
     <MESSAGE value="월요일 파일 완성" />
     <MESSAGE value="진짜 최종" />
     <MESSAGE value="최종 제출일 파일" />
-    <option name="LAST_COMMIT_MESSAGE" value="최종 제출일 파일" />
+    <MESSAGE value="알림 세션추가(아직 새고고침하면 메인으로 리다이렉트됨)" />
+    <option name="LAST_COMMIT_MESSAGE" value="알림 세션추가(아직 새고고침하면 메인으로 리다이렉트됨)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
